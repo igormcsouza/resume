@@ -1,0 +1,11 @@
+services:
+  web:
+    build:
+      context: .
+      target: start
+    ports:
+      - "12001:12001"
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - /app/.next
