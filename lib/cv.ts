@@ -46,6 +46,12 @@ export interface CvSkillGroup {
   items: string[];
 }
 
+export interface CvProject {
+  name: string;
+  description: Localized;
+  stack: string[];
+}
+
 export interface CvLanguage {
   name: Localized;
   level: Localized;
@@ -56,6 +62,7 @@ export interface Cv {
   profile: Localized;
   work: CvWork[];
   education: CvEducation[];
+  projects: CvProject[];
   courses: Localized[];
   skills: CvSkillGroup[];
   languages: CvLanguage[];
@@ -77,7 +84,9 @@ export const labels = {
   profile: { en: "Profile", pt: "Perfil" },
   employmentHistory: { en: "Employment History", pt: "Histórico Profissional" },
   education: { en: "Education", pt: "Formação Acadêmica" },
-  courses: { en: "Relevant Courses", pt: "Cursos Relevantes" },
+  projects: { en: "Projects", pt: "Projetos" },
+  courses: { en: "Certifications & Courses", pt: "Certificações e Cursos" },
+  stack: { en: "Stack", pt: "Stack" },
   skills: { en: "Skills", pt: "Habilidades" },
   languages: { en: "Languages", pt: "Idiomas" },
   technologies: { en: "Tech", pt: "Tecnologias" },

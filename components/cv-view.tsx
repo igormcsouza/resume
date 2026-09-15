@@ -128,6 +128,26 @@ export default function CvView({ lang }: { lang: Lang }) {
           </section>
         )}
 
+        {cv.projects.length > 0 && (
+          <section className="flex flex-col gap-4">
+            <Banner>{labels.projects[lang]}</Banner>
+            {cv.projects.map((project) => (
+              <Entry
+                key={project.name}
+                aside={<span className="block font-semibold text-foreground/90">{project.name}</span>}
+              >
+                <p className="text-sm text-foreground/80">{loc(project.description)}</p>
+                {project.stack.length > 0 && (
+                  <p className="mt-1.5 text-xs text-muted-foreground">
+                    <span className="font-semibold text-foreground/80">{labels.stack[lang]}:</span>{" "}
+                    {project.stack.join(" · ")}
+                  </p>
+                )}
+              </Entry>
+            ))}
+          </section>
+        )}
+
         {cv.education.length > 0 && (
           <section className="flex flex-col gap-3">
             <Banner>{labels.education[lang]}</Banner>
