@@ -185,16 +185,12 @@ export default function CvView({ lang }: { lang: Lang }) {
             <h2 className="self-start bg-secondary px-4 py-2 text-sm font-bold uppercase tracking-widest text-secondary-foreground">
               {labels.skills[lang]}
             </h2>
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <div className="flex flex-col gap-2">
               {cv.skills.map((group, index) => (
-                <div key={index}>
-                  <h3 className="mb-1.5 text-sm font-bold">{loc(group.category)}</h3>
-                  <ul className="flex flex-col gap-1 text-sm text-muted-foreground">
-                    {group.items.map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ul>
-                </div>
+                <p key={index} className="text-sm text-muted-foreground">
+                  <span className="font-bold text-foreground">{loc(group.category)}:</span>{" "}
+                  {group.items.join(", ")}
+                </p>
               ))}
             </div>
           </section>

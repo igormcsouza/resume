@@ -2,8 +2,8 @@
   "basics": {
     "name": "Igor Souza",
     "label": {
-      "en": "Mid-Level Backend Engineer | Python, Microservices & Machine Learning | Kubernetes & Cloud (AWS, Azure, GCP)",
-      "pt": "Engenheiro Backend Pleno | Python, Microsserviços & Machine Learning | Kubernetes & Cloud (AWS, Azure, GCP)"
+      "en": "Backend Engineer | Python, Microservices & Machine Learning | Kubernetes & Cloud (AWS, Azure, GCP)",
+      "pt": "Engenheiro Backend | Python, Microsserviços & Machine Learning | Kubernetes & Cloud (AWS, Azure, GCP)"
     },
     "email": "igormcsouza@gmail.com",
     "phone": "(+55) 85 99839-2799",
@@ -25,16 +25,16 @@
     ]
   },
   "profile": {
-    "en": "Mid-level backend engineer with 5+ years building and shipping Python microservices and REST APIs (Flask, Django, FastAPI). Skilled in event-driven architecture with Kafka and RabbitMQ, and in scalable API design across distributed systems. Runs and observes production workloads on Kubernetes and Docker, with Grafana-based observability and Linux infrastructure ownership. Builds machine learning pipelines end-to-end, from training (TensorFlow, Torch, computer vision) to production inference APIs. Comfortable across AWS, Azure, and GCP, and contributes on the frontend (React, Vue) when a project needs it.",
-    "pt": "Engenheiro backend pleno com mais de 5 anos construindo e entregando microsserviços e APIs REST em Python (Flask, Django, FastAPI). Experiência em arquitetura orientada a eventos com Kafka e RabbitMQ, e em design de APIs escaláveis em sistemas distribuídos. Opera e observa workloads em produção com Kubernetes e Docker, observabilidade via Grafana e gestão de infraestrutura Linux. Constrói pipelines de machine learning de ponta a ponta, do treinamento (TensorFlow, Torch, visão computacional) a APIs de inferência em produção. Transita bem entre AWS, Azure e GCP, e contribui no frontend (React, Vue) quando o projeto exige."
+    "en": "Backend engineer with 7+ years building and shipping Python microservices and REST APIs (Flask, Django, FastAPI). Skilled in event-driven architecture with Kafka and RabbitMQ, and in scalable API design across distributed systems. Runs and observes production workloads on Kubernetes and Docker, with Grafana-based observability and Linux infrastructure ownership. Builds machine learning pipelines end-to-end, from training (TensorFlow, Torch, computer vision) to production inference APIs, and embeds AI into real products through LLM integrations, RAG pipelines (LangChain, FAISS, embeddings), and custom MCP servers exposing tools and knowledge to AI assistants. Comfortable across AWS, Azure, and GCP, and contributes on the frontend (React, Vue) when a project needs it.",
+    "pt": "Engenheiro backend com mais de 7 anos construindo e entregando microsserviços e APIs REST em Python (Flask, Django, FastAPI). Experiência em arquitetura orientada a eventos com Kafka e RabbitMQ, e em design de APIs escaláveis em sistemas distribuídos. Opera e observa workloads em produção com Kubernetes e Docker, observabilidade via Grafana e gestão de infraestrutura Linux. Constrói pipelines de machine learning de ponta a ponta, do treinamento (TensorFlow, Torch, visão computacional) a APIs de inferência em produção, e incorpora IA em produtos reais por meio de integrações com LLMs, pipelines RAG (LangChain, FAISS, embeddings) e servidores MCP próprios que expõem ferramentas e conhecimento a assistentes de IA. Transita bem entre AWS, Azure e GCP, e contribui no frontend (React, Vue) quando o projeto exige."
   },
   "work": [
     {
       "company": "DataArt",
       "url": "https://www.dataart.com/",
       "position": {
-        "en": "Python Engineer Middle",
-        "pt": "Engenheiro Python Pleno"
+        "en": "Python Engineer Strong Middle",
+        "pt": "Engenheiro Python Pleno Sênior"
       },
       "startDate": "2022-05",
       "endDate": null,
@@ -183,6 +183,14 @@
       "stack": ["Python", "LangChain", "FAISS", "OpenAI", "Docker"]
     },
     {
+      "name": "Knowledge Base MCP",
+      "description": {
+        "en": "Personal MCP server exposing a MkDocs-based knowledge base to AI assistants, so concepts, weak spots, and past fixes can be recalled by asking instead of manually searching docs. Indexes content into embeddings via an offline Lambda pipeline triggered by webhooks and a daily schedule.",
+        "pt": "Servidor MCP pessoal que expõe uma base de conhecimento em MkDocs a assistentes de IA, permitindo recuperar conceitos, pontos fracos e correções anteriores perguntando, em vez de buscar manualmente na documentação. Indexa o conteúdo em embeddings por meio de um pipeline offline em Lambda, disparado por webhooks e agendamento diário."
+      },
+      "stack": ["Python", "FastMCP", "AWS Lambda", "DynamoDB", "Embeddings"]
+    },
+    {
       "name": "Kong Gateway Showroom",
       "description": {
         "en": "Reference project demonstrating Kong API Gateway fronting Flask/FastAPI services with auth and rate-limiting patterns, orchestrated with Docker Compose.",
@@ -203,7 +211,7 @@
         "en": "Machine Learning",
         "pt": "Machine Learning"
       },
-      "items": ["Scikit-learn", "TensorFlow", "Torch", "LLMs", "Langchain", "Computer Vision"]
+      "items": ["Scikit-learn", "TensorFlow", "Torch", "LLMs", "LangChain", "RAG", "Embeddings", "MCP", "Computer Vision"]
     },
     {
       "category": {
