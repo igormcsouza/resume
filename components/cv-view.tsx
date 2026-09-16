@@ -56,9 +56,10 @@ export default function CvView({ lang, cv, role }: { lang: Lang; cv: Cv; role?: 
   }
 
   return (
-    <div className="mx-auto my-10 flex w-full max-w-3xl flex-col gap-4 print:my-0 print:max-w-none">
+    <div className="mx-auto my-10 flex w-full max-w-3xl flex-col gap-4 px-4 print:my-0 print:max-w-none print:px-0 sm:px-0">
 
-      <div className="flex items-center justify-between gap-4 print:hidden">
+      {/* Desktop/tablet toolbar (unchanged) */}
+      <div className="hidden items-center justify-between gap-4 print:hidden sm:flex">
         <div className="flex items-center gap-2">
           <Button variant="outline" asChild>
             <a href="https://igormcsouza.github.io" className="flex items-center gap-2">
@@ -87,10 +88,61 @@ export default function CvView({ lang, cv, role }: { lang: Lang; cv: Cv; role?: 
             </SelectContent>
           </Select>
         </div>
-        <Button onClick={handleExportPdf} className="flex items-center gap-2">
+        <Button
+          onClick={handleExportPdf}
+          className="flex items-center gap-2 rounded-full bg-green-600 text-white hover:bg-green-700 print:bg-black"
+        >
           <Download size={16} />
           {labels.exportPdf[lang]}
         </Button>
+      </div>
+
+      {/* Mobile toolbar */}
+      <div className="flex flex-col gap-4 border-b pb-4 print:hidden sm:hidden">
+        <div className="flex items-start justify-between gap-4">
+          <a
+            href="https://igormcsouza.github.io"
+            className="flex items-center gap-3"
+          >
+            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-secondary">
+              <ArrowLeft size={18} />
+            </span>
+            <span>
+              <span className="block font-bold leading-tight">{labels.portfolio[lang]}</span>
+              <span className="block text-sm text-muted-foreground">{labels.portfolioSubtitle[lang]}</span>
+            </span>
+          </a>
+        </div>
+        <div className="flex items-center gap-2">
+          <Link
+            href={`/${otherLang}`}
+            className="flex flex-1 items-center justify-center gap-1.5 rounded-full border px-2 py-2 text-xs font-medium"
+          >
+            {otherLang === "pt" ? <BrazilIcon className="text-base" /> : <EnglandIcon className="text-base" />}
+            <span className="truncate">{labels.otherLanguage[lang]}</span>
+          </Link>
+          <Select
+            value={role ?? "general"}
+            onValueChange={(value) => router.push(value === "general" ? `/${lang}` : `/${lang}/${value}`)}
+          >
+            <SelectTrigger className="flex-1 rounded-full text-xs">
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="general">{GENERAL_LABEL[lang]}</SelectItem>
+              {ROLES.map((r) => (
+                <SelectItem key={r.slug} value={r.slug}>{r.label[lang]}</SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+          <Button
+            onClick={handleExportPdf}
+            className="flex flex-1 items-center justify-center gap-1.5 rounded-full bg-green-600 px-2 text-xs text-white hover:bg-green-700 print:bg-black"
+          >
+            <Download size={14} />
+            <span className="truncate">{labels.exportPdf[lang]}</span>
+          </Button>
+        </div>
       </div>
 
       <article className="flex flex-col gap-6 rounded-md border bg-card p-8 text-card-foreground shadow-lg sm:p-12 print:gap-5 print:rounded-none print:border-none print:p-0 print:shadow-none">
