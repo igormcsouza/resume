@@ -1,0 +1,113 @@
+import { readFileSync } from "fs";
+import { describe, expect, it } from "vitest";
+
+import { LANGS, cv, formatDate, formatDateRange, isLang, labels, t } from "./cv";
+import type { Localized } from "./cv";
+
+function expectLocalized(value: Localized, path: string) {
+  if (typeof value === "string") return;
+  for (const lang of LANGS) {
+    expect(value[lang], `${path}.${lang}`).toBeTruthy();
+  }
+}
+
+describe("cv.json", () => {
+  it("is valid, parseable JSON", () => {
+    const raw = readFileSync(new URL("./cv.json", import.meta.url), "utf-8");
+    expect(() => JSON.parse(raw)).not.toThrow();
+  });
+
+  it("has required top-level sections", () => {
+    for (const key of ["basics", "profile", "work", "education", "projects", "courses", "skills", "languages"]) {
+      expect(cv, key).toHaveProperty(key);
+    }
+  });
+
+  it("has localized text with both en and pt for basics/profile", () => {
+    expectLocalized(cv.basics.label, "basics.label");
+    expectLocalized(cv.basics.location, "basics.location");
+    expectLocalized(cv.profile, "profile");
+  });
+
+  it("has consistent work entries", () => {
+    expect(cv.work.length).toBeGreaterThan(0);
+    for (const job of cv.work) {
+      expect(job.company).toBeTruthy();
+      expect(job.startDate).toBeTruthy();
+      expectLocalized(job.position, `work[${job.company}].position`);
+      expect(job.highlights.length).toBeGreaterThan(0);
+      job.highlights.forEach((h, i) => expectLocalized(h, `work[${job.company}].highlights[${i}]`));
+    }
+  });
+
+  it("has consistent project entries", () => {
+    expect(cv.projects.length).toBeGreaterThan(0);
+    for (const project of cv.projects) {
+      expect(project.name).toBeTruthy();
+      expect(Array.isArray(project.stack)).toBe(true);
+      expectLocalized(project.description, `projects[${project.name}].description`);
+    }
+  });
+
+  it("has consistent skill groups", () => {
+    for (const group of cv.skills) {
+      expectLocalized(group.category, "skills.category");
+      expect(group.items.length).toBeGreaterThan(0);
+    }
+  });
+
+  it("has consistent languages", () => {
+    for (const language of cv.languages) {
+      expectLocalized(language.name, "languages.name");
+      expectLocalized(language.level, "languages.level");
+    }
+  });
+});
+
+describe("isLang", () => {
+  it("accepts known languages", () => {
+    expect(isLang("en")).toBe(true);
+    expect(isLang("pt")).toBe(true);
+  });
+
+  it("rejects unknown languages", () => {
+    expect(isLang("fr")).toBe(false);
+  });
+});
+
+describe("t", () => {
+  it("returns plain strings unchanged", () => {
+    expect(t("Docker", "en")).toBe("Docker");
+  });
+
+  it("resolves the localized value for the given language", () => {
+    const value = { en: "Hello", pt: "Olá" };
+    expect(t(value, "en")).toBe("Hello");
+    expect(t(value, "pt")).toBe("Olá");
+  });
+});
+
+describe("formatDate", () => {
+  it("formats year-month as month name + year", () => {
+    expect(formatDate("2022-05", "en")).toBe("May 2022");
+    expect(formatDate("2022-05", "pt")).toBe("Maio 2022");
+  });
+
+  it("returns the year unchanged when no month is present", () => {
+    expect(formatDate("2022", "en")).toBe("2022");
+  });
+});
+
+describe("formatDateRange", () => {
+  it("uses the 'present' label when there is no end date", () => {
+    expect(formatDateRange("2022-05", null, "en")).toBe(`May 2022 – ${labels.present.en}`);
+  });
+
+  it("formats a closed range", () => {
+    expect(formatDateRange("2021-12", "2022-05", "en")).toBe("December 2021 – May 2022");
+  });
+
+  it("returns an empty string when both dates are missing", () => {
+    expect(formatDateRange(null, null, "en")).toBe("");
+  });
+});

@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Download, Github, Globe, Linkedin, Mail, MapPin, Phone } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-import getIcon from "@/components/svg/utils";
+import { BrazilIcon, EnglandIcon } from "@/components/svg";
 import { Lang, Localized, cv, formatDateRange, labels, t } from "@/lib/cv";
 
 function getProfileIcon(network: string) {
@@ -37,7 +37,6 @@ function Entry({ aside, children }: { aside?: React.ReactNode, children: React.R
 
 export default function CvView({ lang }: { lang: Lang }) {
   const otherLang: Lang = lang === "en" ? "pt" : "en";
-  const OtherFlag = getIcon(otherLang);
   const loc = (value: Localized) => t(value, lang);
 
   return (
@@ -46,7 +45,7 @@ export default function CvView({ lang }: { lang: Lang }) {
       <div className="flex items-center justify-between gap-4 print:hidden">
         <Button variant="outline" asChild>
           <Link href={`/${otherLang}`} className="flex items-center gap-2">
-            <OtherFlag className="text-xl" />
+            {otherLang === "pt" ? <BrazilIcon className="text-xl" /> : <EnglandIcon className="text-xl" />}
             {labels.otherLanguage[lang]}
           </Link>
         </Button>
