@@ -2,8 +2,8 @@
   "basics": {
     "name": "Igor Souza",
     "label": {
-      "en": "Software Engineer",
-      "pt": "Engenheiro de Software"
+      "en": "Backend Engineer | Python, Microservices & Machine Learning | Kubernetes & Cloud (AWS, Azure, GCP)",
+      "pt": "Engenheiro Backend | Python, Microsserviços & Machine Learning | Kubernetes & Cloud (AWS, Azure, GCP)"
     },
     "email": "igormcsouza@gmail.com",
     "phone": "(+55) 85 99839-2799",
@@ -25,35 +25,35 @@
     ]
   },
   "profile": {
-    "en": "Backend-focused engineer who builds and ships machine learning models end-to-end, from training (Python, TensorFlow, Torch, computer vision) to production APIs (Flask, Django, FastAPI). Comfortable owning distributed systems on Kubernetes and Docker, debugging across service boundaries (RabbitMQ, Kafka, REST) and languages (Python, Ruby, Java), and managing cloud infrastructure (Azure, AWS, GCP) and Linux internals. Also contributes on the frontend (Vue, React) when a project needs it.",
-    "pt": "Engenheiro com foco em backend que constrói e entrega modelos de machine learning de ponta a ponta, do treinamento (Python, TensorFlow, Torch, visão computacional) a APIs em produção (Flask, Django, FastAPI). Confortável em manter sistemas distribuídos em Kubernetes e Docker, depurar problemas entre serviços (RabbitMQ, Kafka, REST) e linguagens (Python, Ruby, Java), e gerenciar infraestrutura em nuvem (Azure, AWS, GCP) e internals de Linux. Também contribui no frontend (Vue, React) quando o projeto exige."
+    "en": "Backend engineer with 7+ years building and shipping Python microservices and REST APIs (Flask, Django, FastAPI). Skilled in event-driven architecture with Kafka and RabbitMQ, and in scalable API design across distributed systems. Runs and observes production workloads on Kubernetes and Docker, with Grafana-based observability and Linux infrastructure ownership. Builds machine learning pipelines end-to-end, from training (TensorFlow, Torch, computer vision) to production inference APIs, and embeds AI into real products through LLM integrations, RAG pipelines (LangChain, FAISS, embeddings), and custom MCP servers exposing tools and knowledge to AI assistants. Comfortable across AWS, Azure, and GCP, and contributes on the frontend (React, Vue) when a project needs it.",
+    "pt": "Engenheiro backend com mais de 7 anos construindo e entregando microsserviços e APIs REST em Python (Flask, Django, FastAPI). Experiência em arquitetura orientada a eventos com Kafka e RabbitMQ, e em design de APIs escaláveis em sistemas distribuídos. Opera e observa workloads em produção com Kubernetes e Docker, observabilidade via Grafana e gestão de infraestrutura Linux. Constrói pipelines de machine learning de ponta a ponta, do treinamento (TensorFlow, Torch, visão computacional) a APIs de inferência em produção, e incorpora IA em produtos reais por meio de integrações com LLMs, pipelines RAG (LangChain, FAISS, embeddings) e servidores MCP próprios que expõem ferramentas e conhecimento a assistentes de IA. Transita bem entre AWS, Azure e GCP, e contribui no frontend (React, Vue) quando o projeto exige."
   },
   "work": [
     {
       "company": "DataArt",
       "url": "https://www.dataart.com/",
       "position": {
-        "en": "Python Engineer Middle",
-        "pt": "Engenheiro Python Pleno"
+        "en": "Python Engineer Strong Middle",
+        "pt": "Engenheiro Python Pleno Sênior"
       },
       "startDate": "2022-05",
       "endDate": null,
       "highlights": [
         {
-          "en": "Built a Python system for network field operations, communicating with routers over Telnet and SSH to manage and monitor them; also helped on the JavaScript frontend and Java/Hibernate backend.",
-          "pt": "Construí um sistema em Python para operações de campo de rede, comunicando-se com roteadores via Telnet e SSH para gerenciamento e monitoramento; também ajudei no frontend em JavaScript e no backend em Java/Hibernate."
+          "en": "Built a Python system for network field operations, communicating with routers over Telnet and SSH to manage and monitor them; also contributed to the JavaScript frontend and Java/Hibernate backend.",
+          "pt": "Construí um sistema em Python para operações de campo de rede, comunicando-se com roteadores via Telnet e SSH para gerenciamento e monitoramento; também contribuí no frontend em JavaScript e no backend em Java/Hibernate."
         },
         {
-          "en": "Moved to a sibling project rebuilding the same domain on microservices with Kafka as the event backbone, developing the service that routed UI requests to routers.",
-          "pt": "Migrei para um projeto irmão que reconstruía o mesmo domínio em microsserviços usando Kafka como backbone de eventos, desenvolvendo o serviço que roteava requisições da UI para os roteadores."
+          "en": "Migrated the same domain to a microservices architecture with Kafka as the event backbone, replacing SSH polling with async messaging and cutting round-trip latency from ~10s to ~2s despite more components downstream.",
+          "pt": "Migrei o mesmo domínio para uma arquitetura de microsserviços com Kafka como backbone de eventos, substituindo o polling via SSH por mensageria assíncrona e reduzindo a latência de ida e volta de ~10s para ~2s, mesmo com mais componentes no fluxo."
         },
         {
-          "en": "Helped design the architecture extending router communication from Telnet/SSH to REST APIs, and managed Kubernetes Helm charts and Grafana dashboards for observability.",
-          "pt": "Ajudei a projetar a arquitetura que estendeu a comunicação com roteadores de Telnet/SSH para APIs REST, e gerenciei charts Helm no Kubernetes e dashboards Grafana para observabilidade."
+          "en": "Extended router communication from Telnet/SSH to REST APIs, and managed Kubernetes Helm charts and Grafana dashboards to improve service observability.",
+          "pt": "Estendi a comunicação com roteadores de Telnet/SSH para APIs REST, e gerenciei charts Helm no Kubernetes e dashboards Grafana para melhorar a observabilidade dos serviços."
         },
         {
-          "en": "Led the Linux distro upgrade for internal infrastructure, resolving GRUB failures and kernel panics to ensure a smooth migration.",
-          "pt": "Liderei a atualização da distribuição Linux da infraestrutura interna, resolvendo falhas de GRUB e kernel panics para garantir uma migração tranquila."
+          "en": "Led the Linux distro upgrade for internal infrastructure: proactively found 4-5 upgrade-breaking bugs and documented fixes ahead of rollout, so the client's migration applied them immediately and preserved pre-upgrade uptime with no regression.",
+          "pt": "Liderei a atualização da distribuição Linux da infraestrutura interna: encontrei proativamente de 4 a 5 bugs que quebrariam a atualização e documentei as correções antes do rollout, permitindo que o cliente as aplicasse de imediato na migração, mantendo o uptime anterior sem regressão."
         }
       ],
       "technologies": ["Python", "Linux", "Networking", "Java", "Perl"]
@@ -73,8 +73,8 @@
           "pt": "Fui responsável por um microsserviço em Kubernetes que buscava boletos do sistema nacional de boletos e os armazenava para uso posterior."
         },
         {
-          "en": "Tracked down a bill-loss bug between the microservice and the legacy Django monolith by debugging inside Kubernetes containers, inspecting RabbitMQ message flow, and learning Ruby to audit a connector; fixed it on both sides.",
-          "pt": "Rastreei um bug de perda de boletos entre o microsserviço e o monólito legado em Django depurando dentro de containers Kubernetes, inspecionando o fluxo de mensagens no RabbitMQ e aprendendo Ruby para auditar um conector; corrigi o problema nos dois lados."
+          "en": "Diagnosed a bill-loss bug between the microservice and the legacy Django monolith by debugging inside Kubernetes containers, inspecting RabbitMQ message flow, and auditing a Ruby connector; the fix cut the bill-loss rate from roughly 20% to about 1%, reducing manual recovery to an occasional exception rather than routine operational work.",
+          "pt": "Diagnostiquei um bug de perda de boletos entre o microsserviço e o monólito legado em Django depurando dentro de containers Kubernetes, inspecionando o fluxo de mensagens no RabbitMQ e auditando um conector em Ruby; a correção reduziu a taxa de perda de boletos de cerca de 20% para cerca de 1%, tornando a recuperação manual uma exceção pontual em vez de trabalho operacional rotineiro."
         },
         {
           "en": "Built a shared messaging package adopted by other Python microservices.",
@@ -110,8 +110,8 @@
           "pt": "Construí o backend em Flask e o frontend em React de um plugin de dashboard integrado ao programa de QA gerenciado por productos da Microsoft, exibindo métricas de QA e previsões, e ajudei a entregar o modelo de previsão."
         },
         {
-          "en": "Partnered closely with the team architect on key decisions, tackling model response-time optimization and Azure plugin-approval requirements, in a team mostly composed of trainees.",
-          "pt": "Trabalhei em parceria próxima com o arquiteto do time em decisões importantes, lidando com a otimização do tempo de resposta do modelo e os requisitos de aprovação de plugins na Azure, em um time composto majoritariamente por estagiários."
+          "en": "Partnered with the team architect on key decisions, cutting synchronous call latency from 25s to 2s by parallelizing ML model calls with asyncio, and tackling Azure plugin-approval requirements in a team mostly composed of trainees.",
+          "pt": "Trabalhei em parceria com o arquiteto do time em decisões importantes, reduzindo a latência de chamadas síncronas de 25s para 2s ao paralelizar chamadas aos modelos de ML com asyncio, e lidando com os requisitos de aprovação de plugins na Azure, em um time composto majoritariamente por estagiários."
         }
       ],
       "technologies": ["TensorFlow", "Torch", "Vue", "React", "Streamlit", "Docker", "Azure", "AWS"]
@@ -127,12 +127,12 @@
       "endDate": "2020-04",
       "highlights": [
         {
-          "en": "Built and trained a computer vision model to detect and extract text from video frames, storing captured data for downstream use.",
-          "pt": "Construí e treinei um modelo de visão computacional para detectar e extrair texto de quadros de vídeo, armazenando os dados capturados para uso posterior."
+          "en": "Built and trained a computer vision model to detect and extract text from video frames, iterating from an initial ~85% accuracy target up to ~95%, and storing captured data for downstream use.",
+          "pt": "Construí e treinei um modelo de visão computacional para detectar e extrair texto de quadros de vídeo, evoluindo de uma meta inicial de ~85% de acurácia para ~95%, e armazenando os dados capturados para uso posterior."
         },
         {
-          "en": "Trained a model to extract structured information from photos of bills, and built the Flask backend that received the image, ran inference and returned the parsed data.",
-          "pt": "Treinei um modelo para extrair informações estruturadas de fotos de contas, e construí o backend em Flask que recebia a imagem, executava a inferência e retornava os dados extraídos."
+          "en": "Trained a model to extract structured information from photos of bills, and built the Flask inference API that received the image, ran inference, and returned the parsed data.",
+          "pt": "Treinei um modelo para extrair informações estruturadas de fotos de contas, e construí a API de inferência em Flask que recebia a imagem, executava a inferência e retornava os dados extraídos."
         },
         {
           "en": "Managed the image datasets used for training, including a Qt desktop tool built to capture and label training images.",
@@ -157,6 +157,48 @@
       "endDate": null
     }
   ],
+  "projects": [
+    {
+      "name": "Cashlytics",
+      "description": {
+        "en": "Personal finance tracker for expenses, income, and net worth. FastAPI (Python) backend running as an AWS Lambda container image behind API Gateway with Cognito JWT auth and DynamoDB, plus an Expo/React Native client for web, Android, and iOS.",
+        "pt": "Aplicativo de controle financeiro pessoal para despesas, receitas e patrimônio líquido. Backend em FastAPI (Python) executando como imagem de container no AWS Lambda por trás do API Gateway com autenticação JWT via Cognito e DynamoDB, com cliente em Expo/React Native para web, Android e iOS."
+      },
+      "stack": ["Python", "FastAPI", "AWS Lambda", "API Gateway", "Cognito", "DynamoDB", "Expo", "React Native", "Docker"]
+    },
+    {
+      "name": "Bookloud",
+      "description": {
+        "en": "Android app that reads uploaded PDFs aloud with word-level highlighting synced to audio, plus a chat sidebar to ask questions about the book scoped to the current section. FastAPI backend on AWS with an SQS-driven async processing pipeline.",
+        "pt": "Aplicativo Android que lê PDFs enviados em voz alta com destaque de palavras sincronizado ao áudio, além de um chat lateral para tirar dúvidas sobre o livro, restrito à seção sendo lida. Backend em FastAPI na AWS com pipeline de processamento assíncrono via SQS."
+      },
+      "stack": ["Python", "FastAPI", "AWS Lambda", "DynamoDB", "S3", "SQS", "Cognito", "AWS CDK", "Expo", "React Native"]
+    },
+    {
+      "name": "Talk2web",
+      "description": {
+        "en": "RAG-based tool that lets you chat with web documentation using retrieval-augmented generation over indexed pages. Dockerized and published to Docker Hub.",
+        "pt": "Ferramenta baseada em RAG que permite conversar com documentação web usando geração aumentada por recuperação sobre páginas indexadas. Publicada em imagem Docker no Docker Hub."
+      },
+      "stack": ["Python", "LangChain", "FAISS", "OpenAI", "Docker"]
+    },
+    {
+      "name": "Knowledge Base MCP",
+      "description": {
+        "en": "Personal MCP server exposing a MkDocs-based knowledge base to AI assistants, so concepts, weak spots, and past fixes can be recalled by asking instead of manually searching docs. Indexes content into embeddings via an offline Lambda pipeline triggered by webhooks and a daily schedule.",
+        "pt": "Servidor MCP pessoal que expõe uma base de conhecimento em MkDocs a assistentes de IA, permitindo recuperar conceitos, pontos fracos e correções anteriores perguntando, em vez de buscar manualmente na documentação. Indexa o conteúdo em embeddings por meio de um pipeline offline em Lambda, disparado por webhooks e agendamento diário."
+      },
+      "stack": ["Python", "FastMCP", "AWS Lambda", "DynamoDB", "Embeddings"]
+    },
+    {
+      "name": "Kong Gateway Showroom",
+      "description": {
+        "en": "Reference project demonstrating Kong API Gateway fronting Flask/FastAPI services with auth and rate-limiting patterns, orchestrated with Docker Compose.",
+        "pt": "Projeto de referência demonstrando o Kong API Gateway na frente de serviços Flask/FastAPI com padrões de autenticação e rate limiting, orquestrado com Docker Compose."
+      },
+      "stack": ["Python", "Flask", "FastAPI", "Kong API Gateway", "Docker Compose", "PostgreSQL"]
+    }
+  ],
   "courses": [
     "NLP - Natural Language Processing",
     "REST Api com Python e Flask",
@@ -169,21 +211,21 @@
         "en": "Machine Learning",
         "pt": "Machine Learning"
       },
-      "items": ["Scikit-learn", "TensorFlow", "Torch", "LLMs", "Langchain", "Computer Vision"]
+      "items": ["Scikit-learn", "TensorFlow", "Torch", "LLMs", "LangChain", "RAG", "Embeddings", "MCP", "Computer Vision"]
     },
     {
       "category": {
         "en": "Backend",
         "pt": "Backend"
       },
-      "items": ["Python", "Flask", "Django", "FastAPI", "Next.js"]
+      "items": ["Python", "Flask", "Django", "FastAPI", "REST APIs", "Next.js"]
     },
     {
       "category": {
         "en": "Infrastructure",
         "pt": "Infraestrutura"
       },
-      "items": ["Docker", "Kubernetes", "AMQP", "Linux", "Azure", "AWS", "GCP"]
+      "items": ["Docker", "Kubernetes", "Kafka", "RabbitMQ", "AMQP", "Grafana", "Linux", "Azure", "AWS", "GCP"]
     },
     {
       "category": {
