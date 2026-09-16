@@ -20,7 +20,7 @@ function getProfileIcon(network: string) {
 
 function Banner({ children }: { children: React.ReactNode }) {
   return (
-    <h2 className="bg-secondary px-4 py-2 text-sm font-bold uppercase tracking-widest text-secondary-foreground break-inside-avoid">
+    <h2 className="bg-secondary px-4 py-2 text-sm font-bold uppercase tracking-widest text-secondary-foreground break-inside-avoid break-after-avoid">
       {children}
     </h2>
   );
