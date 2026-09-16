@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link";
-import { Download, Github, Globe, Linkedin, Mail, MapPin, Phone } from "lucide-react";
+import { ArrowLeft, Download, Github, Globe, Linkedin, Mail, MapPin, Phone } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { BrazilIcon, EnglandIcon } from "@/components/svg";
@@ -43,12 +43,20 @@ export default function CvView({ lang }: { lang: Lang }) {
     <div className="mx-auto my-10 flex w-full max-w-3xl flex-col gap-4 print:my-0 print:max-w-none">
 
       <div className="flex items-center justify-between gap-4 print:hidden">
-        <Button variant="outline" asChild>
-          <Link href={`/${otherLang}`} className="flex items-center gap-2">
-            {otherLang === "pt" ? <BrazilIcon className="text-xl" /> : <EnglandIcon className="text-xl" />}
-            {labels.otherLanguage[lang]}
-          </Link>
-        </Button>
+        <div className="flex items-center gap-2">
+          <Button variant="outline" asChild>
+            <a href="https://igormcsouza.github.io" className="flex items-center gap-2">
+              <ArrowLeft size={16} />
+              {labels.portfolio[lang]}
+            </a>
+          </Button>
+          <Button variant="outline" asChild>
+            <Link href={`/${otherLang}`} className="flex items-center gap-2">
+              {otherLang === "pt" ? <BrazilIcon className="text-xl" /> : <EnglandIcon className="text-xl" />}
+              {labels.otherLanguage[lang]}
+            </Link>
+          </Button>
+        </div>
         <Button onClick={() => window.print()} className="flex items-center gap-2">
           <Download size={16} />
           {labels.exportPdf[lang]}

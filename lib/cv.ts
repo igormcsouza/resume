@@ -92,6 +92,7 @@ export const labels = {
   technologies: { en: "Tech", pt: "Tecnologias" },
   exportPdf: { en: "Export PDF", pt: "Exportar PDF" },
   otherLanguage: { en: "Ver em Português", pt: "View in English" },
+  portfolio: { en: "Portfolio", pt: "Portfólio" },
   present: { en: "present", pt: "atual" },
 } satisfies Record<string, { en: string; pt: string }>;
 
