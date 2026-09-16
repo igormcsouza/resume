@@ -108,9 +108,10 @@ export const labels = {
   skills: { en: "Skills", pt: "Habilidades" },
   languages: { en: "Languages", pt: "Idiomas" },
   technologies: { en: "Tech", pt: "Tecnologias" },
-  exportPdf: { en: "Export PDF", pt: "Exportar PDF" },
+  exportPdf: { en: "PDF", pt: "PDF" },
   otherLanguage: { en: "Ver em Português", pt: "View in English" },
   portfolio: { en: "Portfolio", pt: "Portfólio" },
+  portfolioSubtitle: { en: "My experience, projects and skills", pt: "Minha experiência, projetos e habilidades" },
   present: { en: "present", pt: "atual" },
 } satisfies Record<string, { en: string; pt: string }>;
 
