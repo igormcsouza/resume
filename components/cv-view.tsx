@@ -1,11 +1,14 @@
 "use client"
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { ArrowLeft, Download, Github, Globe, Linkedin, Mail, MapPin, Phone } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { BrazilIcon, EnglandIcon } from "@/components/svg";
-import { Lang, Localized, cv, formatDateRange, labels, t } from "@/lib/cv";
+import { Cv, Lang, Localized, formatDateRange, labels, t } from "@/lib/cv";
+import { GENERAL_LABEL, ROLES, RoleSlug } from "@/lib/roles";
 
 function getProfileIcon(network: string) {
   switch (network) {
@@ -35,9 +38,22 @@ function Entry({ aside, children }: { aside?: React.ReactNode, children: React.R
   );
 }
 
-export default function CvView({ lang }: { lang: Lang }) {
+export default function CvView({ lang, cv, role }: { lang: Lang; cv: Cv; role?: RoleSlug }) {
   const otherLang: Lang = lang === "en" ? "pt" : "en";
   const loc = (value: Localized) => t(value, lang);
+  const router = useRouter();
+
+  function handleExportPdf() {
+    const originalTitle = document.title;
+    const pdfFilename = role ? `igor_souza_${role}_resume_${lang}` : `igor_souza_resume_${lang}`;
+    document.title = pdfFilename;
+    const restoreTitle = () => {
+      document.title = originalTitle;
+      window.removeEventListener("afterprint", restoreTitle);
+    };
+    window.addEventListener("afterprint", restoreTitle);
+    window.print();
+  }
 
   return (
     <div className="mx-auto my-10 flex w-full max-w-3xl flex-col gap-4 print:my-0 print:max-w-none">
@@ -56,8 +72,22 @@ export default function CvView({ lang }: { lang: Lang }) {
               {labels.otherLanguage[lang]}
             </Link>
           </Button>
+          <Select
+            value={role ?? "general"}
+            onValueChange={(value) => router.push(value === "general" ? `/${lang}` : `/${lang}/${value}`)}
+          >
+            <SelectTrigger>
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="general">{GENERAL_LABEL[lang]}</SelectItem>
+              {ROLES.map((r) => (
+                <SelectItem key={r.slug} value={r.slug}>{r.label[lang]}</SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
         </div>
-        <Button onClick={() => window.print()} className="flex items-center gap-2">
+        <Button onClick={handleExportPdf} className="flex items-center gap-2">
           <Download size={16} />
           {labels.exportPdf[lang]}
         </Button>

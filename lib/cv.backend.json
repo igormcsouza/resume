@@ -1,0 +1,227 @@
+{
+  "basics": {
+    "name": "Igor Souza",
+    "label": {
+      "en": "Backend Engineer | Python, Microservices & Event-Driven Systems | Kubernetes & Cloud (AWS, Azure, GCP)",
+      "pt": "Engenheiro Backend | Python, Microsserviços & Sistemas Orientados a Eventos | Kubernetes & Cloud (AWS, Azure, GCP)"
+    },
+    "email": "igormcsouza@gmail.com",
+    "phone": "(+55) 85 99839-2799",
+    "location": {
+      "en": "Eusébio/Ceará, Brazil",
+      "pt": "Eusébio/Ceará, Brasil"
+    },
+    "profiles": [
+      {
+        "network": "linkedin",
+        "label": "linkedin.com/in/igormcsouza",
+        "url": "https://www.linkedin.com/in/igormcsouza/"
+      },
+      {
+        "network": "github",
+        "label": "github.com/igormcsouza",
+        "url": "https://github.com/igormcsouza"
+      }
+    ]
+  },
+  "profile": {
+    "en": "Backend engineer with 7+ years designing and shipping Python microservices and REST APIs (Flask, Django, FastAPI) for distributed systems. Deep experience with event-driven architecture using Kafka and RabbitMQ, cutting production latency by re-architecting synchronous flows into async messaging. Runs and observes production workloads on Kubernetes and Docker, with Helm, Grafana-based observability, and Linux infrastructure ownership across AWS, Azure, and GCP. Comfortable owning a service end-to-end: API design, data storage, deployment, and on-call debugging inside containers. Also builds ML-powered features when a product needs them, from inference APIs to LLM integrations.",
+    "pt": "Engenheiro backend com mais de 7 anos projetando e entregando microsserviços e APIs REST em Python (Flask, Django, FastAPI) para sistemas distribuídos. Experiência sólida em arquitetura orientada a eventos com Kafka e RabbitMQ, reduzindo latência em produção ao migrar fluxos síncronos para mensageria assíncrona. Opera e observa workloads em produção com Kubernetes e Docker, usando Helm, observabilidade via Grafana e gestão de infraestrutura Linux em AWS, Azure e GCP. Confortável em ser dono de um serviço de ponta a ponta: design de API, armazenamento de dados, deploy e depuração em produção dentro de containers. Também constrói funcionalidades com ML quando o produto exige, de APIs de inferência a integrações com LLMs."
+  },
+  "work": [
+    {
+      "company": "DataArt",
+      "url": "https://www.dataart.com/",
+      "position": {
+        "en": "Python Engineer Strong Middle",
+        "pt": "Engenheiro Python Pleno Sênior"
+      },
+      "startDate": "2022-05",
+      "endDate": null,
+      "highlights": [
+        {
+          "en": "Migrated a network field-operations domain to a microservices architecture with Kafka as the event backbone, replacing SSH polling with async messaging and cutting round-trip latency from ~10s to ~2s despite more components downstream.",
+          "pt": "Migrei um domínio de operações de campo de rede para uma arquitetura de microsserviços com Kafka como backbone de eventos, substituindo o polling via SSH por mensageria assíncrona e reduzindo a latência de ida e volta de ~10s para ~2s, mesmo com mais componentes no fluxo."
+        },
+        {
+          "en": "Built the original Python system communicating with routers over Telnet and SSH to manage and monitor them, then extended it to REST APIs; also contributed to the JavaScript frontend and Java/Hibernate backend.",
+          "pt": "Construí o sistema original em Python que se comunicava com roteadores via Telnet e SSH para gerenciamento e monitoramento, e depois o estendi para APIs REST; também contribuí no frontend em JavaScript e no backend em Java/Hibernate."
+        },
+        {
+          "en": "Managed Kubernetes Helm charts and Grafana dashboards to improve service observability across the platform.",
+          "pt": "Gerenciei charts Helm no Kubernetes e dashboards Grafana para melhorar a observabilidade dos serviços na plataforma."
+        },
+        {
+          "en": "Led the Linux distro upgrade for internal infrastructure: proactively found 4-5 upgrade-breaking bugs and documented fixes ahead of rollout, so the client's migration applied them immediately and preserved pre-upgrade uptime with no regression.",
+          "pt": "Liderei a atualização da distribuição Linux da infraestrutura interna: encontrei proativamente de 4 a 5 bugs que quebrariam a atualização e documentei as correções antes do rollout, permitindo que o cliente as aplicasse de imediato na migração, mantendo o uptime anterior sem regressão."
+        }
+      ],
+      "technologies": ["Python", "Kafka", "Kubernetes", "Linux", "Networking", "Java"]
+    },
+    {
+      "company": "Liber Capital",
+      "url": "https://libercapital.com.br/",
+      "position": {
+        "en": "Python Engineer Middle",
+        "pt": "Engenheiro Python Pleno"
+      },
+      "startDate": "2021-12",
+      "endDate": "2022-05",
+      "highlights": [
+        {
+          "en": "Diagnosed a bill-loss bug between a microservice and a legacy Django monolith by debugging inside Kubernetes containers, inspecting RabbitMQ message flow, and auditing a Ruby connector; the fix cut the bill-loss rate from roughly 20% to about 1%, reducing manual recovery to an occasional exception rather than routine operational work.",
+          "pt": "Diagnostiquei um bug de perda de boletos entre um microsserviço e o monólito legado em Django depurando dentro de containers Kubernetes, inspecionando o fluxo de mensagens no RabbitMQ e auditando um conector em Ruby; a correção reduziu a taxa de perda de boletos de cerca de 20% para cerca de 1%, tornando a recuperação manual uma exceção pontual em vez de trabalho operacional rotineiro."
+        },
+        {
+          "en": "Owned a Kubernetes microservice retrieving bills from Brazil's national bill service and storing them for downstream use.",
+          "pt": "Fui responsável por um microsserviço em Kubernetes que buscava boletos do sistema nacional de boletos e os armazenava para uso posterior."
+        },
+        {
+          "en": "Built a shared messaging package adopted by other Python microservices, standardizing RabbitMQ integration across the team.",
+          "pt": "Construí um pacote de mensageria compartilhado, adotado por outros microsserviços em Python, padronizando a integração com RabbitMQ no time."
+        },
+        {
+          "en": "Helped build the Django API-based microservice that replaced the legacy monolith.",
+          "pt": "Ajudei a construir o microsserviço baseado em API Django que substituiu o monólito legado."
+        }
+      ],
+      "technologies": ["Python", "Flask", "Docker", "Kubernetes", "RabbitMQ", "GCP"]
+    },
+    {
+      "company": "Dell Lead",
+      "url": "https://lead.dell.com/",
+      "position": {
+        "en": "Python Engineer Junior",
+        "pt": "Engenheiro Python Júnior"
+      },
+      "startDate": "2020-04",
+      "endDate": "2021-12",
+      "highlights": [
+        {
+          "en": "Partnered with the team architect on key backend decisions, cutting synchronous call latency from 25s to 2s by parallelizing calls with asyncio.",
+          "pt": "Trabalhei em parceria com o arquiteto do time em decisões importantes de backend, reduzindo a latência de chamadas síncronas de 25s para 2s ao paralelizar chamadas com asyncio."
+        },
+        {
+          "en": "Designed a Flask API pipeline end-to-end behind an AWS Lambda function, using Docker and Docker Compose to emulate Lambda locally for development.",
+          "pt": "Desenhei o pipeline de uma API em Flask de ponta a ponta por trás de uma função AWS Lambda, usando Docker e Docker Compose para emular o Lambda localmente durante o desenvolvimento."
+        },
+        {
+          "en": "Built the Flask backend for a dashboard plugin integrated into a QA program managed by Microsoft Products, showing QA metrics and forecasts.",
+          "pt": "Construí o backend em Flask de um plugin de dashboard integrado ao programa de QA gerenciado por produtos da Microsoft, exibindo métricas de QA e previsões."
+        },
+        {
+          "en": "Built the backend for an assistive browser, exposing two in-house models via API: one identifying icons and outputting their meaning as words, another extracting text and context from images.",
+          "pt": "Construí o backend de um navegador assistivo, expondo via API dois modelos desenvolvidos internamente: um que identifica ícones e retorna seu significado em palavras, outro que extrai texto e contexto de imagens."
+        }
+      ],
+      "technologies": ["Flask", "Docker", "Azure", "AWS", "asyncio"]
+    },
+    {
+      "company": "Deeper Systems",
+      "url": "https://www.deepersystems.com/",
+      "position": {
+        "en": "Python Engineer Junior",
+        "pt": "Engenheiro Python Júnior"
+      },
+      "startDate": "2019-09",
+      "endDate": "2020-04",
+      "highlights": [
+        {
+          "en": "Built the Flask inference API that received images, ran model inference, and returned parsed structured data extracted from bill photos.",
+          "pt": "Construí a API de inferência em Flask que recebia imagens, executava a inferência do modelo e retornava dados estruturados extraídos de fotos de contas."
+        },
+        {
+          "en": "Proficient use of Docker, Linux, and SSH for development and deployment.",
+          "pt": "Uso proficiente de Docker, Linux e SSH para desenvolvimento e implantação."
+        }
+      ],
+      "technologies": ["Python", "Flask", "Docker", "Linux"]
+    }
+  ],
+  "education": [
+    {
+      "institution": "",
+      "degree": {
+        "en": "Bachelor in Software Engineering",
+        "pt": "Bacharelado em Engenharia de Software"
+      },
+      "startDate": null,
+      "endDate": null
+    }
+  ],
+  "projects": [
+    {
+      "name": "Cashlytics",
+      "description": {
+        "en": "Personal finance tracker for expenses, income, and net worth. FastAPI (Python) backend running as an AWS Lambda container image behind API Gateway with Cognito JWT auth and DynamoDB, plus an Expo/React Native client for web, Android, and iOS.",
+        "pt": "Aplicativo de controle financeiro pessoal para despesas, receitas e patrimônio líquido. Backend em FastAPI (Python) executando como imagem de container no AWS Lambda por trás do API Gateway com autenticação JWT via Cognito e DynamoDB, com cliente em Expo/React Native para web, Android e iOS."
+      },
+      "stack": ["Python", "FastAPI", "AWS Lambda", "API Gateway", "Cognito", "DynamoDB", "Docker"]
+    },
+    {
+      "name": "Bookloud",
+      "description": {
+        "en": "Android app that reads uploaded PDFs aloud with word-level highlighting synced to audio. FastAPI backend on AWS with an SQS-driven async processing pipeline.",
+        "pt": "Aplicativo Android que lê PDFs enviados em voz alta com destaque de palavras sincronizado ao áudio. Backend em FastAPI na AWS com pipeline de processamento assíncrono via SQS."
+      },
+      "stack": ["Python", "FastAPI", "AWS Lambda", "DynamoDB", "S3", "SQS", "Cognito", "AWS CDK"]
+    },
+    {
+      "name": "Kong Gateway Showroom",
+      "description": {
+        "en": "Reference project demonstrating Kong API Gateway fronting Flask/FastAPI services with auth and rate-limiting patterns, orchestrated with Docker Compose.",
+        "pt": "Projeto de referência demonstrando o Kong API Gateway na frente de serviços Flask/FastAPI com padrões de autenticação e rate limiting, orquestrado com Docker Compose."
+      },
+      "stack": ["Python", "Flask", "FastAPI", "Kong API Gateway", "Docker Compose", "PostgreSQL"]
+    }
+  ],
+  "courses": [
+    "REST Api com Python e Flask",
+    "Docker and Kubernetes: The Complete Guide"
+  ],
+  "skills": [
+    {
+      "category": {
+        "en": "Backend",
+        "pt": "Backend"
+      },
+      "items": ["Python", "Flask", "Django", "FastAPI", "REST APIs", "asyncio"]
+    },
+    {
+      "category": {
+        "en": "Infrastructure",
+        "pt": "Infraestrutura"
+      },
+      "items": ["Docker", "Kubernetes", "Kafka", "RabbitMQ", "AMQP", "Grafana", "Linux", "Azure", "AWS", "GCP"]
+    },
+    {
+      "category": {
+        "en": "Machine Learning",
+        "pt": "Machine Learning"
+      },
+      "items": ["LLMs", "RAG", "MCP"]
+    }
+  ],
+  "languages": [
+    {
+      "name": {
+        "en": "Portuguese",
+        "pt": "Português"
+      },
+      "level": {
+        "en": "Native",
+        "pt": "Nativo"
+      }
+    },
+    {
+      "name": {
+        "en": "English",
+        "pt": "Inglês"
+      },
+      "level": {
+        "en": "Fluent",
+        "pt": "Fluente"
+      }
+    }
+  ]
+}

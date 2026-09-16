@@ -18,8 +18,11 @@ jobs:
           cache: "npm"
       - name: Install dependencies
         run: npm ci
-      - name: Validate cv.json parses
-        run: node -e "JSON.parse(require('fs').readFileSync('lib/cv.json', 'utf-8')); console.log('cv.json is valid JSON')"
+      - name: Validate cv*.json parses
+        run: |
+          for f in lib/cv*.json; do
+            node -e "JSON.parse(require('fs').readFileSync('$f', 'utf-8')); console.log('$f is valid JSON')"
+          done
       - name: Lint
         run: npm run lint
       - name: Unit tests

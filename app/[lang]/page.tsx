@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     ? `Currículo de ${cv.basics.name}`
     : `Resume of ${cv.basics.name}`;
   return {
-    title: `CV | ${cv.basics.name}`,
+    title: `${cv.basics.name} | Resume`,
     description,
   };
 }
@@ -24,5 +24,5 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
 export default async function CvPage({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params;
   if (!isLang(lang)) notFound();
-  return <CvView lang={lang} />;
+  return <CvView lang={lang} cv={cv} />;
 }
