@@ -1,0 +1,219 @@
+{
+  "basics": {
+    "name": "Igor Souza",
+    "label": {
+      "en": "AI/ML Engineer | LLMs, RAG & MCP | Computer Vision & Python Backend",
+      "pt": "Engenheiro de IA/ML | LLMs, RAG & MCP | Visão Computacional & Backend Python"
+    },
+    "email": "igormcsouza@gmail.com",
+    "phone": "(+55) 85 99839-2799",
+    "location": {
+      "en": "Eusébio/Ceará, Brazil",
+      "pt": "Eusébio/Ceará, Brasil"
+    },
+    "profiles": [
+      {
+        "network": "linkedin",
+        "label": "linkedin.com/in/igormcsouza",
+        "url": "https://www.linkedin.com/in/igormcsouza/"
+      },
+      {
+        "network": "github",
+        "label": "github.com/igormcsouza",
+        "url": "https://github.com/igormcsouza"
+      }
+    ]
+  },
+  "profile": {
+    "en": "AI/ML engineer with 7+ years shipping ML pipelines end-to-end, from training (TensorFlow, Torch, computer vision) to production inference APIs. Embeds AI into real products through LLM integrations, RAG pipelines (LangChain, FAISS, embeddings), and custom MCP servers exposing tools and knowledge to AI assistants. Builds and owns the Python backend that serves models in production (Flask, FastAPI), with Docker/Kubernetes deployment and observability so models stay reliable under real traffic. Comfortable across AWS, Azure, and GCP, and experienced parallelizing model calls with asyncio to cut inference latency.",
+    "pt": "Engenheiro de IA/ML com mais de 7 anos entregando pipelines de machine learning de ponta a ponta, do treinamento (TensorFlow, Torch, visão computacional) a APIs de inferência em produção. Incorpora IA em produtos reais por meio de integrações com LLMs, pipelines RAG (LangChain, FAISS, embeddings) e servidores MCP próprios que expõem ferramentas e conhecimento a assistentes de IA. Constrói e mantém o backend em Python que serve os modelos em produção (Flask, FastAPI), com deploy em Docker/Kubernetes e observabilidade para manter os modelos confiáveis sob tráfego real. Transita bem entre AWS, Azure e GCP, com experiência em paralelizar chamadas a modelos com asyncio para reduzir latência de inferência."
+  },
+  "work": [
+    {
+      "company": "DataArt",
+      "url": "https://www.dataart.com/",
+      "position": {
+        "en": "Python Engineer Strong Middle",
+        "pt": "Engenheiro Python Pleno Sênior"
+      },
+      "startDate": "2022-05",
+      "endDate": null,
+      "highlights": [
+        {
+          "en": "Built a Python system for network field operations, communicating with routers over Telnet, SSH, and REST APIs to manage and monitor them.",
+          "pt": "Construí um sistema em Python para operações de campo de rede, comunicando-se com roteadores via Telnet, SSH e APIs REST para gerenciamento e monitoramento."
+        },
+        {
+          "en": "Migrated the same domain to a microservices architecture with Kafka as the event backbone, replacing SSH polling with async messaging and cutting round-trip latency from ~10s to ~2s.",
+          "pt": "Migrei o mesmo domínio para uma arquitetura de microsserviços com Kafka como backbone de eventos, substituindo o polling via SSH por mensageria assíncrona e reduzindo a latência de ida e volta de ~10s para ~2s."
+        },
+        {
+          "en": "Managed Kubernetes Helm charts and Grafana dashboards to improve service observability, the same discipline applied to keeping ML inference services reliable in production.",
+          "pt": "Gerenciei charts Helm no Kubernetes e dashboards Grafana para melhorar a observabilidade dos serviços, a mesma disciplina aplicada para manter serviços de inferência de ML confiáveis em produção."
+        }
+      ],
+      "technologies": ["Python", "Kubernetes", "Kafka", "Grafana"]
+    },
+    {
+      "company": "Dell Lead",
+      "url": "https://lead.dell.com/",
+      "position": {
+        "en": "Python Engineer Junior",
+        "pt": "Engenheiro Python Júnior"
+      },
+      "startDate": "2020-04",
+      "endDate": "2021-12",
+      "highlights": [
+        {
+          "en": "Built the backend for an assistive browser, powering two in-house models: one identifying icons and outputting their meaning as words, another extracting text and context from images.",
+          "pt": "Construí o backend de um navegador assistivo, sustentando dois modelos desenvolvidos internamente: um que identifica ícones e retorna seu significado em palavras, outro que extrai texto e contexto de imagens."
+        },
+        {
+          "en": "Partnered with the team architect on key decisions, cutting synchronous call latency from 25s to 2s by parallelizing ML model calls with asyncio.",
+          "pt": "Trabalhei em parceria com o arquiteto do time em decisões importantes, reduzindo a latência de chamadas síncronas de 25s para 2s ao paralelizar chamadas aos modelos de ML com asyncio."
+        },
+        {
+          "en": "Designed the inference pipeline end-to-end with Flask behind an AWS Lambda function, using Docker and Docker Compose to emulate Lambda locally.",
+          "pt": "Desenhei o pipeline de inferência de ponta a ponta com Flask por trás de uma função AWS Lambda, usando Docker e Docker Compose para emular o Lambda localmente."
+        },
+        {
+          "en": "Built the Flask backend and React frontend for a dashboard plugin integrated into a QA program managed by Microsoft Products, showing QA metrics and forecasts, and helped deliver the forecasting model.",
+          "pt": "Construí o backend em Flask e o frontend em React de um plugin de dashboard integrado ao programa de QA gerenciado por produtos da Microsoft, exibindo métricas de QA e previsões, e ajudei a entregar o modelo de previsão."
+        }
+      ],
+      "technologies": ["TensorFlow", "Torch", "Flask", "Docker", "Azure", "AWS", "asyncio"]
+    },
+    {
+      "company": "Deeper Systems",
+      "url": "https://www.deepersystems.com/",
+      "position": {
+        "en": "Python Engineer Junior",
+        "pt": "Engenheiro Python Júnior"
+      },
+      "startDate": "2019-09",
+      "endDate": "2020-04",
+      "highlights": [
+        {
+          "en": "Built and trained a computer vision model to detect and extract text from video frames, iterating from an initial ~85% accuracy target up to ~95%.",
+          "pt": "Construí e treinei um modelo de visão computacional para detectar e extrair texto de quadros de vídeo, evoluindo de uma meta inicial de ~85% de acurácia para ~95%."
+        },
+        {
+          "en": "Trained a model to extract structured information from photos of bills, and built the Flask inference API that received the image, ran inference, and returned the parsed data.",
+          "pt": "Treinei um modelo para extrair informações estruturadas de fotos de contas, e construí a API de inferência em Flask que recebia a imagem, executava a inferência e retornava os dados extraídos."
+        },
+        {
+          "en": "Managed the image datasets used for training, including a Qt desktop tool built to capture and label training images.",
+          "pt": "Gerenciei os conjuntos de imagens usados no treinamento, incluindo uma ferramenta desktop em Qt para captura e rotulagem de imagens de treinamento."
+        }
+      ],
+      "technologies": ["Python", "TensorFlow", "OpenCV", "Flask", "Docker"]
+    },
+    {
+      "company": "Liber Capital",
+      "url": "https://libercapital.com.br/",
+      "position": {
+        "en": "Python Engineer Middle",
+        "pt": "Engenheiro Python Pleno"
+      },
+      "startDate": "2021-12",
+      "endDate": "2022-05",
+      "highlights": [
+        {
+          "en": "Diagnosed a bill-loss bug between a microservice and a legacy Django monolith by debugging inside Kubernetes containers and inspecting RabbitMQ message flow; the fix cut the bill-loss rate from roughly 20% to about 1%.",
+          "pt": "Diagnostiquei um bug de perda de boletos entre um microsserviço e o monólito legado em Django depurando dentro de containers Kubernetes e inspecionando o fluxo de mensagens no RabbitMQ; a correção reduziu a taxa de perda de boletos de cerca de 20% para cerca de 1%."
+        },
+        {
+          "en": "Owned a Kubernetes microservice retrieving bills from Brazil's national bill service and storing them for downstream use.",
+          "pt": "Fui responsável por um microsserviço em Kubernetes que buscava boletos do sistema nacional de boletos e os armazenava para uso posterior."
+        }
+      ],
+      "technologies": ["Python", "Flask", "Kubernetes", "RabbitMQ"]
+    }
+  ],
+  "education": [
+    {
+      "institution": "",
+      "degree": {
+        "en": "Bachelor in Software Engineering",
+        "pt": "Bacharelado em Engenharia de Software"
+      },
+      "startDate": null,
+      "endDate": null
+    }
+  ],
+  "projects": [
+    {
+      "name": "Talk2web",
+      "description": {
+        "en": "RAG-based tool that lets you chat with web documentation using retrieval-augmented generation over indexed pages. Dockerized and published to Docker Hub.",
+        "pt": "Ferramenta baseada em RAG que permite conversar com documentação web usando geração aumentada por recuperação sobre páginas indexadas. Publicada em imagem Docker no Docker Hub."
+      },
+      "stack": ["Python", "LangChain", "FAISS", "OpenAI", "Docker"]
+    },
+    {
+      "name": "Knowledge Base MCP",
+      "description": {
+        "en": "Personal MCP server exposing a MkDocs-based knowledge base to AI assistants, so concepts, weak spots, and past fixes can be recalled by asking instead of manually searching docs. Indexes content into embeddings via an offline Lambda pipeline triggered by webhooks and a daily schedule.",
+        "pt": "Servidor MCP pessoal que expõe uma base de conhecimento em MkDocs a assistentes de IA, permitindo recuperar conceitos, pontos fracos e correções anteriores perguntando, em vez de buscar manualmente na documentação. Indexa o conteúdo em embeddings por meio de um pipeline offline em Lambda, disparado por webhooks e agendamento diário."
+      },
+      "stack": ["Python", "FastMCP", "AWS Lambda", "DynamoDB", "Embeddings"]
+    },
+    {
+      "name": "Bookloud",
+      "description": {
+        "en": "Android app that reads uploaded PDFs aloud with word-level highlighting synced to audio, plus a chat sidebar to ask questions about the book scoped to the current section. FastAPI backend on AWS with an SQS-driven async processing pipeline.",
+        "pt": "Aplicativo Android que lê PDFs enviados em voz alta com destaque de palavras sincronizado ao áudio, além de um chat lateral para tirar dúvidas sobre o livro, restrito à seção sendo lida. Backend em FastAPI na AWS com pipeline de processamento assíncrono via SQS."
+      },
+      "stack": ["Python", "FastAPI", "AWS Lambda", "SQS", "Expo", "React Native"]
+    }
+  ],
+  "courses": [
+    "NLP - Natural Language Processing",
+    "Artificial Intelligence: Reinforcement Learning in Python"
+  ],
+  "skills": [
+    {
+      "category": {
+        "en": "Machine Learning",
+        "pt": "Machine Learning"
+      },
+      "items": ["Scikit-learn", "TensorFlow", "Torch", "LLMs", "LangChain", "RAG", "Embeddings", "MCP", "Computer Vision"]
+    },
+    {
+      "category": {
+        "en": "Backend",
+        "pt": "Backend"
+      },
+      "items": ["Python", "Flask", "FastAPI", "REST APIs", "asyncio"]
+    },
+    {
+      "category": {
+        "en": "Infrastructure",
+        "pt": "Infraestrutura"
+      },
+      "items": ["Docker", "Kubernetes", "AWS", "Azure", "GCP"]
+    }
+  ],
+  "languages": [
+    {
+      "name": {
+        "en": "Portuguese",
+        "pt": "Português"
+      },
+      "level": {
+        "en": "Native",
+        "pt": "Nativo"
+      }
+    },
+    {
+      "name": {
+        "en": "English",
+        "pt": "Inglês"
+      },
+      "level": {
+        "en": "Fluent",
+        "pt": "Fluente"
+      }
+    }
+  ]
+}

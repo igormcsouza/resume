@@ -1,8 +1,9 @@
 import { readFileSync } from "fs";
 import { describe, expect, it } from "vitest";
 
-import { LANGS, cv, formatDate, formatDateRange, isLang, labels, t } from "./cv";
-import type { Localized } from "./cv";
+import { LANGS, cv, formatDate, formatDateRange, getCv, isLang, labels, t } from "./cv";
+import type { Cv, Localized } from "./cv";
+import { ROLES, RoleSlug } from "./roles";
 
 function expectLocalized(value: Localized, path: string) {
   if (typeof value === "string") return;
@@ -11,27 +12,32 @@ function expectLocalized(value: Localized, path: string) {
   }
 }
 
-describe("cv.json", () => {
+const CV_FILES = ["cv.json", ...ROLES.map((role) => `cv.${role.slug}.json`)];
+
+describe.each(CV_FILES)("%s", (file) => {
   it("is valid, parseable JSON", () => {
-    const raw = readFileSync(new URL("./cv.json", import.meta.url), "utf-8");
+    const raw = readFileSync(new URL(`./${file}`, import.meta.url), "utf-8");
     expect(() => JSON.parse(raw)).not.toThrow();
   });
 
+  const slug = file.replace(/^cv\.|\.json$/g, "") as RoleSlug;
+  const data: Cv = file === "cv.json" ? cv : getCv(slug);
+
   it("has required top-level sections", () => {
     for (const key of ["basics", "profile", "work", "education", "projects", "courses", "skills", "languages"]) {
-      expect(cv, key).toHaveProperty(key);
+      expect(data, key).toHaveProperty(key);
     }
   });
 
   it("has localized text with both en and pt for basics/profile", () => {
-    expectLocalized(cv.basics.label, "basics.label");
-    expectLocalized(cv.basics.location, "basics.location");
-    expectLocalized(cv.profile, "profile");
+    expectLocalized(data.basics.label, "basics.label");
+    expectLocalized(data.basics.location, "basics.location");
+    expectLocalized(data.profile, "profile");
   });
 
   it("has consistent work entries", () => {
-    expect(cv.work.length).toBeGreaterThan(0);
-    for (const job of cv.work) {
+    expect(data.work.length).toBeGreaterThan(0);
+    for (const job of data.work) {
       expect(job.company).toBeTruthy();
       expect(job.startDate).toBeTruthy();
       expectLocalized(job.position, `work[${job.company}].position`);
@@ -41,8 +47,8 @@ describe("cv.json", () => {
   });
 
   it("has consistent project entries", () => {
-    expect(cv.projects.length).toBeGreaterThan(0);
-    for (const project of cv.projects) {
+    expect(data.projects.length).toBeGreaterThan(0);
+    for (const project of data.projects) {
       expect(project.name).toBeTruthy();
       expect(Array.isArray(project.stack)).toBe(true);
       expectLocalized(project.description, `projects[${project.name}].description`);
@@ -50,14 +56,14 @@ describe("cv.json", () => {
   });
 
   it("has consistent skill groups", () => {
-    for (const group of cv.skills) {
+    for (const group of data.skills) {
       expectLocalized(group.category, "skills.category");
       expect(group.items.length).toBeGreaterThan(0);
     }
   });
 
   it("has consistent languages", () => {
-    for (const language of cv.languages) {
+    for (const language of data.languages) {
       expectLocalized(language.name, "languages.name");
       expectLocalized(language.level, "languages.level");
     }

@@ -1,0 +1,214 @@
+{
+  "basics": {
+    "name": "Igor Souza",
+    "label": {
+      "en": "Data Engineer | Event-Driven Pipelines, Python & Cloud Storage (AWS, Azure, GCP)",
+      "pt": "Engenheiro de Dados | Pipelines Orientados a Eventos, Python & Armazenamento em Nuvem (AWS, Azure, GCP)"
+    },
+    "email": "igormcsouza@gmail.com",
+    "phone": "(+55) 85 99839-2799",
+    "location": {
+      "en": "Eusébio/Ceará, Brazil",
+      "pt": "Eusébio/Ceará, Brasil"
+    },
+    "profiles": [
+      {
+        "network": "linkedin",
+        "label": "linkedin.com/in/igormcsouza",
+        "url": "https://www.linkedin.com/in/igormcsouza/"
+      },
+      {
+        "network": "github",
+        "label": "github.com/igormcsouza",
+        "url": "https://github.com/igormcsouza"
+      }
+    ]
+  },
+  "profile": {
+    "en": "Backend-rooted data engineer with 7+ years building Python pipelines that move, transform, and store data reliably at scale. Experienced with event-driven ingestion using Kafka and RabbitMQ, async processing pipelines (SQS-driven), and storage layers spanning DynamoDB, S3, and PostgreSQL. Has built ETL-style pipelines for structured data extraction (OCR/CV data capture), embeddings indexing for retrieval, and dataset management for ML training. Runs data workloads on Kubernetes and Docker, with Grafana-based observability, across AWS, Azure, and GCP.",
+    "pt": "Engenheiro de dados com raiz em backend e mais de 7 anos construindo pipelines em Python que movem, transformam e armazenam dados de forma confiável em escala. Experiência com ingestão orientada a eventos usando Kafka e RabbitMQ, pipelines de processamento assíncrono (via SQS) e camadas de armazenamento incluindo DynamoDB, S3 e PostgreSQL. Já construiu pipelines no estilo ETL para extração estruturada de dados (captura via OCR/CV), indexação de embeddings para recuperação, e gestão de datasets para treinamento de ML. Opera workloads de dados em Kubernetes e Docker, com observabilidade via Grafana, em AWS, Azure e GCP."
+  },
+  "work": [
+    {
+      "company": "DataArt",
+      "url": "https://www.dataart.com/",
+      "position": {
+        "en": "Python Engineer Strong Middle",
+        "pt": "Engenheiro Python Pleno Sênior"
+      },
+      "startDate": "2022-05",
+      "endDate": null,
+      "highlights": [
+        {
+          "en": "Migrated a network field-operations domain to a microservices architecture with Kafka as the event backbone, replacing SSH polling with async messaging and cutting round-trip latency from ~10s to ~2s despite more components downstream.",
+          "pt": "Migrei um domínio de operações de campo de rede para uma arquitetura de microsserviços com Kafka como backbone de eventos, substituindo o polling via SSH por mensageria assíncrona e reduzindo a latência de ida e volta de ~10s para ~2s, mesmo com mais componentes no fluxo."
+        },
+        {
+          "en": "Built the Python system collecting monitoring data from routers over Telnet, SSH, and REST APIs for downstream storage and reporting.",
+          "pt": "Construí o sistema em Python que coletava dados de monitoramento de roteadores via Telnet, SSH e APIs REST para armazenamento e geração de relatórios posteriores."
+        },
+        {
+          "en": "Managed Kubernetes Helm charts and Grafana dashboards to improve observability over data pipelines and services.",
+          "pt": "Gerenciei charts Helm no Kubernetes e dashboards Grafana para melhorar a observabilidade dos pipelines de dados e serviços."
+        }
+      ],
+      "technologies": ["Python", "Kafka", "Kubernetes", "Grafana"]
+    },
+    {
+      "company": "Liber Capital",
+      "url": "https://libercapital.com.br/",
+      "position": {
+        "en": "Python Engineer Middle",
+        "pt": "Engenheiro Python Pleno"
+      },
+      "startDate": "2021-12",
+      "endDate": "2022-05",
+      "highlights": [
+        {
+          "en": "Owned a Kubernetes microservice retrieving bills from Brazil's national bill service and storing them for downstream use.",
+          "pt": "Fui responsável por um microsserviço em Kubernetes que buscava boletos do sistema nacional de boletos e os armazenava para uso posterior."
+        },
+        {
+          "en": "Diagnosed a bill-loss bug between the ingestion microservice and a legacy Django monolith by inspecting RabbitMQ message flow and auditing a Ruby connector; the fix cut the bill-loss rate from roughly 20% to about 1%, making data loss an occasional exception rather than routine operational work.",
+          "pt": "Diagnostiquei um bug de perda de boletos entre o microsserviço de ingestão e o monólito legado em Django inspecionando o fluxo de mensagens no RabbitMQ e auditando um conector em Ruby; a correção reduziu a taxa de perda de boletos de cerca de 20% para cerca de 1%, tornando a perda de dados uma exceção pontual em vez de trabalho operacional rotineiro."
+        },
+        {
+          "en": "Built a shared messaging package adopted by other Python microservices for consistent event handling.",
+          "pt": "Construí um pacote de mensageria compartilhado, adotado por outros microsserviços em Python, para tratamento consistente de eventos."
+        }
+      ],
+      "technologies": ["Python", "RabbitMQ", "Kubernetes", "GCP"]
+    },
+    {
+      "company": "Deeper Systems",
+      "url": "https://www.deepersystems.com/",
+      "position": {
+        "en": "Python Engineer Junior",
+        "pt": "Engenheiro Python Júnior"
+      },
+      "startDate": "2019-09",
+      "endDate": "2020-04",
+      "highlights": [
+        {
+          "en": "Built and trained a computer vision model to detect and extract text from video frames as a structured-data extraction pipeline, iterating from ~85% to ~95% accuracy, storing captured data for downstream use.",
+          "pt": "Construí e treinei um modelo de visão computacional para detectar e extrair texto de quadros de vídeo como um pipeline de extração de dados estruturados, evoluindo de ~85% para ~95% de acurácia, armazenando os dados capturados para uso posterior."
+        },
+        {
+          "en": "Trained a model to extract structured information from photos of bills and built the API that ingested images and returned parsed structured data.",
+          "pt": "Treinei um modelo para extrair informações estruturadas de fotos de contas e construí a API que ingeria imagens e retornava dados estruturados extraídos."
+        },
+        {
+          "en": "Managed the image datasets used for training, including a Qt desktop tool built to capture and label training data.",
+          "pt": "Gerenciei os conjuntos de dados de imagens usados no treinamento, incluindo uma ferramenta desktop em Qt para captura e rotulagem de dados de treinamento."
+        }
+      ],
+      "technologies": ["Python", "TensorFlow", "OpenCV", "Docker"]
+    },
+    {
+      "company": "Dell Lead",
+      "url": "https://lead.dell.com/",
+      "position": {
+        "en": "Python Engineer Junior",
+        "pt": "Engenheiro Python Júnior"
+      },
+      "startDate": "2020-04",
+      "endDate": "2021-12",
+      "highlights": [
+        {
+          "en": "Built a Flask/Lambda pipeline that fed a forecasting model with QA metrics data, delivered as a dashboard plugin used across a QA program managed by Microsoft Products.",
+          "pt": "Construí um pipeline em Flask/Lambda que alimentava um modelo de previsão com dados de métricas de QA, entregue como plugin de dashboard usado em um programa de QA gerenciado por produtos da Microsoft."
+        },
+        {
+          "en": "Partnered with the team architect on key decisions, cutting synchronous data-processing latency from 25s to 2s by parallelizing calls with asyncio.",
+          "pt": "Trabalhei em parceria com o arquiteto do time em decisões importantes, reduzindo a latência de processamento síncrono de dados de 25s para 2s ao paralelizar chamadas com asyncio."
+        }
+      ],
+      "technologies": ["Flask", "AWS Lambda", "Docker", "asyncio"]
+    }
+  ],
+  "education": [
+    {
+      "institution": "",
+      "degree": {
+        "en": "Bachelor in Software Engineering",
+        "pt": "Bacharelado em Engenharia de Software"
+      },
+      "startDate": null,
+      "endDate": null
+    }
+  ],
+  "projects": [
+    {
+      "name": "Knowledge Base MCP",
+      "description": {
+        "en": "Personal MCP server exposing a MkDocs-based knowledge base to AI assistants. Indexes content into embeddings via an offline Lambda pipeline triggered by webhooks and a daily schedule, storing vectors in DynamoDB for retrieval.",
+        "pt": "Servidor MCP pessoal que expõe uma base de conhecimento em MkDocs a assistentes de IA. Indexa o conteúdo em embeddings por meio de um pipeline offline em Lambda, disparado por webhooks e agendamento diário, armazenando os vetores no DynamoDB para recuperação."
+      },
+      "stack": ["Python", "AWS Lambda", "DynamoDB", "Embeddings"]
+    },
+    {
+      "name": "Bookloud",
+      "description": {
+        "en": "Android app with an SQS-driven async processing pipeline on AWS: uploaded PDFs are queued, processed, and stored, then served back with word-level audio sync data.",
+        "pt": "Aplicativo Android com pipeline de processamento assíncrono via SQS na AWS: PDFs enviados são enfileirados, processados e armazenados, e depois servidos com dados de sincronização de áudio por palavra."
+      },
+      "stack": ["Python", "FastAPI", "AWS Lambda", "DynamoDB", "S3", "SQS"]
+    },
+    {
+      "name": "Cashlytics",
+      "description": {
+        "en": "Personal finance tracker for expenses, income, and net worth, storing transactional data in DynamoDB behind a FastAPI backend running as an AWS Lambda container image.",
+        "pt": "Aplicativo de controle financeiro pessoal para despesas, receitas e patrimônio líquido, armazenando dados transacionais no DynamoDB por trás de um backend em FastAPI executando como imagem de container no AWS Lambda."
+      },
+      "stack": ["Python", "FastAPI", "AWS Lambda", "DynamoDB", "Docker"]
+    }
+  ],
+  "courses": [
+    "Docker and Kubernetes: The Complete Guide"
+  ],
+  "skills": [
+    {
+      "category": {
+        "en": "Data & Pipelines",
+        "pt": "Dados & Pipelines"
+      },
+      "items": ["Python", "Kafka", "RabbitMQ", "AMQP", "SQS", "Embeddings", "ETL"]
+    },
+    {
+      "category": {
+        "en": "Storage",
+        "pt": "Armazenamento"
+      },
+      "items": ["DynamoDB", "S3", "PostgreSQL"]
+    },
+    {
+      "category": {
+        "en": "Infrastructure",
+        "pt": "Infraestrutura"
+      },
+      "items": ["Docker", "Kubernetes", "Grafana", "Linux", "AWS", "Azure", "GCP"]
+    }
+  ],
+  "languages": [
+    {
+      "name": {
+        "en": "Portuguese",
+        "pt": "Português"
+      },
+      "level": {
+        "en": "Native",
+        "pt": "Nativo"
+      }
+    },
+    {
+      "name": {
+        "en": "English",
+        "pt": "Inglês"
+      },
+      "level": {
+        "en": "Fluent",
+        "pt": "Fluente"
+      }
+    }
+  ]
+}

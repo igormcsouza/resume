@@ -1,0 +1,222 @@
+{
+  "basics": {
+    "name": "Igor Souza",
+    "label": {
+      "en": "DevOps Engineer | Kubernetes, Docker & Observability | Multi-Cloud (AWS, Azure, GCP)",
+      "pt": "Engenheiro DevOps | Kubernetes, Docker & Observabilidade | Multi-Cloud (AWS, Azure, GCP)"
+    },
+    "email": "igormcsouza@gmail.com",
+    "phone": "(+55) 85 99839-2799",
+    "location": {
+      "en": "Eusébio/Ceará, Brazil",
+      "pt": "Eusébio/Ceará, Brasil"
+    },
+    "profiles": [
+      {
+        "network": "linkedin",
+        "label": "linkedin.com/in/igormcsouza",
+        "url": "https://www.linkedin.com/in/igormcsouza/"
+      },
+      {
+        "network": "github",
+        "label": "github.com/igormcsouza",
+        "url": "https://github.com/igormcsouza"
+      }
+    ]
+  },
+  "profile": {
+    "en": "Backend engineer with 7+ years operating production infrastructure on Kubernetes and Docker, with Helm-managed deployments, Grafana-based observability, and Linux infrastructure ownership across AWS, Azure, and GCP. Led a Linux distro upgrade across internal infrastructure, proactively surfacing upgrade-breaking bugs before rollout. Comfortable debugging live production issues inside containers, tracing message flow across Kafka/RabbitMQ, and building the Python microservices that run on top of that infrastructure. Also builds and ships the applications this infrastructure serves, so operational decisions stay grounded in real service behavior.",
+    "pt": "Engenheiro backend com mais de 7 anos operando infraestrutura de produção em Kubernetes e Docker, com deploys gerenciados via Helm, observabilidade baseada em Grafana e gestão de infraestrutura Linux em AWS, Azure e GCP. Liderei uma atualização de distribuição Linux na infraestrutura interna, identificando proativamente bugs que quebrariam a atualização antes do rollout. Confortável depurando problemas em produção dentro de containers, rastreando o fluxo de mensagens em Kafka/RabbitMQ, e construindo os microsserviços em Python que rodam sobre essa infraestrutura. Também constrói e entrega as aplicações que essa infraestrutura sustenta, mantendo as decisões operacionais alinhadas ao comportamento real dos serviços."
+  },
+  "work": [
+    {
+      "company": "DataArt",
+      "url": "https://www.dataart.com/",
+      "position": {
+        "en": "Python Engineer Strong Middle",
+        "pt": "Engenheiro Python Pleno Sênior"
+      },
+      "startDate": "2022-05",
+      "endDate": null,
+      "highlights": [
+        {
+          "en": "Led the Linux distro upgrade for internal infrastructure: proactively found 4-5 upgrade-breaking bugs and documented fixes ahead of rollout, so the client's migration applied them immediately and preserved pre-upgrade uptime with no regression.",
+          "pt": "Liderei a atualização da distribuição Linux da infraestrutura interna: encontrei proativamente de 4 a 5 bugs que quebrariam a atualização e documentei as correções antes do rollout, permitindo que o cliente as aplicasse de imediato na migração, mantendo o uptime anterior sem regressão."
+        },
+        {
+          "en": "Managed Kubernetes Helm charts and Grafana dashboards to improve service observability across the platform.",
+          "pt": "Gerenciei charts Helm no Kubernetes e dashboards Grafana para melhorar a observabilidade dos serviços na plataforma."
+        },
+        {
+          "en": "Migrated a network field-operations domain to a microservices architecture with Kafka as the event backbone, replacing SSH polling with async messaging and cutting round-trip latency from ~10s to ~2s despite more components downstream.",
+          "pt": "Migrei um domínio de operações de campo de rede para uma arquitetura de microsserviços com Kafka como backbone de eventos, substituindo o polling via SSH por mensageria assíncrona e reduzindo a latência de ida e volta de ~10s para ~2s, mesmo com mais componentes no fluxo."
+        },
+        {
+          "en": "Extended router communication from Telnet/SSH to REST APIs, and also contributed to the JavaScript frontend and Java/Hibernate backend.",
+          "pt": "Estendi a comunicação com roteadores de Telnet/SSH para APIs REST, e também contribuí no frontend em JavaScript e no backend em Java/Hibernate."
+        }
+      ],
+      "technologies": ["Kubernetes", "Linux", "Kafka", "Grafana", "Python"]
+    },
+    {
+      "company": "Liber Capital",
+      "url": "https://libercapital.com.br/",
+      "position": {
+        "en": "Python Engineer Middle",
+        "pt": "Engenheiro Python Pleno"
+      },
+      "startDate": "2021-12",
+      "endDate": "2022-05",
+      "highlights": [
+        {
+          "en": "Owned a Kubernetes microservice retrieving bills from Brazil's national bill service and storing them for downstream use.",
+          "pt": "Fui responsável por um microsserviço em Kubernetes que buscava boletos do sistema nacional de boletos e os armazenava para uso posterior."
+        },
+        {
+          "en": "Diagnosed a production bill-loss bug by debugging inside Kubernetes containers and inspecting RabbitMQ message flow; the fix cut the bill-loss rate from roughly 20% to about 1%, reducing manual recovery to an occasional exception rather than routine operational work.",
+          "pt": "Diagnostiquei um bug de perda de boletos em produção depurando dentro de containers Kubernetes e inspecionando o fluxo de mensagens no RabbitMQ; a correção reduziu a taxa de perda de boletos de cerca de 20% para cerca de 1%, tornando a recuperação manual uma exceção pontual em vez de trabalho operacional rotineiro."
+        },
+        {
+          "en": "Built a shared messaging package adopted by other Python microservices.",
+          "pt": "Construí um pacote de mensageria compartilhado, adotado por outros microsserviços em Python."
+        }
+      ],
+      "technologies": ["Docker", "Kubernetes", "RabbitMQ", "GCP"]
+    },
+    {
+      "company": "Dell Lead",
+      "url": "https://lead.dell.com/",
+      "position": {
+        "en": "Python Engineer Junior",
+        "pt": "Engenheiro Python Júnior"
+      },
+      "startDate": "2020-04",
+      "endDate": "2021-12",
+      "highlights": [
+        {
+          "en": "Designed the pipeline end-to-end with Flask behind an AWS Lambda function, using Docker and Docker Compose to emulate Lambda locally.",
+          "pt": "Desenhei o pipeline de ponta a ponta com Flask por trás de uma função AWS Lambda, usando Docker e Docker Compose para emular o Lambda localmente."
+        },
+        {
+          "en": "Tackled Azure plugin-approval requirements and infrastructure decisions in a team mostly composed of trainees.",
+          "pt": "Lidei com os requisitos de aprovação de plugins na Azure e decisões de infraestrutura, em um time composto majoritariamente por estagiários."
+        },
+        {
+          "en": "Partnered with the team architect on key decisions, cutting synchronous call latency from 25s to 2s by parallelizing calls with asyncio.",
+          "pt": "Trabalhei em parceria com o arquiteto do time em decisões importantes, reduzindo a latência de chamadas síncronas de 25s para 2s ao paralelizar chamadas com asyncio."
+        }
+      ],
+      "technologies": ["Docker", "Azure", "AWS"]
+    },
+    {
+      "company": "Deeper Systems",
+      "url": "https://www.deepersystems.com/",
+      "position": {
+        "en": "Python Engineer Junior",
+        "pt": "Engenheiro Python Júnior"
+      },
+      "startDate": "2019-09",
+      "endDate": "2020-04",
+      "highlights": [
+        {
+          "en": "Proficient use of Docker, Linux, and SSH for development and deployment across the team's services.",
+          "pt": "Uso proficiente de Docker, Linux e SSH para desenvolvimento e implantação dos serviços do time."
+        }
+      ],
+      "technologies": ["Docker", "Linux"]
+    }
+  ],
+  "education": [
+    {
+      "institution": "",
+      "degree": {
+        "en": "Bachelor in Software Engineering",
+        "pt": "Bacharelado em Engenharia de Software"
+      },
+      "startDate": null,
+      "endDate": null
+    }
+  ],
+  "projects": [
+    {
+      "name": "Cashlytics",
+      "description": {
+        "en": "Personal finance tracker running as an AWS Lambda container image behind API Gateway with Cognito JWT auth and DynamoDB, deployed via Docker.",
+        "pt": "Aplicativo de controle financeiro pessoal executando como imagem de container no AWS Lambda por trás do API Gateway com autenticação JWT via Cognito e DynamoDB, implantado via Docker."
+      },
+      "stack": ["AWS Lambda", "API Gateway", "Cognito", "DynamoDB", "Docker"]
+    },
+    {
+      "name": "Bookloud",
+      "description": {
+        "en": "AWS-hosted backend with an SQS-driven async processing pipeline, provisioned with AWS CDK.",
+        "pt": "Backend hospedado na AWS com pipeline de processamento assíncrono via SQS, provisionado com AWS CDK."
+      },
+      "stack": ["AWS Lambda", "DynamoDB", "S3", "SQS", "AWS CDK"]
+    },
+    {
+      "name": "Kong Gateway Showroom",
+      "description": {
+        "en": "Reference project demonstrating Kong API Gateway fronting Flask/FastAPI services with auth and rate-limiting patterns, orchestrated with Docker Compose.",
+        "pt": "Projeto de referência demonstrando o Kong API Gateway na frente de serviços Flask/FastAPI com padrões de autenticação e rate limiting, orquestrado com Docker Compose."
+      },
+      "stack": ["Kong API Gateway", "Docker Compose", "PostgreSQL"]
+    },
+    {
+      "name": "Talk2web",
+      "description": {
+        "en": "RAG-based documentation chat tool, dockerized and published to Docker Hub.",
+        "pt": "Ferramenta de chat com documentação baseada em RAG, publicada em imagem Docker no Docker Hub."
+      },
+      "stack": ["Docker", "LangChain"]
+    }
+  ],
+  "courses": [
+    "Docker and Kubernetes: The Complete Guide"
+  ],
+  "skills": [
+    {
+      "category": {
+        "en": "Infrastructure",
+        "pt": "Infraestrutura"
+      },
+      "items": ["Docker", "Kubernetes", "Helm", "Linux", "Grafana", "AWS", "Azure", "GCP"]
+    },
+    {
+      "category": {
+        "en": "Messaging & Networking",
+        "pt": "Mensageria & Rede"
+      },
+      "items": ["Kafka", "RabbitMQ", "AMQP", "Networking"]
+    },
+    {
+      "category": {
+        "en": "Backend",
+        "pt": "Backend"
+      },
+      "items": ["Python", "Flask", "REST APIs"]
+    }
+  ],
+  "languages": [
+    {
+      "name": {
+        "en": "Portuguese",
+        "pt": "Português"
+      },
+      "level": {
+        "en": "Native",
+        "pt": "Nativo"
+      }
+    },
+    {
+      "name": {
+        "en": "English",
+        "pt": "Inglês"
+      },
+      "level": {
+        "en": "Fluent",
+        "pt": "Fluente"
+      }
+    }
+  ]
+}

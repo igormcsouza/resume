@@ -1,4 +1,10 @@
 import cvData from "./cv.json";
+import cvBackend from "./cv.backend.json";
+import cvAiMl from "./cv.ai-ml.json";
+import cvDataEngineer from "./cv.data-engineer.json";
+import cvDevops from "./cv.devops.json";
+
+import type { RoleSlug } from "./roles";
 
 export const LANGS = ["en", "pt"] as const;
 export type Lang = (typeof LANGS)[number];
@@ -68,7 +74,19 @@ export interface Cv {
   languages: CvLanguage[];
 }
 
+const CV_BY_ROLE: Record<RoleSlug, Cv> = {
+  backend: cvBackend,
+  "ai-ml": cvAiMl,
+  "data-engineer": cvDataEngineer,
+  devops: cvDevops,
+};
+
 export const cv: Cv = cvData;
+
+/** Resolve the CV data for a given role slug, falling back to the general resume. */
+export function getCv(role?: RoleSlug): Cv {
+  return role ? CV_BY_ROLE[role] : cv;
+}
 
 export function isLang(value: string): value is Lang {
   return (LANGS as readonly string[]).includes(value);
