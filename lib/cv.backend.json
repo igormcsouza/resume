@@ -77,6 +77,10 @@
           "pt": "Fui responsável por um microsserviço em Kubernetes que buscava boletos do sistema nacional de boletos e os armazenava para uso posterior."
         },
         {
+          "en": "Built a high-volume ingestion pipeline for clients' Brazilian receipt documents: parsed the source YAML files, extracted the relevant fields, and stored them in PostgreSQL alongside each file's S3 location; used Metabase to query, analyze, and debug the resulting dataset.",
+          "pt": "Construí um pipeline de ingestão de alto volume para os recibos brasileiros dos clientes: fiz o parsing dos arquivos YAML de origem, extraí os campos relevantes e os armazenei no PostgreSQL junto com a localização de cada arquivo no S3; usei o Metabase para consultar, analisar e depurar os dados resultantes."
+        },
+        {
           "en": "Built a shared messaging package adopted by other Python microservices, standardizing RabbitMQ integration across the team.",
           "pt": "Construí um pacote de mensageria compartilhado, adotado por outros microsserviços em Python, padronizando a integração com RabbitMQ no time."
         },
@@ -85,7 +89,7 @@
           "pt": "Ajudei a construir o microsserviço baseado em API Django que substituiu o monólito legado."
         }
       ],
-      "technologies": ["Python", "Flask", "Docker", "Kubernetes", "RabbitMQ", "GCP", "PostgreSQL"]
+      "technologies": ["Python", "Flask", "Docker", "Kubernetes", "RabbitMQ", "GCP", "PostgreSQL", "S3", "Metabase"]
     },
     {
       "company": "Dell Lead",

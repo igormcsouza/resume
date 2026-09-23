@@ -73,6 +73,10 @@
           "pt": "Fui responsável por um microsserviço em Kubernetes que buscava boletos do sistema nacional de boletos e os armazenava para uso posterior."
         },
         {
+          "en": "Built a high-volume ingestion pipeline for clients' Brazilian receipt documents: parsed the source YAML files, extracted the relevant fields, and stored them in PostgreSQL alongside each file's S3 location; used Metabase to query, analyze, and debug the resulting dataset.",
+          "pt": "Construí um pipeline de ingestão de alto volume para os recibos brasileiros dos clientes: fiz o parsing dos arquivos YAML de origem, extraí os campos relevantes e os armazenei no PostgreSQL junto com a localização de cada arquivo no S3; usei o Metabase para consultar, analisar e depurar os dados resultantes."
+        },
+        {
           "en": "Diagnosed a bill-loss bug between the microservice and the legacy Django monolith by debugging inside Kubernetes containers, inspecting RabbitMQ message flow, and auditing a Ruby connector; the fix cut the bill-loss rate from roughly 20% to about 1%, reducing manual recovery to an occasional exception rather than routine operational work.",
           "pt": "Diagnostiquei um bug de perda de boletos entre o microsserviço e o monólito legado em Django depurando dentro de containers Kubernetes, inspecionando o fluxo de mensagens no RabbitMQ e auditando um conector em Ruby; a correção reduziu a taxa de perda de boletos de cerca de 20% para cerca de 1%, tornando a recuperação manual uma exceção pontual em vez de trabalho operacional rotineiro."
         },
@@ -85,7 +89,7 @@
           "pt": "Ajudei a construir o microsserviço baseado em API Django que substituiu o monólito legado."
         }
       ],
-      "technologies": ["Python", "Flask", "Docker", "Kubernetes", "RabbitMQ", "GCP", "PostgreSQL"]
+      "technologies": ["Python", "Flask", "Docker", "Kubernetes", "RabbitMQ", "GCP", "PostgreSQL", "S3", "Metabase"]
     },
     {
       "company": "Dell Lead",
