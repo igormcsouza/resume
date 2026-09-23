@@ -81,7 +81,7 @@
           "pt": "Construí um pacote de mensageria compartilhado, adotado por outros microsserviços em Python."
         }
       ],
-      "technologies": ["Docker", "Kubernetes", "RabbitMQ", "GCP"]
+      "technologies": ["Docker", "Kubernetes", "RabbitMQ", "GCP", "PostgreSQL"]
     },
     {
       "company": "Dell Lead",
@@ -106,7 +106,7 @@
           "pt": "Trabalhei em parceria com o arquiteto do time em decisões importantes, reduzindo a latência de chamadas síncronas de 25s para 2s ao paralelizar chamadas com asyncio."
         }
       ],
-      "technologies": ["Docker", "Azure", "AWS"]
+      "technologies": ["Docker", "Azure", "AWS", "PostgreSQL"]
     },
     {
       "company": "Deeper Systems",
@@ -181,6 +181,13 @@
         "pt": "Infraestrutura"
       },
       "items": ["Docker", "Kubernetes", "Helm", "Linux", "Grafana", "AWS", "Azure", "GCP"]
+    },
+    {
+      "category": {
+        "en": "Databases",
+        "pt": "Bancos de Dados"
+      },
+      "items": ["PostgreSQL", "DynamoDB"]
     },
     {
       "category": {

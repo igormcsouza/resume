@@ -77,7 +77,7 @@
           "pt": "Construí um pacote de mensageria compartilhado, adotado por outros microsserviços em Python, para tratamento consistente de eventos."
         }
       ],
-      "technologies": ["Python", "RabbitMQ", "Kubernetes", "GCP"]
+      "technologies": ["Python", "RabbitMQ", "Kubernetes", "GCP", "PostgreSQL"]
     },
     {
       "company": "Deeper Systems",
@@ -123,7 +123,7 @@
           "pt": "Trabalhei em parceria com o arquiteto do time em decisões importantes, reduzindo a latência de processamento síncrono de dados de 25s para 2s ao paralelizar chamadas com asyncio."
         }
       ],
-      "technologies": ["Flask", "AWS Lambda", "Docker", "asyncio"]
+      "technologies": ["Flask", "AWS Lambda", "Docker", "asyncio", "PostgreSQL"]
     }
   ],
   "education": [
