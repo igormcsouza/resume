@@ -85,7 +85,7 @@
           "pt": "Ajudei a construir o microsserviço baseado em API Django que substituiu o monólito legado."
         }
       ],
-      "technologies": ["Python", "Flask", "Docker", "Kubernetes", "RabbitMQ", "GCP"]
+      "technologies": ["Python", "Flask", "Docker", "Kubernetes", "RabbitMQ", "GCP", "PostgreSQL"]
     },
     {
       "company": "Dell Lead",
@@ -114,7 +114,7 @@
           "pt": "Trabalhei em parceria com o arquiteto do time em decisões importantes, reduzindo a latência de chamadas síncronas de 25s para 2s ao paralelizar chamadas aos modelos de ML com asyncio, e lidando com os requisitos de aprovação de plugins na Azure, em um time composto majoritariamente por estagiários."
         }
       ],
-      "technologies": ["TensorFlow", "Torch", "Vue", "React", "Streamlit", "Docker", "Azure", "AWS"]
+      "technologies": ["TensorFlow", "Torch", "Vue", "React", "Streamlit", "Docker", "Azure", "AWS", "PostgreSQL"]
     },
     {
       "company": "Deeper Systems",
@@ -219,6 +219,13 @@
         "pt": "Backend"
       },
       "items": ["Python", "Flask", "Django", "FastAPI", "REST APIs", "Next.js"]
+    },
+    {
+      "category": {
+        "en": "Databases",
+        "pt": "Bancos de Dados"
+      },
+      "items": ["PostgreSQL", "DynamoDB"]
     },
     {
       "category": {

@@ -81,7 +81,7 @@
           "pt": "Construí o backend em Flask e o frontend em React de um plugin de dashboard integrado ao programa de QA gerenciado por produtos da Microsoft, exibindo métricas de QA e previsões, e ajudei a entregar o modelo de previsão."
         }
       ],
-      "technologies": ["TensorFlow", "Torch", "Flask", "Docker", "Azure", "AWS", "asyncio"]
+      "technologies": ["TensorFlow", "Torch", "Flask", "Docker", "Azure", "AWS", "asyncio", "PostgreSQL"]
     },
     {
       "company": "Deeper Systems",
@@ -127,7 +127,7 @@
           "pt": "Fui responsável por um microsserviço em Kubernetes que buscava boletos do sistema nacional de boletos e os armazenava para uso posterior."
         }
       ],
-      "technologies": ["Python", "Flask", "Kubernetes", "RabbitMQ"]
+      "technologies": ["Python", "Flask", "Kubernetes", "RabbitMQ", "PostgreSQL"]
     }
   ],
   "education": [
@@ -185,6 +185,13 @@
         "pt": "Backend"
       },
       "items": ["Python", "Flask", "FastAPI", "REST APIs", "asyncio"]
+    },
+    {
+      "category": {
+        "en": "Databases",
+        "pt": "Bancos de Dados"
+      },
+      "items": ["PostgreSQL", "DynamoDB"]
     },
     {
       "category": {
