@@ -29,9 +29,14 @@ function Banner({ children }: { children: React.ReactNode }) {
   );
 }
 
-function Entry({ aside, children }: { aside?: React.ReactNode, children: React.ReactNode }) {
+// Entries with at least this many bullets may split across printed pages.
+const BREAKABLE_MIN_ITEMS = 3;
+
+function Entry({ aside, breakable, children }: { aside?: React.ReactNode, breakable?: boolean, children: React.ReactNode }) {
+  // Keeping a long entry whole pushes it to the next page and leaves most of
+  // the current one blank, so breakable entries split between their bullets.
   return (
-    <div className="grid gap-2 sm:grid-cols-[160px_1fr] sm:gap-x-6 break-inside-avoid">
+    <div className={`grid gap-2 sm:grid-cols-[160px_1fr] sm:gap-x-6 ${breakable ? "" : "break-inside-avoid"}`}>
       <div className="text-sm text-muted-foreground">{aside}</div>
       <div>{children}</div>
     </div>
@@ -191,6 +196,7 @@ export default function CvView({ lang, cv, role }: { lang: Lang; cv: Cv; role?: 
             {cv.work.map((job) => (
               <Entry
                 key={`${job.company}-${job.startDate}`}
+                breakable={job.highlights.length >= BREAKABLE_MIN_ITEMS}
                 aside={
                   <>
                     {job.url
@@ -200,10 +206,10 @@ export default function CvView({ lang, cv, role }: { lang: Lang; cv: Cv; role?: 
                   </>
                 }
               >
-                <h3 className="mb-1.5 text-base font-bold">{loc(job.position)}</h3>
+                <h3 className="mb-1.5 text-base font-bold break-after-avoid">{loc(job.position)}</h3>
                 <ul className="flex list-disc flex-col gap-1 pl-4 text-sm text-foreground/80">
                   {job.highlights.map((highlight, index) => (
-                    <li key={index}>{loc(highlight)}</li>
+                    <li key={index} className="break-inside-avoid">{loc(highlight)}</li>
                   ))}
                 </ul>
                 {job.technologies.length > 0 && (
@@ -259,10 +265,10 @@ export default function CvView({ lang, cv, role }: { lang: Lang; cv: Cv; role?: 
         {cv.courses.length > 0 && (
           <section className="flex flex-col gap-3">
             <Banner>{labels.courses[lang]}</Banner>
-            <Entry>
+            <Entry breakable={cv.courses.length >= BREAKABLE_MIN_ITEMS}>
               <ul className="flex list-disc flex-col gap-1 pl-4 text-sm text-foreground/80">
                 {cv.courses.map((course, index) => (
-                  <li key={index}>{loc(course)}</li>
+                  <li key={index} className="break-inside-avoid">{loc(course)}</li>
                 ))}
               </ul>
             </Entry>
