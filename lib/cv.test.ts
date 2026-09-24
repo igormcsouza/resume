@@ -1,7 +1,7 @@
 import { readFileSync } from "fs";
 import { describe, expect, it } from "vitest";
 
-import { LANGS, cv, formatDate, formatDateRange, getCv, isLang, labels, splitLeadIn, t } from "./cv";
+import { LANGS, cv, formatDate, formatDateRange, getCv, isLang, labels, splitBold, t } from "./cv";
 import type { Cv, Localized } from "./cv";
 import { ROLES, RoleSlug } from "./roles";
 
@@ -34,7 +34,13 @@ describe.each(CV_FILES)("%s", (file) => {
     expectLocalized(data.basics.location, "basics.location");
     if (Array.isArray(data.profile)) {
       expect(data.profile.length).toBeGreaterThan(0);
-      data.profile.forEach((item, i) => expectLocalized(item, `profile[${i}]`));
+      data.profile.forEach((item, i) => {
+        expectLocalized(item, `profile[${i}]`);
+        for (const lang of LANGS) {
+          const markers = t(item, lang).split("**").length - 1;
+          expect(markers % 2, `profile[${i}].${lang} has unbalanced ** markers`).toBe(0);
+        }
+      });
     } else {
       expectLocalized(data.profile, "profile");
     }
@@ -114,28 +120,27 @@ describe("t", () => {
   });
 });
 
-describe("splitLeadIn", () => {
-  it("splits a short label before the first colon", () => {
-    expect(splitLeadIn("Back end: Python and FastAPI")).toEqual({ label: "Back end", rest: "Python and FastAPI" });
+describe("splitBold", () => {
+  it("returns plain text as a single segment", () => {
+    expect(splitBold("Plain bullet text")).toEqual([{ text: "Plain bullet text", bold: false }]);
   });
 
-  it("keeps later colons and line breaks in the rest", () => {
-    expect(splitLeadIn("Key results: 99.9% uptime: SLA met\nand more")).toEqual({
-      label: "Key results",
-      rest: "99.9% uptime: SLA met\nand more",
-    });
+  it("marks the text between ** markers as bold", () => {
+    expect(splitBold("Builds **backend** and **AI** features")).toEqual([
+      { text: "Builds ", bold: false },
+      { text: "backend", bold: true },
+      { text: " and ", bold: false },
+      { text: "AI", bold: true },
+      { text: " features", bold: false },
+    ]);
   });
 
-  it("returns null when there is no colon", () => {
-    expect(splitLeadIn("Plain bullet text")).toBeNull();
-  });
-
-  it("returns null when the label is longer than 40 characters", () => {
-    expect(splitLeadIn(`${"a".repeat(41)}: text`)).toBeNull();
-  });
-
-  it("returns null when the colon is not followed by whitespace", () => {
-    expect(splitLeadIn("See https://example.com")).toBeNull();
+  it("handles bold at the start and end of the text", () => {
+    expect(splitBold("**Agile** teams use **Scrum**")).toEqual([
+      { text: "Agile", bold: true },
+      { text: " teams use ", bold: false },
+      { text: "Scrum", bold: true },
+    ]);
   });
 });
 

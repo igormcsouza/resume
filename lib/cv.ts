@@ -65,7 +65,7 @@ export interface CvLanguage {
 
 export interface Cv {
   basics: CvBasics;
-  /** A paragraph, or a list of bullets with optional bold "Label:" lead-ins. */
+  /** A paragraph, or a list of bullets that may mark topics as **bold**. */
   profile: Localized | Localized[];
   work: CvWork[];
   education: CvEducation[];
@@ -99,13 +99,14 @@ export function t(value: Localized, lang: Lang): string {
 }
 
 /**
- * Split a short "Label: text" prefix (at most 40 characters before the first
- * colon) off a bullet so the label can be bolded. Returns null when the text
- * has no such prefix.
+ * Split text on **bold** markers into plain and bold segments, so a bullet can
+ * highlight the topics a reader scans for (e.g. "Builds **backend** services").
  */
-export function splitLeadIn(text: string): { label: string; rest: string } | null {
-  const match = text.match(/^([^:]{1,40}):\s([\s\S]*)$/);
-  return match ? { label: match[1], rest: match[2] } : null;
+export function splitBold(text: string): { text: string; bold: boolean }[] {
+  return text
+    .split("**")
+    .map((part, index) => ({ text: part, bold: index % 2 === 1 }))
+    .filter((segment) => segment.text);
 }
 
 /** UI labels for the CV template, per language. */

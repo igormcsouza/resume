@@ -7,7 +7,7 @@ import { ArrowLeft, Download, Github, Globe, Linkedin, Mail, MapPin, Phone } fro
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { BrazilIcon, EnglandIcon } from "@/components/svg";
-import { Cv, Lang, Localized, formatDateRange, labels, splitLeadIn, t } from "@/lib/cv";
+import { Cv, Lang, Localized, formatDateRange, labels, splitBold, t } from "@/lib/cv";
 import { GENERAL_LABEL, ROLES, RoleSlug } from "@/lib/roles";
 
 function getProfileIcon(network: string) {
@@ -29,11 +29,17 @@ function Banner({ children }: { children: React.ReactNode }) {
   );
 }
 
-/** Bold a short "Label:" prefix so each bullet can be scanned by topic. */
-function LeadIn({ text }: { text: string }) {
-  const leadIn = splitLeadIn(text);
-  if (!leadIn) return <>{text}</>;
-  return <><span className="font-semibold text-foreground">{leadIn.label}:</span> {leadIn.rest}</>;
+/** Render text with its **bold** segments highlighted. */
+function RichText({ text }: { text: string }) {
+  return (
+    <>
+      {splitBold(text).map((segment, index) =>
+        segment.bold
+          ? <strong key={index} className="font-semibold text-foreground">{segment.text}</strong>
+          : segment.text,
+      )}
+    </>
+  );
 }
 
 // Entries with at least this many bullets may split across printed pages.
@@ -196,11 +202,11 @@ export default function CvView({ lang, cv, role }: { lang: Lang; cv: Cv; role?: 
             {Array.isArray(cv.profile) ? (
               <ul className="flex list-disc flex-col gap-1 pl-4 text-sm leading-relaxed text-foreground/80">
                 {cv.profile.map((item, index) => (
-                  <li key={index} className="break-inside-avoid"><LeadIn text={loc(item)} /></li>
+                  <li key={index} className="break-inside-avoid"><RichText text={loc(item)} /></li>
                 ))}
               </ul>
             ) : (
-              <p className="text-sm leading-relaxed text-foreground/80">{loc(cv.profile)}</p>
+              <p className="text-sm leading-relaxed text-foreground/80"><RichText text={loc(cv.profile)} /></p>
             )}
           </section>
         )}

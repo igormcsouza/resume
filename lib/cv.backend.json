@@ -24,10 +24,40 @@
       }
     ]
   },
-  "profile": {
-    "en": "Backend engineer with 7+ years designing and shipping Python microservices and REST APIs (Flask, Django, FastAPI) for distributed systems. Deep experience with event-driven architecture using Kafka and RabbitMQ, cutting production latency by re-architecting synchronous flows into async messaging. Runs and observes production workloads on Kubernetes and Docker, with Helm, Grafana-based observability, and Linux infrastructure ownership across AWS, Azure, and GCP. Comfortable owning a service end-to-end: API design, data storage, deployment, and on-call debugging inside containers. Also builds ML-powered features when a product needs them, from inference APIs to LLM integrations. Works in Agile (Scrum) teams and covers code with automated tests (pytest).",
-    "pt": "Engenheiro backend com mais de 7 anos projetando e entregando microsserviços e APIs REST em Python (Flask, Django, FastAPI) para sistemas distribuídos. Experiência sólida em arquitetura orientada a eventos com Kafka e RabbitMQ, reduzindo latência em produção ao migrar fluxos síncronos para mensageria assíncrona. Opera e observa workloads em produção com Kubernetes e Docker, usando Helm, observabilidade via Grafana e gestão de infraestrutura Linux em AWS, Azure e GCP. Confortável em ser dono de um serviço de ponta a ponta: design de API, armazenamento de dados, deploy e depuração em produção dentro de containers. Também constrói funcionalidades com ML quando o produto exige, de APIs de inferência a integrações com LLMs. Trabalha em times ágeis (Scrum) e cobre o código com testes automatizados (pytest)."
-  },
+  "profile": [
+    {
+      "en": "7+ years of experience in software engineering.",
+      "pt": "Mais de 7 anos de experiência em engenharia de software."
+    },
+    {
+      "en": "Designs and ships **backend** services: Python microservices and REST APIs (Flask, Django, FastAPI) for distributed systems.",
+      "pt": "Projeta e entrega serviços **backend**: microsserviços e APIs REST em Python (Flask, Django, FastAPI) para sistemas distribuídos."
+    },
+    {
+      "en": "Deep experience with **event-driven architecture** using Kafka and RabbitMQ, cutting production latency by re-architecting synchronous flows into async messaging.",
+      "pt": "Experiência sólida em **arquitetura orientada a eventos** com Kafka e RabbitMQ, reduzindo latência em produção ao migrar fluxos síncronos para mensageria assíncrona."
+    },
+    {
+      "en": "Runs and observes production workloads on **Kubernetes** and **Docker**, with Helm, Grafana-based observability, and Linux infrastructure ownership.",
+      "pt": "Opera e observa workloads em produção com **Kubernetes** e **Docker**, usando Helm, observabilidade via Grafana e gestão de infraestrutura Linux."
+    },
+    {
+      "en": "Deploys to the **cloud** on AWS, Azure, and GCP.",
+      "pt": "Faz deploy na **nuvem** em AWS, Azure e GCP."
+    },
+    {
+      "en": "Owns a service **end-to-end**: API design, data storage, deployment, and on-call debugging inside containers.",
+      "pt": "É dono de um serviço **de ponta a ponta**: design de API, armazenamento de dados, deploy e depuração em produção dentro de containers."
+    },
+    {
+      "en": "Also builds **ML-powered features** when a product needs them, from inference APIs to LLM integrations.",
+      "pt": "Também constrói **funcionalidades com ML** quando o produto exige, de APIs de inferência a integrações com LLMs."
+    },
+    {
+      "en": "Works in **Agile (Scrum)** teams and covers code with **automated tests** (pytest).",
+      "pt": "Trabalha em **times ágeis (Scrum)** e cobre o código com **testes automatizados** (pytest)."
+    }
+  ],
   "work": [
     {
       "company": "DataArt",
