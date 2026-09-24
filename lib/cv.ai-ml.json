@@ -24,10 +24,40 @@
       }
     ]
   },
-  "profile": {
-    "en": "AI/ML engineer with 7+ years shipping ML pipelines end-to-end, from training (TensorFlow, Torch, computer vision) to production inference APIs. Embeds AI into real products through LLM integrations, RAG pipelines (LangChain, FAISS, embeddings), and custom MCP servers exposing tools and knowledge to AI assistants. Builds and owns the Python backend that serves models in production (Flask, FastAPI), with Docker/Kubernetes deployment and observability so models stay reliable under real traffic. Comfortable across AWS, Azure, and GCP, and experienced parallelizing model calls with asyncio to cut inference latency. Works in Agile (Scrum) teams and covers code with automated tests (pytest).",
-    "pt": "Engenheiro de IA/ML com mais de 7 anos entregando pipelines de machine learning de ponta a ponta, do treinamento (TensorFlow, Torch, visão computacional) a APIs de inferência em produção. Incorpora IA em produtos reais por meio de integrações com LLMs, pipelines RAG (LangChain, FAISS, embeddings) e servidores MCP próprios que expõem ferramentas e conhecimento a assistentes de IA. Constrói e mantém o backend em Python que serve os modelos em produção (Flask, FastAPI), com deploy em Docker/Kubernetes e observabilidade para manter os modelos confiáveis sob tráfego real. Transita bem entre AWS, Azure e GCP, com experiência em paralelizar chamadas a modelos com asyncio para reduzir latência de inferência. Trabalha em times ágeis (Scrum) e cobre o código com testes automatizados (pytest)."
-  },
+  "profile": [
+    {
+      "en": "AI/ML engineer with 7+ years of experience.",
+      "pt": "Engenheiro de IA/ML com mais de 7 anos de experiência."
+    },
+    {
+      "en": "I take <strong>machine learning</strong> models end-to-end, from training (TensorFlow, Torch, computer vision) to production inference APIs.",
+      "pt": "Levo modelos de <strong>machine learning</strong> de ponta a ponta, do treinamento (TensorFlow, Torch, visão computacional) a APIs de inferência em produção."
+    },
+    {
+      "en": "Beyond classic ML, I bring <strong>AI</strong> into real products through LLM integrations, RAG pipelines (LangChain, FAISS, embeddings), and custom MCP servers that expose tools and knowledge to AI assistants.",
+      "pt": "Além do ML clássico, incorporo <strong>IA</strong> a produtos reais com integrações de LLMs, pipelines RAG (LangChain, FAISS, embeddings) e servidores MCP próprios que expõem ferramentas e conhecimento a assistentes de IA."
+    },
+    {
+      "en": "Also build and own the Python <strong>backend</strong> that serves those models in production (Flask, FastAPI).",
+      "pt": "Também construo e mantenho o <strong>backend</strong> em Python que serve esses modelos em produção (Flask, FastAPI)."
+    },
+    {
+      "en": "Models ship with <strong>Docker</strong> and <strong>Kubernetes</strong>, with observability so they stay reliable under real traffic.",
+      "pt": "Os modelos vão para produção com <strong>Docker</strong> e <strong>Kubernetes</strong>, com observabilidade para se manterem confiáveis sob tráfego real."
+    },
+    {
+      "en": "Experienced in cutting <strong>inference latency</strong>, for example by parallelizing model calls with asyncio.",
+      "pt": "Experiência em reduzir a <strong>latência de inferência</strong>, por exemplo paralelizando chamadas a modelos com asyncio."
+    },
+    {
+      "en": "Comfortable deploying to the <strong>cloud</strong> on AWS, Azure, and GCP.",
+      "pt": "Tenho experiência com deploy na <strong>nuvem</strong> em AWS, Azure e GCP."
+    },
+    {
+      "en": "Used to working in <strong>Agile (Scrum)</strong> teams, with my code covered by <strong>automated tests</strong> (pytest).",
+      "pt": "Acostumado a trabalhar em <strong>times ágeis (Scrum)</strong>, com meu código coberto por <strong>testes automatizados</strong> (pytest)."
+    }
+  ],
   "work": [
     {
       "company": "DataArt",

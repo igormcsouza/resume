@@ -65,7 +65,8 @@ export interface CvLanguage {
 
 export interface Cv {
   basics: CvBasics;
-  profile: Localized;
+  /** One bullet per item; items may use the inline tags allowed by `profileHtml`. */
+  profile: Localized[];
   work: CvWork[];
   education: CvEducation[];
   projects: CvProject[];
@@ -95,6 +96,22 @@ export function isLang(value: string): value is Lang {
 /** Resolve a Localized value for the given language. */
 export function t(value: Localized, lang: Lang): string {
   return typeof value === "string" ? value : value[lang];
+}
+
+const ALLOWED_TAGS = /&lt;(\/?)(strong|b|em|i)&gt;/g;
+
+/**
+ * Turn a profile bullet into safe HTML: everything is escaped, then only bare
+ * <strong>, <b>, <em> and <i> tags (no attributes) are restored.
+ */
+export function profileHtml(text: string): string {
+  const escaped = text
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+  return escaped.replace(ALLOWED_TAGS, "<$1$2>");
 }
 
 /** UI labels for the CV template, per language. */

@@ -1,7 +1,7 @@
 import { readFileSync } from "fs";
 import { describe, expect, it } from "vitest";
 
-import { LANGS, cv, formatDate, formatDateRange, getCv, isLang, labels, t } from "./cv";
+import { LANGS, cv, formatDate, formatDateRange, getCv, isLang, labels, profileHtml, t } from "./cv";
 import type { Cv, Localized } from "./cv";
 import { ROLES, RoleSlug } from "./roles";
 
@@ -32,7 +32,8 @@ describe.each(CV_FILES)("%s", (file) => {
   it("has localized text with both en and pt for basics/profile", () => {
     expectLocalized(data.basics.label, "basics.label");
     expectLocalized(data.basics.location, "basics.location");
-    expectLocalized(data.profile, "profile");
+    expect(data.profile.length).toBeGreaterThan(0);
+    data.profile.forEach((item, i) => expectLocalized(item, `profile[${i}]`));
   });
 
   it("has consistent work entries", () => {
@@ -106,6 +107,27 @@ describe("t", () => {
     const value = { en: "Hello", pt: "Olá" };
     expect(t(value, "en")).toBe("Hello");
     expect(t(value, "pt")).toBe("Olá");
+  });
+});
+
+describe("profileHtml", () => {
+  it("keeps the allowed inline tags", () => {
+    expect(profileHtml("Builds <strong>backend</strong> and <em>AI</em> features")).toBe(
+      "Builds <strong>backend</strong> and <em>AI</em> features",
+    );
+  });
+
+  it("escapes any other tag", () => {
+    expect(profileHtml('<script>alert("x")</script>')).toBe("&lt;script&gt;alert(&quot;x&quot;)&lt;/script&gt;");
+    expect(profileHtml('<img src=x onerror="alert(1)">')).toBe("&lt;img src=x onerror=&quot;alert(1)&quot;&gt;");
+  });
+
+  it("escapes allowed tags that carry attributes", () => {
+    expect(profileHtml('<b onclick="alert(1)">x</b>')).toBe("&lt;b onclick=&quot;alert(1)&quot;&gt;x</b>");
+  });
+
+  it("escapes ampersands and quotes in plain text", () => {
+    expect(profileHtml(`R&D "team" isn't`)).toBe("R&amp;D &quot;team&quot; isn&#39;t");
   });
 });
 

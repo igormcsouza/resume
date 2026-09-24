@@ -24,10 +24,36 @@
       }
     ]
   },
-  "profile": {
-    "en": "Backend-rooted data engineer with 7+ years building Python pipelines that move, transform, and store data reliably at scale. Experienced with event-driven ingestion using Kafka and RabbitMQ, async processing pipelines (SQS-driven), and storage layers spanning DynamoDB, S3, and PostgreSQL. Has built ETL-style pipelines for structured data extraction (OCR/CV data capture), embeddings indexing for retrieval, and dataset management for ML training. Runs data workloads on Kubernetes and Docker, with Grafana-based observability, across AWS, Azure, and GCP. Works in Agile (Scrum) teams and covers code with automated tests (pytest).",
-    "pt": "Engenheiro de dados com raiz em backend e mais de 7 anos construindo pipelines em Python que movem, transformam e armazenam dados de forma confiável em escala. Experiência com ingestão orientada a eventos usando Kafka e RabbitMQ, pipelines de processamento assíncrono (via SQS) e camadas de armazenamento incluindo DynamoDB, S3 e PostgreSQL. Já construiu pipelines no estilo ETL para extração estruturada de dados (captura via OCR/CV), indexação de embeddings para recuperação, e gestão de datasets para treinamento de ML. Opera workloads de dados em Kubernetes e Docker, com observabilidade via Grafana, em AWS, Azure e GCP. Trabalha em times ágeis (Scrum) e cobre o código com testes automatizados (pytest)."
-  },
+  "profile": [
+    {
+      "en": "Data engineer with 7+ years of experience and a strong backend foundation.",
+      "pt": "Engenheiro de dados com mais de 7 anos de experiência e uma base sólida em backend."
+    },
+    {
+      "en": "Most of my work is building Python <strong>data pipelines</strong> that move, transform, and store data reliably at scale.",
+      "pt": "A maior parte do meu trabalho é construir <strong>pipelines de dados</strong> em Python que movem, transformam e armazenam dados de forma confiável em escala."
+    },
+    {
+      "en": "For ingestion, I design <strong>event-driven</strong> flows with Kafka and RabbitMQ, plus async processing pipelines driven by SQS.",
+      "pt": "Na ingestão, projeto fluxos <strong>orientados a eventos</strong> com Kafka e RabbitMQ, além de pipelines de processamento assíncrono via SQS."
+    },
+    {
+      "en": "On the <strong>storage</strong> side, I work with DynamoDB, S3, and PostgreSQL.",
+      "pt": "Em <strong>armazenamento</strong>, trabalho com DynamoDB, S3 e PostgreSQL."
+    },
+    {
+      "en": "Past work includes <strong>ETL</strong>-style pipelines for structured data extraction (OCR/CV data capture), embeddings indexing for retrieval, and dataset management for ML training.",
+      "pt": "Entre os trabalhos anteriores estão pipelines no estilo <strong>ETL</strong> para extração estruturada de dados (captura via OCR/CV), indexação de embeddings para recuperação e gestão de datasets para treinamento de ML."
+    },
+    {
+      "en": "These workloads run on <strong>Kubernetes</strong> and <strong>Docker</strong>, with Grafana-based observability, across AWS, Azure, and GCP.",
+      "pt": "Essas cargas rodam em <strong>Kubernetes</strong> e <strong>Docker</strong>, com observabilidade via Grafana, em AWS, Azure e GCP."
+    },
+    {
+      "en": "Used to working in <strong>Agile (Scrum)</strong> teams, with my code covered by <strong>automated tests</strong> (pytest).",
+      "pt": "Acostumado a trabalhar em <strong>times ágeis (Scrum)</strong>, com meu código coberto por <strong>testes automatizados</strong> (pytest)."
+    }
+  ],
   "work": [
     {
       "company": "DataArt",

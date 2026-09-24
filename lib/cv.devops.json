@@ -24,10 +24,36 @@
       }
     ]
   },
-  "profile": {
-    "en": "Backend engineer with 7+ years operating production infrastructure on Kubernetes and Docker, with Helm-managed deployments, Grafana-based observability, and Linux infrastructure ownership across AWS, Azure, and GCP. Led a Linux distro upgrade across internal infrastructure, proactively surfacing upgrade-breaking bugs before rollout. Comfortable debugging live production issues inside containers, tracing message flow across Kafka/RabbitMQ, and building the Python microservices that run on top of that infrastructure. Also builds and ships the applications this infrastructure serves, so operational decisions stay grounded in real service behavior. Works in Agile (Scrum) teams and covers code with automated tests (pytest).",
-    "pt": "Engenheiro backend com mais de 7 anos operando infraestrutura de produção em Kubernetes e Docker, com deploys gerenciados via Helm, observabilidade baseada em Grafana e gestão de infraestrutura Linux em AWS, Azure e GCP. Liderei uma atualização de distribuição Linux na infraestrutura interna, identificando proativamente bugs que quebrariam a atualização antes do rollout. Confortável depurando problemas em produção dentro de containers, rastreando o fluxo de mensagens em Kafka/RabbitMQ, e construindo os microsserviços em Python que rodam sobre essa infraestrutura. Também constrói e entrega as aplicações que essa infraestrutura sustenta, mantendo as decisões operacionais alinhadas ao comportamento real dos serviços. Trabalha em times ágeis (Scrum) e cobre o código com testes automatizados (pytest)."
-  },
+  "profile": [
+    {
+      "en": "Backend engineer with 7+ years of experience, much of it operating production infrastructure.",
+      "pt": "Engenheiro backend com mais de 7 anos de experiência, boa parte dela operando infraestrutura de produção."
+    },
+    {
+      "en": "My day-to-day includes running production workloads on <strong>Kubernetes</strong> and <strong>Docker</strong>, with Helm-managed deployments.",
+      "pt": "No dia a dia, opero workloads em produção com <strong>Kubernetes</strong> e <strong>Docker</strong>, com deploys gerenciados via Helm."
+    },
+    {
+      "en": "Responsible for <strong>observability</strong> with Grafana and for <strong>Linux</strong> infrastructure across AWS, Azure, and GCP.",
+      "pt": "Responsável pela <strong>observabilidade</strong> com Grafana e pela infraestrutura <strong>Linux</strong> em AWS, Azure e GCP."
+    },
+    {
+      "en": "Led a <strong>Linux distro upgrade</strong> across internal infrastructure, catching upgrade-breaking bugs before rollout.",
+      "pt": "Liderei uma <strong>atualização de distribuição Linux</strong> na infraestrutura interna, identificando bugs que quebrariam a atualização antes do rollout."
+    },
+    {
+      "en": "When something breaks, I debug <strong>production issues</strong> inside containers and trace message flow across Kafka/RabbitMQ.",
+      "pt": "Quando algo quebra, depuro <strong>problemas em produção</strong> dentro de containers e rastreio o fluxo de mensagens em Kafka/RabbitMQ."
+    },
+    {
+      "en": "Because I also build the Python <strong>microservices</strong> running on this infrastructure, my operational decisions stay grounded in real service behavior.",
+      "pt": "Como também construo os <strong>microsserviços</strong> em Python que rodam sobre essa infraestrutura, minhas decisões operacionais ficam alinhadas ao comportamento real dos serviços."
+    },
+    {
+      "en": "Used to working in <strong>Agile (Scrum)</strong> teams, with my code covered by <strong>automated tests</strong> (pytest).",
+      "pt": "Acostumado a trabalhar em <strong>times ágeis (Scrum)</strong>, com meu código coberto por <strong>testes automatizados</strong> (pytest)."
+    }
+  ],
   "work": [
     {
       "company": "DataArt",

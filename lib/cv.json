@@ -24,10 +24,40 @@
       }
     ]
   },
-  "profile": {
-    "en": "Backend engineer with 7+ years building and shipping Python microservices and REST APIs (Flask, Django, FastAPI). Skilled in event-driven architecture with Kafka and RabbitMQ, and in scalable API design across distributed systems. Runs and observes production workloads on Kubernetes and Docker, with Grafana-based observability and Linux infrastructure ownership. Builds machine learning pipelines end-to-end, from training (TensorFlow, Torch, computer vision) to production inference APIs, and embeds AI into real products through LLM integrations, RAG pipelines (LangChain, FAISS, embeddings), and custom MCP servers exposing tools and knowledge to AI assistants. Comfortable across AWS, Azure, and GCP, and contributes on the frontend (React, Vue) when a project needs it. Works in Agile (Scrum) teams and covers code with automated tests (pytest).",
-    "pt": "Engenheiro backend com mais de 7 anos construindo e entregando microsserviços e APIs REST em Python (Flask, Django, FastAPI). Experiência em arquitetura orientada a eventos com Kafka e RabbitMQ, e em design de APIs escaláveis em sistemas distribuídos. Opera e observa workloads em produção com Kubernetes e Docker, observabilidade via Grafana e gestão de infraestrutura Linux. Constrói pipelines de machine learning de ponta a ponta, do treinamento (TensorFlow, Torch, visão computacional) a APIs de inferência em produção, e incorpora IA em produtos reais por meio de integrações com LLMs, pipelines RAG (LangChain, FAISS, embeddings) e servidores MCP próprios que expõem ferramentas e conhecimento a assistentes de IA. Transita bem entre AWS, Azure e GCP, e contribui no frontend (React, Vue) quando o projeto exige. Trabalha em times ágeis (Scrum) e cobre o código com testes automatizados (pytest)."
-  },
+  "profile": [
+    {
+      "en": "Software engineer with 7+ years of experience building and shipping production systems.",
+      "pt": "Engenheiro de software com mais de 7 anos de experiência construindo e entregando sistemas em produção."
+    },
+    {
+      "en": "My core is the <strong>backend</strong>: Python microservices and REST APIs with Flask, Django, and FastAPI.",
+      "pt": "Meu foco principal é o <strong>backend</strong>: microsserviços e APIs REST em Python com Flask, Django e FastAPI."
+    },
+    {
+      "en": "For distributed systems, I design <strong>event-driven architectures</strong> with Kafka and RabbitMQ and APIs built to scale.",
+      "pt": "Em sistemas distribuídos, projeto <strong>arquiteturas orientadas a eventos</strong> com Kafka e RabbitMQ e APIs pensadas para escalar."
+    },
+    {
+      "en": "In production, I run and monitor workloads on <strong>Kubernetes</strong> and <strong>Docker</strong>, with Grafana dashboards and ownership of the Linux infrastructure.",
+      "pt": "Em produção, opero e monitoro workloads em <strong>Kubernetes</strong> e <strong>Docker</strong>, com dashboards no Grafana e responsabilidade pela infraestrutura Linux."
+    },
+    {
+      "en": "On the <strong>machine learning</strong> side, I take models from training (TensorFlow, Torch, computer vision) to production inference APIs.",
+      "pt": "Em <strong>machine learning</strong>, levo modelos do treinamento (TensorFlow, Torch, visão computacional) até APIs de inferência em produção."
+    },
+    {
+      "en": "I also bring <strong>AI</strong> into real products through LLM integrations, RAG pipelines (LangChain, FAISS, embeddings), and custom MCP servers.",
+      "pt": "Também incorporo <strong>IA</strong> a produtos reais por meio de integrações com LLMs, pipelines RAG (LangChain, FAISS, embeddings) e servidores MCP próprios."
+    },
+    {
+      "en": "Comfortable deploying to the <strong>cloud</strong> on AWS, Azure, and GCP, and contributing on the <strong>frontend</strong> (React, Vue) when a project needs it.",
+      "pt": "Tenho experiência com deploy na <strong>nuvem</strong> (AWS, Azure e GCP) e contribuo no <strong>frontend</strong> (React, Vue) quando o projeto exige."
+    },
+    {
+      "en": "Used to working in <strong>Agile (Scrum)</strong> teams, with my code covered by <strong>automated tests</strong> (pytest).",
+      "pt": "Acostumado a trabalhar em <strong>times ágeis (Scrum)</strong>, com meu código coberto por <strong>testes automatizados</strong> (pytest)."
+    }
+  ],
   "work": [
     {
       "company": "DataArt",
