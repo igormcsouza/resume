@@ -132,13 +132,13 @@
   ],
   "education": [
     {
-      "institution": "",
+      "institution": "Universidade Estácio de Sá",
       "degree": {
         "en": "Bachelor in Software Engineering",
         "pt": "Bacharelado em Engenharia de Software"
       },
-      "startDate": null,
-      "endDate": null
+      "startDate": "2021",
+      "endDate": "2025"
     }
   ],
   "projects": [

@@ -25,8 +25,8 @@
     ]
   },
   "profile": {
-    "en": "Full stack engineer with 7+ years of commercial experience in IT (since 2019), building web, mobile, and backend systems end-to-end. Main programming languages are Python, JavaScript, and TypeScript, with production experience in Java. On the back end, designs and ships REST APIs and microservices with FastAPI, Flask, and Django, event-driven architectures with Kafka and RabbitMQ, and data storage on PostgreSQL, DynamoDB, and S3. On the front end, builds web and mobile interfaces with React, React Native (Expo), Vue.js, Next.js, and TailwindCSS. Proficient with Docker, Kubernetes, Helm, Grafana, Linux, and GitHub Actions, and deploys to AWS (Lambda, API Gateway, Cognito, SQS, CDK), Azure, and GCP. Brings AI into products through LLM integrations (OpenAI), RAG pipelines (LangChain, FAISS, embeddings), custom MCP servers, and computer vision models (TensorFlow, PyTorch, OpenCV), and uses AI coding assistants such as Claude Code in daily development. Business domains include telecommunications and network operations, fintech (receivables financing and billing), enterprise QA analytics, assistive technology, document processing, and personal finance. Responsibilities span owning features from UI to database, API and architecture design alongside team architects, performance optimization (latency cut from 25s to 2s and from ~10s to ~2s), production debugging inside Kubernetes, infrastructure upgrades, and shared libraries adopted by other teams. Fluent in English and experienced working in distributed, international teams.",
-    "pt": "Engenheiro full stack com mais de 7 anos de experiência comercial em TI (desde 2019), construindo sistemas web, mobile e backend de ponta a ponta. As principais linguagens são Python, JavaScript e TypeScript, com experiência em produção também em Java. No back end, projeta e entrega APIs REST e microsserviços com FastAPI, Flask e Django, arquiteturas orientadas a eventos com Kafka e RabbitMQ, e armazenamento de dados em PostgreSQL, DynamoDB e S3. No front end, constrói interfaces web e mobile com React, React Native (Expo), Vue.js, Next.js e TailwindCSS. Proficiente em Docker, Kubernetes, Helm, Grafana, Linux e GitHub Actions, com deploys em AWS (Lambda, API Gateway, Cognito, SQS, CDK), Azure e GCP. Leva IA para produtos por meio de integrações com LLMs (OpenAI), pipelines RAG (LangChain, FAISS, embeddings), servidores MCP próprios e modelos de visão computacional (TensorFlow, PyTorch, OpenCV), e usa assistentes de código com IA, como o Claude Code, no dia a dia. Domínios de negócio incluem telecomunicações e operações de rede, fintech (antecipação de recebíveis e boletos), analytics de QA corporativo, tecnologia assistiva, processamento de documentos e finanças pessoais. As responsabilidades vão de ser dono de funcionalidades da interface ao banco de dados, design de APIs e arquitetura junto a arquitetos do time, otimização de performance (latência reduzida de 25s para 2s e de ~10s para ~2s), depuração em produção dentro do Kubernetes, atualizações de infraestrutura e bibliotecas compartilhadas adotadas por outros times. Inglês fluente e experiência em times distribuídos e internacionais."
+    "en": "Full stack engineer with 7+ years of commercial experience in IT (since 2019), building web, mobile, and backend systems end-to-end. Main programming languages are Python, JavaScript, and TypeScript, with production experience in Java. On the back end, designs and ships REST APIs and microservices with FastAPI, Flask, and Django, event-driven architectures with Kafka and RabbitMQ, and data storage on PostgreSQL, DynamoDB, and S3. On the front end, builds web and mobile interfaces with React, React Native (Expo), Vue.js, Next.js, and TailwindCSS. Proficient with Docker, Kubernetes, Helm, Grafana, Linux, and GitHub Actions, and deploys to AWS (Lambda, API Gateway, Cognito, SQS, CDK), Azure, and GCP. Brings AI into products through LLM integrations (OpenAI), RAG pipelines (LangChain, FAISS, embeddings), custom MCP servers, and computer vision models (TensorFlow, PyTorch, OpenCV), and uses AI coding assistants such as Claude Code in daily development. Business domains include network operations, fintech (receivables financing and billing), enterprise QA analytics, assistive technology, document processing, and personal finance. Responsibilities span owning features from UI to database, API and architecture design alongside team architects, performance optimization (latency cut from 25s to 2s and from ~10s to ~2s), production debugging inside Kubernetes, infrastructure upgrades, shared libraries adopted by other teams, and automated testing with pytest. Works in Agile (Scrum) teams. Fluent in English and experienced working in distributed, international teams.",
+    "pt": "Engenheiro full stack com mais de 7 anos de experiência comercial em TI (desde 2019), construindo sistemas web, mobile e backend de ponta a ponta. As principais linguagens são Python, JavaScript e TypeScript, com experiência em produção também em Java. No back end, projeta e entrega APIs REST e microsserviços com FastAPI, Flask e Django, arquiteturas orientadas a eventos com Kafka e RabbitMQ, e armazenamento de dados em PostgreSQL, DynamoDB e S3. No front end, constrói interfaces web e mobile com React, React Native (Expo), Vue.js, Next.js e TailwindCSS. Proficiente em Docker, Kubernetes, Helm, Grafana, Linux e GitHub Actions, com deploys em AWS (Lambda, API Gateway, Cognito, SQS, CDK), Azure e GCP. Leva IA para produtos por meio de integrações com LLMs (OpenAI), pipelines RAG (LangChain, FAISS, embeddings), servidores MCP próprios e modelos de visão computacional (TensorFlow, PyTorch, OpenCV), e usa assistentes de código com IA, como o Claude Code, no dia a dia. Domínios de negócio incluem operações de rede, fintech (antecipação de recebíveis e boletos), analytics de QA corporativo, tecnologia assistiva, processamento de documentos e finanças pessoais. As responsabilidades vão de ser dono de funcionalidades da interface ao banco de dados, design de APIs e arquitetura junto a arquitetos do time, otimização de performance (latência reduzida de 25s para 2s e de ~10s para ~2s), depuração em produção dentro do Kubernetes, atualizações de infraestrutura, bibliotecas compartilhadas adotadas por outros times e testes automatizados com pytest. Trabalha em times ágeis (Scrum). Inglês fluente e experiência em times distribuídos e internacionais."
   },
   "work": [
     {
@@ -40,8 +40,8 @@
       "endDate": null,
       "highlights": [
         {
-          "en": "Full-cycle engineer on a network field-operations platform for a telecommunications client, working across Python services, a JavaScript web frontend, and a Java/Hibernate backend.",
-          "pt": "Engenheiro de ciclo completo em uma plataforma de operações de campo de rede para um cliente de telecomunicações, atuando em serviços Python, frontend web em JavaScript e backend em Java/Hibernate."
+          "en": "Full-cycle engineer on a network field-operations platform for a US-based client, working across Python services, a JavaScript web frontend, and a Java/Hibernate backend.",
+          "pt": "Engenheiro de ciclo completo em uma plataforma de operações de campo de rede para um cliente dos EUA, atuando em serviços Python, frontend web em JavaScript e backend em Java/Hibernate."
         },
         {
           "en": "Helped migrate the platform to Kafka-based microservices on Kubernetes and led the Linux distribution upgrade of the internal infrastructure with no regressions.",
@@ -56,7 +56,8 @@
         "Kubernetes",
         "Helm",
         "Grafana",
-        "Linux"
+        "Linux",
+        "pytest"
       ]
     },
     {
@@ -87,7 +88,8 @@
         "S3",
         "Docker",
         "Kubernetes",
-        "GCP"
+        "GCP",
+        "pytest"
       ]
     },
     {
@@ -118,7 +120,8 @@
         "PyTorch",
         "Docker",
         "AWS",
-        "Azure"
+        "Azure",
+        "pytest"
       ]
     },
     {
@@ -147,19 +150,20 @@
         "Flask",
         "Qt",
         "Docker",
-        "Linux"
+        "Linux",
+        "pytest"
       ]
     }
   ],
   "education": [
     {
-      "institution": "",
+      "institution": "Universidade Estácio de Sá",
       "degree": {
         "en": "Bachelor in Software Engineering",
         "pt": "Bacharelado em Engenharia de Software"
       },
-      "startDate": null,
-      "endDate": null
+      "startDate": "2021",
+      "endDate": "2025"
     }
   ],
   "projects": [
@@ -173,7 +177,7 @@
         "en": "Full Stack Developer (sole developer)",
         "pt": "Desenvolvedor Full Stack (desenvolvedor único)"
       },
-      "startDate": null,
+      "startDate": "2026",
       "endDate": null,
       "description": {
         "en": "Android application that reads uploaded PDF books aloud with word-level highlighting synchronized to the audio, plus a chat sidebar for asking questions about the book scoped to the section being read. It makes long-form reading accessible hands-free and lets readers clarify content without leaving the book. I designed and built the whole product: the React Native (Expo) client, the FastAPI backend, and the AWS infrastructure. Uploaded books are processed asynchronously through an SQS-driven pipeline, with files in S3, metadata in DynamoDB, and authentication through Cognito. The backend runs on AWS Lambda and all infrastructure is defined as code with AWS CDK. The chat feature uses an LLM grounded on the current section so answers stay relevant to what the reader is looking at.",
@@ -204,7 +208,7 @@
         "en": "Full Stack Developer (sole developer)",
         "pt": "Desenvolvedor Full Stack (desenvolvedor único)"
       },
-      "startDate": null,
+      "startDate": "2026",
       "endDate": null,
       "description": {
         "en": "Cross-platform application for tracking expenses, income, and net worth, available on web, Android, and iOS from a single codebase. It gives users one consolidated view of their finances instead of scattered spreadsheets and banking apps. I built the product end-to-end, from the data model and REST API to the user interface. The React Native (Expo) client targets all three platforms, while the FastAPI backend runs as a Docker container image on AWS Lambda behind API Gateway. Users authenticate with Cognito-issued JWTs and data is stored in DynamoDB, keeping the service serverless and close to zero cost when idle. The containerized backend runs identically in local development and in production.",
@@ -226,8 +230,8 @@
     {
       "name": "Network Field Operations Platform",
       "client": {
-        "en": "US-based telecommunications company",
-        "pt": "Empresa de telecomunicações dos EUA"
+        "en": "US-based IT company",
+        "pt": "Empresa de TI dos EUA"
       },
       "role": {
         "en": "Python Engineer (full stack)",
@@ -252,7 +256,8 @@
         "Grafana",
         "Linux",
         "SSH/Telnet",
-        "Perl"
+        "Perl",
+        "pytest"
       ]
     },
     {
@@ -282,14 +287,15 @@
         "Docker",
         "Kubernetes",
         "GCP",
-        "Ruby"
+        "Ruby",
+        "pytest"
       ]
     },
     {
       "name": "QA Analytics Dashboard",
       "client": {
-        "en": "US-based multinational technology company",
-        "pt": "Multinacional de tecnologia dos EUA"
+        "en": "Brazil-based R&D branch of a multinational technology company",
+        "pt": "Braço de P&D no Brasil de uma multinacional de tecnologia"
       },
       "role": {
         "en": "Python Engineer (full stack)",
@@ -309,14 +315,15 @@
         "REST APIs",
         "Azure",
         "PostgreSQL",
-        "Machine Learning"
+        "Machine Learning",
+        "pytest"
       ]
     },
     {
       "name": "Assistive Web Browser",
       "client": {
-        "en": "US-based multinational technology company",
-        "pt": "Multinacional de tecnologia dos EUA"
+        "en": "Brazil-based R&D branch of a multinational technology company",
+        "pt": "Braço de P&D no Brasil de uma multinacional de tecnologia"
       },
       "role": {
         "en": "Python Engineer (full stack)",
@@ -339,7 +346,8 @@
         "JavaScript",
         "TensorFlow",
         "PyTorch",
-        "Computer Vision"
+        "Computer Vision",
+        "pytest"
       ]
     }
   ],
@@ -458,6 +466,16 @@
     },
     {
       "category": {
+        "en": "Testing",
+        "pt": "Testes"
+      },
+      "items": [
+        "pytest",
+        "Vitest"
+      ]
+    },
+    {
+      "category": {
         "en": "AI & Machine Learning",
         "pt": "IA & Machine Learning"
       },
@@ -476,6 +494,20 @@
         "Computer Vision",
         "NLP",
         "Reinforcement Learning"
+      ]
+    },
+    {
+      "category": {
+        "en": "Methodologies",
+        "pt": "Metodologias"
+      },
+      "items": [
+        "Agile",
+        "Scrum",
+        "Code Review",
+        "CI/CD",
+        "Microservices Architecture",
+        "Event-Driven Architecture"
       ]
     }
   ],
