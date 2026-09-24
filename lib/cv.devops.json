@@ -25,8 +25,8 @@
     ]
   },
   "profile": {
-    "en": "Backend engineer with 7+ years operating production infrastructure on Kubernetes and Docker, with Helm-managed deployments, Grafana-based observability, and Linux infrastructure ownership across AWS, Azure, and GCP. Led a Linux distro upgrade across internal infrastructure, proactively surfacing upgrade-breaking bugs before rollout. Comfortable debugging live production issues inside containers, tracing message flow across Kafka/RabbitMQ, and building the Python microservices that run on top of that infrastructure. Also builds and ships the applications this infrastructure serves, so operational decisions stay grounded in real service behavior.",
-    "pt": "Engenheiro backend com mais de 7 anos operando infraestrutura de produção em Kubernetes e Docker, com deploys gerenciados via Helm, observabilidade baseada em Grafana e gestão de infraestrutura Linux em AWS, Azure e GCP. Liderei uma atualização de distribuição Linux na infraestrutura interna, identificando proativamente bugs que quebrariam a atualização antes do rollout. Confortável depurando problemas em produção dentro de containers, rastreando o fluxo de mensagens em Kafka/RabbitMQ, e construindo os microsserviços em Python que rodam sobre essa infraestrutura. Também constrói e entrega as aplicações que essa infraestrutura sustenta, mantendo as decisões operacionais alinhadas ao comportamento real dos serviços."
+    "en": "Backend engineer with 7+ years operating production infrastructure on Kubernetes and Docker, with Helm-managed deployments, Grafana-based observability, and Linux infrastructure ownership across AWS, Azure, and GCP. Led a Linux distro upgrade across internal infrastructure, proactively surfacing upgrade-breaking bugs before rollout. Comfortable debugging live production issues inside containers, tracing message flow across Kafka/RabbitMQ, and building the Python microservices that run on top of that infrastructure. Also builds and ships the applications this infrastructure serves, so operational decisions stay grounded in real service behavior. Works in Agile (Scrum) teams and covers code with automated tests (pytest).",
+    "pt": "Engenheiro backend com mais de 7 anos operando infraestrutura de produção em Kubernetes e Docker, com deploys gerenciados via Helm, observabilidade baseada em Grafana e gestão de infraestrutura Linux em AWS, Azure e GCP. Liderei uma atualização de distribuição Linux na infraestrutura interna, identificando proativamente bugs que quebrariam a atualização antes do rollout. Confortável depurando problemas em produção dentro de containers, rastreando o fluxo de mensagens em Kafka/RabbitMQ, e construindo os microsserviços em Python que rodam sobre essa infraestrutura. Também constrói e entrega as aplicações que essa infraestrutura sustenta, mantendo as decisões operacionais alinhadas ao comportamento real dos serviços. Trabalha em times ágeis (Scrum) e cobre o código com testes automatizados (pytest)."
   },
   "work": [
     {
@@ -56,7 +56,7 @@
           "pt": "Estendi a comunicação com roteadores de Telnet/SSH para APIs REST, e também contribuí no frontend em JavaScript e no backend em Java/Hibernate."
         }
       ],
-      "technologies": ["Kubernetes", "Linux", "Kafka", "Grafana", "Python"]
+      "technologies": ["Kubernetes", "Linux", "Kafka", "Grafana", "Python", "pytest"]
     },
     {
       "company": "Liber Capital",
@@ -81,7 +81,7 @@
           "pt": "Construí um pacote de mensageria compartilhado, adotado por outros microsserviços em Python."
         }
       ],
-      "technologies": ["Docker", "Kubernetes", "RabbitMQ", "GCP", "PostgreSQL"]
+      "technologies": ["Docker", "Kubernetes", "RabbitMQ", "GCP", "PostgreSQL", "pytest"]
     },
     {
       "company": "Dell Lead",
@@ -106,7 +106,7 @@
           "pt": "Trabalhei em parceria com o arquiteto do time em decisões importantes, reduzindo a latência de chamadas síncronas de 25s para 2s ao paralelizar chamadas com asyncio."
         }
       ],
-      "technologies": ["Docker", "Azure", "AWS", "PostgreSQL"]
+      "technologies": ["Docker", "Azure", "AWS", "PostgreSQL", "pytest"]
     },
     {
       "company": "Deeper Systems",
@@ -123,18 +123,18 @@
           "pt": "Uso proficiente de Docker, Linux e SSH para desenvolvimento e implantação dos serviços do time."
         }
       ],
-      "technologies": ["Docker", "Linux"]
+      "technologies": ["Docker", "Linux", "pytest"]
     }
   ],
   "education": [
     {
-      "institution": "",
+      "institution": "Universidade Estácio de Sá",
       "degree": {
         "en": "Bachelor in Software Engineering",
         "pt": "Bacharelado em Engenharia de Software"
       },
-      "startDate": null,
-      "endDate": null
+      "startDate": "2021",
+      "endDate": "2025"
     }
   ],
   "projects": [
@@ -202,6 +202,20 @@
         "pt": "Backend"
       },
       "items": ["Python", "Flask", "REST APIs"]
+    },
+    {
+      "category": {
+        "en": "Testing",
+        "pt": "Testes"
+      },
+      "items": ["pytest", "Vitest"]
+    },
+    {
+      "category": {
+        "en": "Methodologies",
+        "pt": "Metodologias"
+      },
+      "items": ["Agile", "Scrum", "Code Review", "CI/CD"]
     }
   ],
   "languages": [

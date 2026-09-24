@@ -25,8 +25,8 @@
     ]
   },
   "profile": {
-    "en": "Backend-rooted data engineer with 7+ years building Python pipelines that move, transform, and store data reliably at scale. Experienced with event-driven ingestion using Kafka and RabbitMQ, async processing pipelines (SQS-driven), and storage layers spanning DynamoDB, S3, and PostgreSQL. Has built ETL-style pipelines for structured data extraction (OCR/CV data capture), embeddings indexing for retrieval, and dataset management for ML training. Runs data workloads on Kubernetes and Docker, with Grafana-based observability, across AWS, Azure, and GCP.",
-    "pt": "Engenheiro de dados com raiz em backend e mais de 7 anos construindo pipelines em Python que movem, transformam e armazenam dados de forma confiável em escala. Experiência com ingestão orientada a eventos usando Kafka e RabbitMQ, pipelines de processamento assíncrono (via SQS) e camadas de armazenamento incluindo DynamoDB, S3 e PostgreSQL. Já construiu pipelines no estilo ETL para extração estruturada de dados (captura via OCR/CV), indexação de embeddings para recuperação, e gestão de datasets para treinamento de ML. Opera workloads de dados em Kubernetes e Docker, com observabilidade via Grafana, em AWS, Azure e GCP."
+    "en": "Backend-rooted data engineer with 7+ years building Python pipelines that move, transform, and store data reliably at scale. Experienced with event-driven ingestion using Kafka and RabbitMQ, async processing pipelines (SQS-driven), and storage layers spanning DynamoDB, S3, and PostgreSQL. Has built ETL-style pipelines for structured data extraction (OCR/CV data capture), embeddings indexing for retrieval, and dataset management for ML training. Runs data workloads on Kubernetes and Docker, with Grafana-based observability, across AWS, Azure, and GCP. Works in Agile (Scrum) teams and covers code with automated tests (pytest).",
+    "pt": "Engenheiro de dados com raiz em backend e mais de 7 anos construindo pipelines em Python que movem, transformam e armazenam dados de forma confiável em escala. Experiência com ingestão orientada a eventos usando Kafka e RabbitMQ, pipelines de processamento assíncrono (via SQS) e camadas de armazenamento incluindo DynamoDB, S3 e PostgreSQL. Já construiu pipelines no estilo ETL para extração estruturada de dados (captura via OCR/CV), indexação de embeddings para recuperação, e gestão de datasets para treinamento de ML. Opera workloads de dados em Kubernetes e Docker, com observabilidade via Grafana, em AWS, Azure e GCP. Trabalha em times ágeis (Scrum) e cobre o código com testes automatizados (pytest)."
   },
   "work": [
     {
@@ -52,7 +52,7 @@
           "pt": "Gerenciei charts Helm no Kubernetes e dashboards Grafana para melhorar a observabilidade dos pipelines de dados e serviços."
         }
       ],
-      "technologies": ["Python", "Kafka", "Kubernetes", "Grafana"]
+      "technologies": ["Python", "Kafka", "Kubernetes", "Grafana", "pytest"]
     },
     {
       "company": "Liber Capital",
@@ -81,7 +81,7 @@
           "pt": "Construí um pacote de mensageria compartilhado, adotado por outros microsserviços em Python, para tratamento consistente de eventos."
         }
       ],
-      "technologies": ["Python", "RabbitMQ", "Kubernetes", "GCP", "PostgreSQL", "S3", "Metabase"]
+      "technologies": ["Python", "RabbitMQ", "Kubernetes", "GCP", "PostgreSQL", "S3", "Metabase", "pytest"]
     },
     {
       "company": "Deeper Systems",
@@ -106,7 +106,7 @@
           "pt": "Gerenciei os conjuntos de dados de imagens usados no treinamento, incluindo uma ferramenta desktop em Qt para captura e rotulagem de dados de treinamento."
         }
       ],
-      "technologies": ["Python", "TensorFlow", "OpenCV", "Docker"]
+      "technologies": ["Python", "TensorFlow", "OpenCV", "Docker", "pytest"]
     },
     {
       "company": "Dell Lead",
@@ -127,18 +127,18 @@
           "pt": "Trabalhei em parceria com o arquiteto do time em decisões importantes, reduzindo a latência de processamento síncrono de dados de 25s para 2s ao paralelizar chamadas com asyncio."
         }
       ],
-      "technologies": ["Flask", "AWS Lambda", "Docker", "asyncio", "PostgreSQL"]
+      "technologies": ["Flask", "AWS Lambda", "Docker", "asyncio", "PostgreSQL", "pytest"]
     }
   ],
   "education": [
     {
-      "institution": "",
+      "institution": "Universidade Estácio de Sá",
       "degree": {
         "en": "Bachelor in Software Engineering",
         "pt": "Bacharelado em Engenharia de Software"
       },
-      "startDate": null,
-      "endDate": null
+      "startDate": "2021",
+      "endDate": "2025"
     }
   ],
   "projects": [
@@ -191,6 +191,20 @@
         "pt": "Infraestrutura"
       },
       "items": ["Docker", "Kubernetes", "Grafana", "Linux", "AWS", "Azure", "GCP"]
+    },
+    {
+      "category": {
+        "en": "Testing",
+        "pt": "Testes"
+      },
+      "items": ["pytest", "Vitest"]
+    },
+    {
+      "category": {
+        "en": "Methodologies",
+        "pt": "Metodologias"
+      },
+      "items": ["Agile", "Scrum", "Code Review", "CI/CD"]
     }
   ],
   "languages": [

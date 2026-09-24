@@ -25,8 +25,8 @@
     ]
   },
   "profile": {
-    "en": "AI/ML engineer with 7+ years shipping ML pipelines end-to-end, from training (TensorFlow, Torch, computer vision) to production inference APIs. Embeds AI into real products through LLM integrations, RAG pipelines (LangChain, FAISS, embeddings), and custom MCP servers exposing tools and knowledge to AI assistants. Builds and owns the Python backend that serves models in production (Flask, FastAPI), with Docker/Kubernetes deployment and observability so models stay reliable under real traffic. Comfortable across AWS, Azure, and GCP, and experienced parallelizing model calls with asyncio to cut inference latency.",
-    "pt": "Engenheiro de IA/ML com mais de 7 anos entregando pipelines de machine learning de ponta a ponta, do treinamento (TensorFlow, Torch, visão computacional) a APIs de inferência em produção. Incorpora IA em produtos reais por meio de integrações com LLMs, pipelines RAG (LangChain, FAISS, embeddings) e servidores MCP próprios que expõem ferramentas e conhecimento a assistentes de IA. Constrói e mantém o backend em Python que serve os modelos em produção (Flask, FastAPI), com deploy em Docker/Kubernetes e observabilidade para manter os modelos confiáveis sob tráfego real. Transita bem entre AWS, Azure e GCP, com experiência em paralelizar chamadas a modelos com asyncio para reduzir latência de inferência."
+    "en": "AI/ML engineer with 7+ years shipping ML pipelines end-to-end, from training (TensorFlow, Torch, computer vision) to production inference APIs. Embeds AI into real products through LLM integrations, RAG pipelines (LangChain, FAISS, embeddings), and custom MCP servers exposing tools and knowledge to AI assistants. Builds and owns the Python backend that serves models in production (Flask, FastAPI), with Docker/Kubernetes deployment and observability so models stay reliable under real traffic. Comfortable across AWS, Azure, and GCP, and experienced parallelizing model calls with asyncio to cut inference latency. Works in Agile (Scrum) teams and covers code with automated tests (pytest).",
+    "pt": "Engenheiro de IA/ML com mais de 7 anos entregando pipelines de machine learning de ponta a ponta, do treinamento (TensorFlow, Torch, visão computacional) a APIs de inferência em produção. Incorpora IA em produtos reais por meio de integrações com LLMs, pipelines RAG (LangChain, FAISS, embeddings) e servidores MCP próprios que expõem ferramentas e conhecimento a assistentes de IA. Constrói e mantém o backend em Python que serve os modelos em produção (Flask, FastAPI), com deploy em Docker/Kubernetes e observabilidade para manter os modelos confiáveis sob tráfego real. Transita bem entre AWS, Azure e GCP, com experiência em paralelizar chamadas a modelos com asyncio para reduzir latência de inferência. Trabalha em times ágeis (Scrum) e cobre o código com testes automatizados (pytest)."
   },
   "work": [
     {
@@ -52,7 +52,7 @@
           "pt": "Gerenciei charts Helm no Kubernetes e dashboards Grafana para melhorar a observabilidade dos serviços, a mesma disciplina aplicada para manter serviços de inferência de ML confiáveis em produção."
         }
       ],
-      "technologies": ["Python", "Kubernetes", "Kafka", "Grafana"]
+      "technologies": ["Python", "Kubernetes", "Kafka", "Grafana", "pytest"]
     },
     {
       "company": "Dell Lead",
@@ -81,7 +81,7 @@
           "pt": "Construí o backend em Flask e o frontend em React de um plugin de dashboard integrado ao programa de QA gerenciado por produtos da Microsoft, exibindo métricas de QA e previsões, e ajudei a entregar o modelo de previsão."
         }
       ],
-      "technologies": ["TensorFlow", "Torch", "Flask", "Docker", "Azure", "AWS", "asyncio", "PostgreSQL"]
+      "technologies": ["TensorFlow", "Torch", "Flask", "Docker", "Azure", "AWS", "asyncio", "PostgreSQL", "pytest"]
     },
     {
       "company": "Deeper Systems",
@@ -106,7 +106,7 @@
           "pt": "Gerenciei os conjuntos de imagens usados no treinamento, incluindo uma ferramenta desktop em Qt para captura e rotulagem de imagens de treinamento."
         }
       ],
-      "technologies": ["Python", "TensorFlow", "OpenCV", "Flask", "Docker"]
+      "technologies": ["Python", "TensorFlow", "OpenCV", "Flask", "Docker", "pytest"]
     },
     {
       "company": "Liber Capital",
@@ -127,18 +127,18 @@
           "pt": "Fui responsável por um microsserviço em Kubernetes que buscava boletos do sistema nacional de boletos e os armazenava para uso posterior."
         }
       ],
-      "technologies": ["Python", "Flask", "Kubernetes", "RabbitMQ", "PostgreSQL"]
+      "technologies": ["Python", "Flask", "Kubernetes", "RabbitMQ", "PostgreSQL", "pytest"]
     }
   ],
   "education": [
     {
-      "institution": "",
+      "institution": "Universidade Estácio de Sá",
       "degree": {
         "en": "Bachelor in Software Engineering",
         "pt": "Bacharelado em Engenharia de Software"
       },
-      "startDate": null,
-      "endDate": null
+      "startDate": "2021",
+      "endDate": "2025"
     }
   ],
   "projects": [
@@ -199,6 +199,20 @@
         "pt": "Infraestrutura"
       },
       "items": ["Docker", "Kubernetes", "AWS", "Azure", "GCP"]
+    },
+    {
+      "category": {
+        "en": "Testing",
+        "pt": "Testes"
+      },
+      "items": ["pytest", "Vitest"]
+    },
+    {
+      "category": {
+        "en": "Methodologies",
+        "pt": "Metodologias"
+      },
+      "items": ["Agile", "Scrum", "Code Review", "CI/CD"]
     }
   ],
   "languages": [
