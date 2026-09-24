@@ -41,8 +41,13 @@ describe.each(CV_FILES)("%s", (file) => {
       expect(job.company).toBeTruthy();
       expect(job.startDate).toBeTruthy();
       expectLocalized(job.position, `work[${job.company}].position`);
-      expect(job.highlights.length).toBeGreaterThan(0);
+      // A job describes its work through highlights, nested projects, or both.
+      expect(job.highlights.length + (job.projects?.length ?? 0)).toBeGreaterThan(0);
       job.highlights.forEach((h, i) => expectLocalized(h, `work[${job.company}].highlights[${i}]`));
+      for (const project of job.projects ?? []) {
+        expect(project.name).toBeTruthy();
+        expectLocalized(project.description, `work[${job.company}].projects[${project.name}].description`);
+      }
     }
   });
 

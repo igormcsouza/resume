@@ -38,26 +38,40 @@
       },
       "startDate": "2022-05",
       "endDate": null,
-      "highlights": [
+      "highlights": [],
+      "technologies": [],
+      "projects": [
         {
-          "en": "Full-cycle engineer on a network field-operations platform for a US-based client, working across Python services, a JavaScript web frontend, and a Java/Hibernate backend.",
-          "pt": "Engenheiro de ciclo completo em uma plataforma de operações de campo de rede para um cliente dos EUA, atuando em serviços Python, frontend web em JavaScript e backend em Java/Hibernate."
-        },
-        {
-          "en": "Helped migrate the platform to Kafka-based microservices on Kubernetes and led the Linux distribution upgrade of the internal infrastructure with no regressions.",
-          "pt": "Ajudei a migrar a plataforma para microsserviços baseados em Kafka no Kubernetes e liderei a atualização da distribuição Linux da infraestrutura interna, sem regressões."
+          "name": "Network Field Operations Platform",
+          "client": {
+            "en": "US-based IT company",
+            "pt": "Empresa de TI dos EUA"
+          },
+          "role": {
+            "en": "Python Engineer (full stack)",
+            "pt": "Engenheiro Python (full stack)"
+          },
+          "description": {
+            "en": "Platform used by the client's field and network operations teams to configure, manage, and monitor routers across its network. Automating device operations reduces manual work for field engineers and speeds up network changes. I built the Python services that communicate with routers over Telnet and SSH, later extended them to the devices' REST APIs, and contributed to the JavaScript web frontend and the Java/Hibernate backend. I then helped migrate the domain to an event-driven microservices architecture with Kafka as the backbone, replacing SSH polling with asynchronous messaging and cutting round-trip latency from ~10s to ~2s despite more components in the flow. I maintained the Kubernetes Helm charts and built Grafana dashboards that improved observability of the services. I also led the Linux distribution upgrade of the internal infrastructure, finding 4–5 upgrade-breaking bugs and documenting fixes ahead of rollout, so the migration preserved pre-upgrade uptime with no regressions.",
+            "pt": "Plataforma usada pelas equipes de campo e de operações de rede do cliente para configurar, gerenciar e monitorar roteadores em toda a rede. A automação das operações nos equipamentos reduz o trabalho manual dos engenheiros de campo e acelera mudanças na rede. Construí os serviços em Python que se comunicam com os roteadores via Telnet e SSH, depois os estendi para as APIs REST dos equipamentos, e contribuí no frontend web em JavaScript e no backend em Java/Hibernate. Em seguida, ajudei a migrar o domínio para uma arquitetura de microsserviços orientada a eventos com Kafka como backbone, substituindo o polling via SSH por mensageria assíncrona e reduzindo a latência de ida e volta de ~10s para ~2s, mesmo com mais componentes no fluxo. Mantive os charts Helm no Kubernetes e criei dashboards no Grafana que melhoraram a observabilidade dos serviços. Também liderei a atualização da distribuição Linux da infraestrutura interna, encontrando de 4 a 5 bugs que quebrariam a atualização e documentando as correções antes do rollout, de modo que a migração manteve o uptime anterior sem regressões."
+          },
+          "stack": [
+            "Python",
+            "JavaScript",
+            "Java",
+            "Hibernate",
+            "Kafka",
+            "REST APIs",
+            "Microservices",
+            "Kubernetes",
+            "Helm",
+            "Grafana",
+            "Linux",
+            "SSH/Telnet",
+            "Perl",
+            "pytest"
+          ]
         }
-      ],
-      "technologies": [
-        "Python",
-        "JavaScript",
-        "Java",
-        "Kafka",
-        "Kubernetes",
-        "Helm",
-        "Grafana",
-        "Linux",
-        "pytest"
       ]
     },
     {
@@ -69,27 +83,38 @@
       },
       "startDate": "2021-12",
       "endDate": "2022-05",
-      "highlights": [
+      "highlights": [],
+      "technologies": [],
+      "projects": [
         {
-          "en": "Built and maintained Python microservices on Kubernetes (GCP) for a receivables-financing platform: bill retrieval, high-volume document ingestion into PostgreSQL and S3, and RabbitMQ messaging.",
-          "pt": "Construí e mantive microsserviços Python no Kubernetes (GCP) para uma plataforma de antecipação de recebíveis: busca de boletos, ingestão de documentos em alto volume no PostgreSQL e S3, e mensageria com RabbitMQ."
-        },
-        {
-          "en": "Fixed a production data-loss bug that cut the bill-loss rate from ~20% to ~1%, and built a shared messaging package adopted by other services.",
-          "pt": "Corrigi um bug de perda de dados em produção que reduziu a taxa de perda de boletos de ~20% para ~1%, e construí um pacote de mensageria compartilhado adotado por outros serviços."
+          "name": "Receivables Financing Platform",
+          "client": {
+            "en": "Brazil-based fintech company",
+            "pt": "Fintech brasileira"
+          },
+          "role": {
+            "en": "Python Engineer (backend)",
+            "pt": "Engenheiro Python (backend)"
+          },
+          "description": {
+            "en": "Fintech platform that lets businesses finance their receivables, relying on bills and receipt documents collected from Brazil's national banking infrastructure. Reliable ingestion of these documents is critical to the platform's financial operations, and any lost record meant manual recovery work. I owned the Kubernetes microservice that retrieved bills from the national bill service and stored them for downstream use, and built a high-volume ingestion pipeline that parsed receipt files, extracted the relevant fields into PostgreSQL alongside each file's S3 location, and used Metabase to analyze and debug the data. I diagnosed a bill-loss bug between the microservice and the legacy Django monolith by debugging inside Kubernetes containers, tracing RabbitMQ message flow, and auditing a Ruby connector; the fix cut the loss rate from ~20% to ~1%. I also built a shared messaging package adopted by other Python microservices to standardize RabbitMQ integration. Finally, I helped build the Django API-based microservice that replaced the legacy monolith.",
+            "pt": "Plataforma fintech que permite a empresas antecipar seus recebíveis, com base em boletos e recibos coletados da infraestrutura bancária nacional brasileira. A ingestão confiável desses documentos é crítica para as operações financeiras da plataforma, e qualquer registro perdido significava trabalho manual de recuperação. Fui responsável pelo microsserviço em Kubernetes que buscava boletos no serviço nacional de boletos e os armazenava para uso posterior, e construí um pipeline de ingestão de alto volume que fazia o parsing dos arquivos de recibos, extraía os campos relevantes para o PostgreSQL junto com a localização de cada arquivo no S3, e usava o Metabase para analisar e depurar os dados. Diagnostiquei um bug de perda de boletos entre o microsserviço e o monólito legado em Django depurando dentro de containers Kubernetes, rastreando o fluxo de mensagens no RabbitMQ e auditando um conector em Ruby; a correção reduziu a taxa de perda de ~20% para ~1%. Também construí um pacote de mensageria compartilhado, adotado por outros microsserviços Python, para padronizar a integração com o RabbitMQ. Por fim, ajudei a construir o microsserviço baseado em API Django que substituiu o monólito legado."
+          },
+          "stack": [
+            "Python",
+            "Django",
+            "Flask",
+            "RabbitMQ",
+            "PostgreSQL",
+            "S3",
+            "Metabase",
+            "Docker",
+            "Kubernetes",
+            "GCP",
+            "Ruby",
+            "pytest"
+          ]
         }
-      ],
-      "technologies": [
-        "Python",
-        "Django",
-        "Flask",
-        "RabbitMQ",
-        "PostgreSQL",
-        "S3",
-        "Docker",
-        "Kubernetes",
-        "GCP",
-        "pytest"
       ]
     },
     {
@@ -101,27 +126,64 @@
       },
       "startDate": "2020-04",
       "endDate": "2021-12",
-      "highlights": [
+      "highlights": [],
+      "technologies": [],
+      "projects": [
         {
-          "en": "Delivered full-stack R&D products: Flask backends with React and Vue.js frontends, and APIs serving in-house machine learning models on AWS and Azure.",
-          "pt": "Entreguei produtos full stack de P&D: backends em Flask com frontends em React e Vue.js, e APIs servindo modelos de machine learning próprios na AWS e na Azure."
+          "name": "QA Analytics Dashboard",
+          "client": {
+            "en": "Brazil-based R&D branch of a multinational technology company",
+            "pt": "Braço de P&D no Brasil de uma multinacional de tecnologia"
+          },
+          "role": {
+            "en": "Python Engineer (full stack)",
+            "pt": "Engenheiro Python (full stack)"
+          },
+          "description": {
+            "en": "Dashboard plugin integrated into an enterprise QA program built on Microsoft products, giving QA managers a consolidated view of quality metrics and forecasts. It helps teams track product quality and plan QA effort from data instead of manually assembled reports. I built the Flask backend that aggregated and served the QA metrics, and the React frontend that presented them as interactive dashboards. I also helped deliver the forecasting model behind the dashboard's predictions and integrated it into the API. Working with the team architect, I handled the Azure requirements for getting the plugin approved on the platform. The team was composed mostly of trainees, so I also took part in key technical decisions and code quality.",
+            "pt": "Plugin de dashboard integrado a um programa corporativo de QA baseado em produtos da Microsoft, oferecendo aos gestores de QA uma visão consolidada de métricas de qualidade e previsões. Ajuda os times a acompanhar a qualidade do produto e planejar o esforço de QA com base em dados, em vez de relatórios montados manualmente. Construí o backend em Flask que agregava e servia as métricas de QA, e o frontend em React que as apresentava em dashboards interativos. Também ajudei a entregar o modelo de previsão por trás das projeções do dashboard e o integrei à API. Junto ao arquiteto do time, lidei com os requisitos da Azure para a aprovação do plugin na plataforma. O time era composto majoritariamente por estagiários, então também participei de decisões técnicas importantes e do cuidado com a qualidade do código."
+          },
+          "stack": [
+            "Python",
+            "Flask",
+            "React",
+            "JavaScript",
+            "REST APIs",
+            "Azure",
+            "PostgreSQL",
+            "Machine Learning",
+            "pytest"
+          ]
         },
         {
-          "en": "Partnered with the team architect on key technical decisions, cutting API latency from 25s to 2s by parallelizing model calls with asyncio.",
-          "pt": "Trabalhei em parceria com o arquiteto do time em decisões técnicas importantes, reduzindo a latência da API de 25s para 2s ao paralelizar chamadas aos modelos com asyncio."
+          "name": "Assistive Web Browser",
+          "client": {
+            "en": "Brazil-based R&D branch of a multinational technology company",
+            "pt": "Braço de P&D no Brasil de uma multinacional de tecnologia"
+          },
+          "role": {
+            "en": "Python Engineer (full stack)",
+            "pt": "Engenheiro Python (full stack)"
+          },
+          "description": {
+            "en": "Assistive web browser that helps users understand page content through machine learning, powered by two in-house models: one identifies icons and describes their meaning in words, the other extracts text and context from images. It improves web accessibility for users who cannot rely on visual cues alone. I built the backend that served both models, designing the pipeline end-to-end with Flask behind an AWS Lambda function, and contributed to the Vue.js browser frontend. To keep development fast, I used Docker and Docker Compose to emulate the Lambda environment locally. Partnering with the team architect, I cut the latency of synchronous requests from 25s to 2s by parallelizing the model calls with asyncio. This made the browser responsive enough for real-time use.",
+            "pt": "Navegador web assistivo que ajuda usuários a entender o conteúdo das páginas por meio de machine learning, com dois modelos desenvolvidos internamente: um identifica ícones e descreve seu significado em palavras, o outro extrai texto e contexto de imagens. Melhora a acessibilidade da web para usuários que não podem depender apenas de pistas visuais. Construí o backend que servia os dois modelos, desenhando o pipeline de ponta a ponta com Flask por trás de uma função AWS Lambda, e contribuí no frontend do navegador em Vue.js. Para agilizar o desenvolvimento, usei Docker e Docker Compose para emular o ambiente do Lambda localmente. Em parceria com o arquiteto do time, reduzi a latência das requisições síncronas de 25s para 2s ao paralelizar as chamadas aos modelos com asyncio. Isso tornou o navegador responsivo o suficiente para uso em tempo real."
+          },
+          "stack": [
+            "Python",
+            "Flask",
+            "asyncio",
+            "AWS Lambda",
+            "Docker",
+            "Docker Compose",
+            "Vue.js",
+            "JavaScript",
+            "TensorFlow",
+            "PyTorch",
+            "Computer Vision",
+            "pytest"
+          ]
         }
-      ],
-      "technologies": [
-        "Python",
-        "Flask",
-        "React",
-        "Vue.js",
-        "TensorFlow",
-        "PyTorch",
-        "Docker",
-        "AWS",
-        "Azure",
-        "pytest"
       ]
     },
     {
@@ -225,129 +287,6 @@
         "Cognito",
         "DynamoDB",
         "Docker"
-      ]
-    },
-    {
-      "name": "Network Field Operations Platform",
-      "client": {
-        "en": "US-based IT company",
-        "pt": "Empresa de TI dos EUA"
-      },
-      "role": {
-        "en": "Python Engineer (full stack)",
-        "pt": "Engenheiro Python (full stack)"
-      },
-      "startDate": "2022-05",
-      "endDate": null,
-      "description": {
-        "en": "Platform used by the client's field and network operations teams to configure, manage, and monitor routers across its network. Automating device operations reduces manual work for field engineers and speeds up network changes. I built the Python services that communicate with routers over Telnet and SSH, later extended them to the devices' REST APIs, and contributed to the JavaScript web frontend and the Java/Hibernate backend. I then helped migrate the domain to an event-driven microservices architecture with Kafka as the backbone, replacing SSH polling with asynchronous messaging and cutting round-trip latency from ~10s to ~2s despite more components in the flow. I maintained the Kubernetes Helm charts and built Grafana dashboards that improved observability of the services. I also led the Linux distribution upgrade of the internal infrastructure, finding 4–5 upgrade-breaking bugs and documenting fixes ahead of rollout, so the migration preserved pre-upgrade uptime with no regressions.",
-        "pt": "Plataforma usada pelas equipes de campo e de operações de rede do cliente para configurar, gerenciar e monitorar roteadores em toda a rede. A automação das operações nos equipamentos reduz o trabalho manual dos engenheiros de campo e acelera mudanças na rede. Construí os serviços em Python que se comunicam com os roteadores via Telnet e SSH, depois os estendi para as APIs REST dos equipamentos, e contribuí no frontend web em JavaScript e no backend em Java/Hibernate. Em seguida, ajudei a migrar o domínio para uma arquitetura de microsserviços orientada a eventos com Kafka como backbone, substituindo o polling via SSH por mensageria assíncrona e reduzindo a latência de ida e volta de ~10s para ~2s, mesmo com mais componentes no fluxo. Mantive os charts Helm no Kubernetes e criei dashboards no Grafana que melhoraram a observabilidade dos serviços. Também liderei a atualização da distribuição Linux da infraestrutura interna, encontrando de 4 a 5 bugs que quebrariam a atualização e documentando as correções antes do rollout, de modo que a migração manteve o uptime anterior sem regressões."
-      },
-      "stack": [
-        "Python",
-        "JavaScript",
-        "Java",
-        "Hibernate",
-        "Kafka",
-        "REST APIs",
-        "Microservices",
-        "Kubernetes",
-        "Helm",
-        "Grafana",
-        "Linux",
-        "SSH/Telnet",
-        "Perl",
-        "pytest"
-      ]
-    },
-    {
-      "name": "Receivables Financing Platform",
-      "client": {
-        "en": "Brazil-based fintech company",
-        "pt": "Fintech brasileira"
-      },
-      "role": {
-        "en": "Python Engineer (backend)",
-        "pt": "Engenheiro Python (backend)"
-      },
-      "startDate": "2021-12",
-      "endDate": "2022-05",
-      "description": {
-        "en": "Fintech platform that lets businesses finance their receivables, relying on bills and receipt documents collected from Brazil's national banking infrastructure. Reliable ingestion of these documents is critical to the platform's financial operations, and any lost record meant manual recovery work. I owned the Kubernetes microservice that retrieved bills from the national bill service and stored them for downstream use, and built a high-volume ingestion pipeline that parsed receipt files, extracted the relevant fields into PostgreSQL alongside each file's S3 location, and used Metabase to analyze and debug the data. I diagnosed a bill-loss bug between the microservice and the legacy Django monolith by debugging inside Kubernetes containers, tracing RabbitMQ message flow, and auditing a Ruby connector; the fix cut the loss rate from ~20% to ~1%. I also built a shared messaging package adopted by other Python microservices to standardize RabbitMQ integration. Finally, I helped build the Django API-based microservice that replaced the legacy monolith.",
-        "pt": "Plataforma fintech que permite a empresas antecipar seus recebíveis, com base em boletos e recibos coletados da infraestrutura bancária nacional brasileira. A ingestão confiável desses documentos é crítica para as operações financeiras da plataforma, e qualquer registro perdido significava trabalho manual de recuperação. Fui responsável pelo microsserviço em Kubernetes que buscava boletos no serviço nacional de boletos e os armazenava para uso posterior, e construí um pipeline de ingestão de alto volume que fazia o parsing dos arquivos de recibos, extraía os campos relevantes para o PostgreSQL junto com a localização de cada arquivo no S3, e usava o Metabase para analisar e depurar os dados. Diagnostiquei um bug de perda de boletos entre o microsserviço e o monólito legado em Django depurando dentro de containers Kubernetes, rastreando o fluxo de mensagens no RabbitMQ e auditando um conector em Ruby; a correção reduziu a taxa de perda de ~20% para ~1%. Também construí um pacote de mensageria compartilhado, adotado por outros microsserviços Python, para padronizar a integração com o RabbitMQ. Por fim, ajudei a construir o microsserviço baseado em API Django que substituiu o monólito legado."
-      },
-      "stack": [
-        "Python",
-        "Django",
-        "Flask",
-        "RabbitMQ",
-        "PostgreSQL",
-        "S3",
-        "Metabase",
-        "Docker",
-        "Kubernetes",
-        "GCP",
-        "Ruby",
-        "pytest"
-      ]
-    },
-    {
-      "name": "QA Analytics Dashboard",
-      "client": {
-        "en": "Brazil-based R&D branch of a multinational technology company",
-        "pt": "Braço de P&D no Brasil de uma multinacional de tecnologia"
-      },
-      "role": {
-        "en": "Python Engineer (full stack)",
-        "pt": "Engenheiro Python (full stack)"
-      },
-      "startDate": "2020-04",
-      "endDate": "2021-12",
-      "description": {
-        "en": "Dashboard plugin integrated into an enterprise QA program built on Microsoft products, giving QA managers a consolidated view of quality metrics and forecasts. It helps teams track product quality and plan QA effort from data instead of manually assembled reports. I built the Flask backend that aggregated and served the QA metrics, and the React frontend that presented them as interactive dashboards. I also helped deliver the forecasting model behind the dashboard's predictions and integrated it into the API. Working with the team architect, I handled the Azure requirements for getting the plugin approved on the platform. The team was composed mostly of trainees, so I also took part in key technical decisions and code quality.",
-        "pt": "Plugin de dashboard integrado a um programa corporativo de QA baseado em produtos da Microsoft, oferecendo aos gestores de QA uma visão consolidada de métricas de qualidade e previsões. Ajuda os times a acompanhar a qualidade do produto e planejar o esforço de QA com base em dados, em vez de relatórios montados manualmente. Construí o backend em Flask que agregava e servia as métricas de QA, e o frontend em React que as apresentava em dashboards interativos. Também ajudei a entregar o modelo de previsão por trás das projeções do dashboard e o integrei à API. Junto ao arquiteto do time, lidei com os requisitos da Azure para a aprovação do plugin na plataforma. O time era composto majoritariamente por estagiários, então também participei de decisões técnicas importantes e do cuidado com a qualidade do código."
-      },
-      "stack": [
-        "Python",
-        "Flask",
-        "React",
-        "JavaScript",
-        "REST APIs",
-        "Azure",
-        "PostgreSQL",
-        "Machine Learning",
-        "pytest"
-      ]
-    },
-    {
-      "name": "Assistive Web Browser",
-      "client": {
-        "en": "Brazil-based R&D branch of a multinational technology company",
-        "pt": "Braço de P&D no Brasil de uma multinacional de tecnologia"
-      },
-      "role": {
-        "en": "Python Engineer (full stack)",
-        "pt": "Engenheiro Python (full stack)"
-      },
-      "startDate": "2020-04",
-      "endDate": "2021-12",
-      "description": {
-        "en": "Assistive web browser that helps users understand page content through machine learning, powered by two in-house models: one identifies icons and describes their meaning in words, the other extracts text and context from images. It improves web accessibility for users who cannot rely on visual cues alone. I built the backend that served both models, designing the pipeline end-to-end with Flask behind an AWS Lambda function, and contributed to the Vue.js browser frontend. To keep development fast, I used Docker and Docker Compose to emulate the Lambda environment locally. Partnering with the team architect, I cut the latency of synchronous requests from 25s to 2s by parallelizing the model calls with asyncio. This made the browser responsive enough for real-time use.",
-        "pt": "Navegador web assistivo que ajuda usuários a entender o conteúdo das páginas por meio de machine learning, com dois modelos desenvolvidos internamente: um identifica ícones e descreve seu significado em palavras, o outro extrai texto e contexto de imagens. Melhora a acessibilidade da web para usuários que não podem depender apenas de pistas visuais. Construí o backend que servia os dois modelos, desenhando o pipeline de ponta a ponta com Flask por trás de uma função AWS Lambda, e contribuí no frontend do navegador em Vue.js. Para agilizar o desenvolvimento, usei Docker e Docker Compose para emular o ambiente do Lambda localmente. Em parceria com o arquiteto do time, reduzi a latência das requisições síncronas de 25s para 2s ao paralelizar as chamadas aos modelos com asyncio. Isso tornou o navegador responsivo o suficiente para uso em tempo real."
-      },
-      "stack": [
-        "Python",
-        "Flask",
-        "asyncio",
-        "AWS Lambda",
-        "Docker",
-        "Docker Compose",
-        "Vue.js",
-        "JavaScript",
-        "TensorFlow",
-        "PyTorch",
-        "Computer Vision",
-        "pytest"
       ]
     }
   ],

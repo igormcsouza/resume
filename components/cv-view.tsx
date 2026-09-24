@@ -225,6 +225,7 @@ export default function CvView({ lang, cv, role }: { lang: Lang; cv: Cv; role?: 
             {cv.work.map((job) => (
               <Entry
                 key={`${job.company}-${job.startDate}`}
+                breakable={Boolean(job.projects?.length)}
                 aside={
                   <>
                     {job.url
@@ -234,12 +235,36 @@ export default function CvView({ lang, cv, role }: { lang: Lang; cv: Cv; role?: 
                   </>
                 }
               >
-                <h3 className="mb-1.5 text-base font-bold">{loc(job.position)}</h3>
-                <ul className="flex list-disc flex-col gap-1 pl-4 text-sm text-foreground/80">
-                  {job.highlights.map((highlight, index) => (
-                    <li key={index}>{loc(highlight)}</li>
-                  ))}
-                </ul>
+                {job.projects?.length ? (
+                  job.projects.map((project, index) => (
+                    // Each project stays whole, and the job title travels with the first one.
+                    <div key={project.name} className="mt-3 break-inside-avoid first:mt-0">
+                      {index === 0 && <h3 className="mb-1.5 text-base font-bold">{loc(job.position)}</h3>}
+                      <h4 className="text-sm font-bold">{project.name}</h4>
+                      {(project.client || project.role) && (
+                        <p className="mb-1 text-sm italic text-muted-foreground">
+                          {[project.client, project.role].filter((v): v is Localized => Boolean(v)).map(loc).join(" · ")}
+                        </p>
+                      )}
+                      <p className="text-sm text-foreground/80">{loc(project.description)}</p>
+                      {project.stack.length > 0 && (
+                        <p className="mt-1.5 text-xs text-muted-foreground">
+                          <span className="font-semibold text-foreground/80">{labels.stack[lang]}:</span>{" "}
+                          {project.stack.join(" · ")}
+                        </p>
+                      )}
+                    </div>
+                  ))
+                ) : (
+                  <h3 className="mb-1.5 text-base font-bold">{loc(job.position)}</h3>
+                )}
+                {job.highlights.length > 0 && (
+                  <ul className="flex list-disc flex-col gap-1 pl-4 text-sm text-foreground/80">
+                    {job.highlights.map((highlight, index) => (
+                      <li key={index}>{loc(highlight)}</li>
+                    ))}
+                  </ul>
+                )}
                 {job.technologies.length > 0 && (
                   <p className="mt-1.5 text-xs text-muted-foreground">
                     <span className="font-semibold text-foreground/80">{labels.technologies[lang]}:</span>{" "}
@@ -257,7 +282,6 @@ export default function CvView({ lang, cv, role }: { lang: Lang; cv: Cv; role?: 
             {cv.projects.map((project) => (
               <Entry
                 key={project.name}
-                breakable
                 aside={
                   <>
                     {project.client && <span className="block font-semibold text-foreground/90">{loc(project.client)}</span>}

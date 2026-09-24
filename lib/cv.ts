@@ -38,6 +38,8 @@ export interface CvWork {
   endDate: string | null;
   highlights: Localized[];
   technologies: string[];
+  /** Client projects delivered in this role, described inline. */
+  projects?: CvProject[];
 }
 
 export interface CvEducation {
@@ -107,7 +109,7 @@ export const labels = {
   profile: { en: "Summary", pt: "Resumo" },
   employmentHistory: { en: "Work Experience", pt: "Experiência Profissional" },
   education: { en: "Education", pt: "Formação Acadêmica" },
-  projects: { en: "Projects", pt: "Projetos" },
+  projects: { en: "Personal Experience", pt: "Experiência Pessoal" },
   courses: { en: "Certifications & Courses", pt: "Certificações e Cursos" },
   stack: { en: "Technologies", pt: "Tecnologias" },
   client: { en: "Client", pt: "Cliente" },
