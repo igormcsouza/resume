@@ -26,32 +26,32 @@
   },
   "profile": [
     {
-      "en": "7+ years of experience in software engineering, rooted in backend development.",
-      "pt": "Mais de 7 anos de experiência em engenharia de software, com raiz em desenvolvimento backend."
+      "en": "I have 7+ years of experience in software engineering, rooted in backend development.",
+      "pt": "Tenho mais de 7 anos de experiência em engenharia de software, com raiz em desenvolvimento backend."
     },
     {
-      "en": "Builds Python <strong>data pipelines</strong> that move, transform, and store data reliably at scale.",
-      "pt": "Constrói <strong>pipelines de dados</strong> em Python que movem, transformam e armazenam dados de forma confiável em escala."
+      "en": "I build Python <strong>data pipelines</strong> that move, transform, and store data reliably at scale.",
+      "pt": "Construo <strong>pipelines de dados</strong> em Python que movem, transformam e armazenam dados de forma confiável em escala."
     },
     {
-      "en": "Designs <strong>event-driven ingestion</strong> with Kafka and RabbitMQ, plus async processing pipelines driven by SQS.",
-      "pt": "Projeta <strong>ingestão orientada a eventos</strong> com Kafka e RabbitMQ, além de pipelines de processamento assíncrono via SQS."
+      "en": "I design <strong>event-driven ingestion</strong> with Kafka and RabbitMQ, plus async processing pipelines driven by SQS.",
+      "pt": "Projeto <strong>ingestão orientada a eventos</strong> com Kafka e RabbitMQ, além de pipelines de processamento assíncrono via SQS."
     },
     {
-      "en": "Works with <strong>storage</strong> layers spanning DynamoDB, S3, and PostgreSQL.",
-      "pt": "Trabalha com camadas de <strong>armazenamento</strong> incluindo DynamoDB, S3 e PostgreSQL."
+      "en": "I work with <strong>storage</strong> layers spanning DynamoDB, S3, and PostgreSQL.",
+      "pt": "Trabalho com camadas de <strong>armazenamento</strong> incluindo DynamoDB, S3 e PostgreSQL."
     },
     {
-      "en": "Has built <strong>ETL</strong>-style pipelines for structured data extraction (OCR/CV data capture), embeddings indexing for retrieval, and dataset management for ML training.",
-      "pt": "Já construiu pipelines no estilo <strong>ETL</strong> para extração estruturada de dados (captura via OCR/CV), indexação de embeddings para recuperação e gestão de datasets para treinamento de ML."
+      "en": "I have built <strong>ETL</strong>-style pipelines for structured data extraction (OCR/CV data capture), embeddings indexing for retrieval, and dataset management for ML training.",
+      "pt": "Já construí pipelines no estilo <strong>ETL</strong> para extração estruturada de dados (captura via OCR/CV), indexação de embeddings para recuperação e gestão de datasets para treinamento de ML."
     },
     {
-      "en": "Runs data workloads on <strong>Kubernetes</strong> and <strong>Docker</strong>, with Grafana-based observability, across AWS, Azure, and GCP.",
-      "pt": "Opera workloads de dados em <strong>Kubernetes</strong> e <strong>Docker</strong>, com observabilidade via Grafana, em AWS, Azure e GCP."
+      "en": "I run data workloads on <strong>Kubernetes</strong> and <strong>Docker</strong>, with Grafana-based observability, across AWS, Azure, and GCP.",
+      "pt": "Opero workloads de dados em <strong>Kubernetes</strong> e <strong>Docker</strong>, com observabilidade via Grafana, em AWS, Azure e GCP."
     },
     {
-      "en": "Works in <strong>Agile (Scrum)</strong> teams and covers code with <strong>automated tests</strong> (pytest).",
-      "pt": "Trabalha em <strong>times ágeis (Scrum)</strong> e cobre o código com <strong>testes automatizados</strong> (pytest)."
+      "en": "I work in <strong>Agile (Scrum)</strong> teams and cover my code with <strong>automated tests</strong> (pytest).",
+      "pt": "Trabalho em <strong>times ágeis (Scrum)</strong> e cubro meu código com <strong>testes automatizados</strong> (pytest)."
     }
   ],
   "work": [

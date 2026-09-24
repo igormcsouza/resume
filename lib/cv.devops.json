@@ -26,32 +26,32 @@
   },
   "profile": [
     {
-      "en": "7+ years of experience in software engineering, operating production infrastructure.",
-      "pt": "Mais de 7 anos de experiência em engenharia de software, operando infraestrutura de produção."
+      "en": "I have 7+ years of experience in software engineering, operating production infrastructure.",
+      "pt": "Tenho mais de 7 anos de experiência em engenharia de software, operando infraestrutura de produção."
     },
     {
-      "en": "Runs production workloads on <strong>Kubernetes</strong> and <strong>Docker</strong>, with Helm-managed deployments.",
-      "pt": "Opera workloads em produção com <strong>Kubernetes</strong> e <strong>Docker</strong>, com deploys gerenciados via Helm."
+      "en": "I run production workloads on <strong>Kubernetes</strong> and <strong>Docker</strong>, with Helm-managed deployments.",
+      "pt": "Opero workloads em produção com <strong>Kubernetes</strong> e <strong>Docker</strong>, com deploys gerenciados via Helm."
     },
     {
-      "en": "Owns <strong>observability</strong> with Grafana and <strong>Linux</strong> infrastructure across AWS, Azure, and GCP.",
-      "pt": "Responsável pela <strong>observabilidade</strong> com Grafana e pela infraestrutura <strong>Linux</strong> em AWS, Azure e GCP."
+      "en": "I own <strong>observability</strong> with Grafana and <strong>Linux</strong> infrastructure across AWS, Azure, and GCP.",
+      "pt": "Sou responsável pela <strong>observabilidade</strong> com Grafana e pela infraestrutura <strong>Linux</strong> em AWS, Azure e GCP."
     },
     {
-      "en": "Led a <strong>Linux distro upgrade</strong> across internal infrastructure, proactively surfacing upgrade-breaking bugs before rollout.",
-      "pt": "Liderou uma <strong>atualização de distribuição Linux</strong> na infraestrutura interna, identificando proativamente bugs que quebrariam a atualização antes do rollout."
+      "en": "I led a <strong>Linux distro upgrade</strong> across internal infrastructure, proactively surfacing upgrade-breaking bugs before rollout.",
+      "pt": "Liderei uma <strong>atualização de distribuição Linux</strong> na infraestrutura interna, identificando proativamente bugs que quebrariam a atualização antes do rollout."
     },
     {
-      "en": "Debugs live <strong>production issues</strong> inside containers and traces message flow across Kafka/RabbitMQ.",
-      "pt": "Depura <strong>problemas em produção</strong> dentro de containers e rastreia o fluxo de mensagens em Kafka/RabbitMQ."
+      "en": "I debug live <strong>production issues</strong> inside containers and trace message flow across Kafka/RabbitMQ.",
+      "pt": "Depuro <strong>problemas em produção</strong> dentro de containers e rastreio o fluxo de mensagens em Kafka/RabbitMQ."
     },
     {
-      "en": "Builds the Python <strong>microservices</strong> that run on this infrastructure, so operational decisions stay grounded in real service behavior.",
-      "pt": "Constrói os <strong>microsserviços</strong> em Python que rodam sobre essa infraestrutura, mantendo as decisões operacionais alinhadas ao comportamento real dos serviços."
+      "en": "I build the Python <strong>microservices</strong> that run on this infrastructure, so my operational decisions stay grounded in real service behavior.",
+      "pt": "Construo os <strong>microsserviços</strong> em Python que rodam sobre essa infraestrutura, mantendo minhas decisões operacionais alinhadas ao comportamento real dos serviços."
     },
     {
-      "en": "Works in <strong>Agile (Scrum)</strong> teams and covers code with <strong>automated tests</strong> (pytest).",
-      "pt": "Trabalha em <strong>times ágeis (Scrum)</strong> e cobre o código com <strong>testes automatizados</strong> (pytest)."
+      "en": "I work in <strong>Agile (Scrum)</strong> teams and cover my code with <strong>automated tests</strong> (pytest).",
+      "pt": "Trabalho em <strong>times ágeis (Scrum)</strong> e cubro meu código com <strong>testes automatizados</strong> (pytest)."
     }
   ],
   "work": [
