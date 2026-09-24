@@ -26,32 +26,32 @@
   },
   "profile": [
     {
-      "en": "I have 7+ years of experience in software engineering, rooted in backend development.",
-      "pt": "Tenho mais de 7 anos de experiência em engenharia de software, com raiz em desenvolvimento backend."
+      "en": "Data engineer with 7+ years of experience and a strong backend foundation.",
+      "pt": "Engenheiro de dados com mais de 7 anos de experiência e uma base sólida em backend."
     },
     {
-      "en": "I build Python <strong>data pipelines</strong> that move, transform, and store data reliably at scale.",
-      "pt": "Construo <strong>pipelines de dados</strong> em Python que movem, transformam e armazenam dados de forma confiável em escala."
+      "en": "Most of my work is building Python <strong>data pipelines</strong> that move, transform, and store data reliably at scale.",
+      "pt": "A maior parte do meu trabalho é construir <strong>pipelines de dados</strong> em Python que movem, transformam e armazenam dados de forma confiável em escala."
     },
     {
-      "en": "I design <strong>event-driven ingestion</strong> with Kafka and RabbitMQ, plus async processing pipelines driven by SQS.",
-      "pt": "Projeto <strong>ingestão orientada a eventos</strong> com Kafka e RabbitMQ, além de pipelines de processamento assíncrono via SQS."
+      "en": "For ingestion, I design <strong>event-driven</strong> flows with Kafka and RabbitMQ, plus async processing pipelines driven by SQS.",
+      "pt": "Na ingestão, projeto fluxos <strong>orientados a eventos</strong> com Kafka e RabbitMQ, além de pipelines de processamento assíncrono via SQS."
     },
     {
-      "en": "I work with <strong>storage</strong> layers spanning DynamoDB, S3, and PostgreSQL.",
-      "pt": "Trabalho com camadas de <strong>armazenamento</strong> incluindo DynamoDB, S3 e PostgreSQL."
+      "en": "On the <strong>storage</strong> side, I work with DynamoDB, S3, and PostgreSQL.",
+      "pt": "Em <strong>armazenamento</strong>, trabalho com DynamoDB, S3 e PostgreSQL."
     },
     {
-      "en": "I have built <strong>ETL</strong>-style pipelines for structured data extraction (OCR/CV data capture), embeddings indexing for retrieval, and dataset management for ML training.",
-      "pt": "Já construí pipelines no estilo <strong>ETL</strong> para extração estruturada de dados (captura via OCR/CV), indexação de embeddings para recuperação e gestão de datasets para treinamento de ML."
+      "en": "Past work includes <strong>ETL</strong>-style pipelines for structured data extraction (OCR/CV data capture), embeddings indexing for retrieval, and dataset management for ML training.",
+      "pt": "Entre os trabalhos anteriores estão pipelines no estilo <strong>ETL</strong> para extração estruturada de dados (captura via OCR/CV), indexação de embeddings para recuperação e gestão de datasets para treinamento de ML."
     },
     {
-      "en": "I run data workloads on <strong>Kubernetes</strong> and <strong>Docker</strong>, with Grafana-based observability, across AWS, Azure, and GCP.",
-      "pt": "Opero workloads de dados em <strong>Kubernetes</strong> e <strong>Docker</strong>, com observabilidade via Grafana, em AWS, Azure e GCP."
+      "en": "These workloads run on <strong>Kubernetes</strong> and <strong>Docker</strong>, with Grafana-based observability, across AWS, Azure, and GCP.",
+      "pt": "Essas cargas rodam em <strong>Kubernetes</strong> e <strong>Docker</strong>, com observabilidade via Grafana, em AWS, Azure e GCP."
     },
     {
-      "en": "I work in <strong>Agile (Scrum)</strong> teams and cover my code with <strong>automated tests</strong> (pytest).",
-      "pt": "Trabalho em <strong>times ágeis (Scrum)</strong> e cubro meu código com <strong>testes automatizados</strong> (pytest)."
+      "en": "Used to working in <strong>Agile (Scrum)</strong> teams, with my code covered by <strong>automated tests</strong> (pytest).",
+      "pt": "Acostumado a trabalhar em <strong>times ágeis (Scrum)</strong>, com meu código coberto por <strong>testes automatizados</strong> (pytest)."
     }
   ],
   "work": [

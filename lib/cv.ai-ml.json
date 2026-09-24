@@ -26,36 +26,36 @@
   },
   "profile": [
     {
-      "en": "I have 7+ years of experience in software engineering.",
-      "pt": "Tenho mais de 7 anos de experiência em engenharia de software."
+      "en": "AI/ML engineer with 7+ years of experience.",
+      "pt": "Engenheiro de IA/ML com mais de 7 anos de experiência."
     },
     {
-      "en": "I ship <strong>machine learning</strong> pipelines end-to-end, from training (TensorFlow, Torch, computer vision) to production inference APIs.",
-      "pt": "Entrego pipelines de <strong>machine learning</strong> de ponta a ponta, do treinamento (TensorFlow, Torch, visão computacional) a APIs de inferência em produção."
+      "en": "I take <strong>machine learning</strong> models end-to-end, from training (TensorFlow, Torch, computer vision) to production inference APIs.",
+      "pt": "Levo modelos de <strong>machine learning</strong> de ponta a ponta, do treinamento (TensorFlow, Torch, visão computacional) a APIs de inferência em produção."
     },
     {
-      "en": "I embed <strong>AI</strong> into real products through LLM integrations, RAG pipelines (LangChain, FAISS, embeddings), and custom MCP servers exposing tools and knowledge to AI assistants.",
-      "pt": "Incorporo <strong>IA</strong> em produtos reais por meio de integrações com LLMs, pipelines RAG (LangChain, FAISS, embeddings) e servidores MCP próprios que expõem ferramentas e conhecimento a assistentes de IA."
+      "en": "Beyond classic ML, I bring <strong>AI</strong> into real products through LLM integrations, RAG pipelines (LangChain, FAISS, embeddings), and custom MCP servers that expose tools and knowledge to AI assistants.",
+      "pt": "Além do ML clássico, incorporo <strong>IA</strong> a produtos reais com integrações de LLMs, pipelines RAG (LangChain, FAISS, embeddings) e servidores MCP próprios que expõem ferramentas e conhecimento a assistentes de IA."
     },
     {
-      "en": "I build and own the Python <strong>backend</strong> that serves models in production (Flask, FastAPI).",
-      "pt": "Construo e mantenho o <strong>backend</strong> em Python que serve os modelos em produção (Flask, FastAPI)."
+      "en": "Also build and own the Python <strong>backend</strong> that serves those models in production (Flask, FastAPI).",
+      "pt": "Também construo e mantenho o <strong>backend</strong> em Python que serve esses modelos em produção (Flask, FastAPI)."
     },
     {
-      "en": "I deploy models with <strong>Docker</strong> and <strong>Kubernetes</strong>, with observability so they stay reliable under real traffic.",
-      "pt": "Faço deploy de modelos com <strong>Docker</strong> e <strong>Kubernetes</strong>, com observabilidade para mantê-los confiáveis sob tráfego real."
+      "en": "Models ship with <strong>Docker</strong> and <strong>Kubernetes</strong>, with observability so they stay reliable under real traffic.",
+      "pt": "Os modelos vão para produção com <strong>Docker</strong> e <strong>Kubernetes</strong>, com observabilidade para se manterem confiáveis sob tráfego real."
     },
     {
-      "en": "I cut <strong>inference latency</strong> by parallelizing model calls with asyncio.",
-      "pt": "Reduzo a <strong>latência de inferência</strong> paralelizando chamadas a modelos com asyncio."
+      "en": "Experienced in cutting <strong>inference latency</strong>, for example by parallelizing model calls with asyncio.",
+      "pt": "Experiência em reduzir a <strong>latência de inferência</strong>, por exemplo paralelizando chamadas a modelos com asyncio."
     },
     {
-      "en": "I deploy to the <strong>cloud</strong> on AWS, Azure, and GCP.",
-      "pt": "Faço deploy na <strong>nuvem</strong> em AWS, Azure e GCP."
+      "en": "Comfortable deploying to the <strong>cloud</strong> on AWS, Azure, and GCP.",
+      "pt": "Tenho experiência com deploy na <strong>nuvem</strong> em AWS, Azure e GCP."
     },
     {
-      "en": "I work in <strong>Agile (Scrum)</strong> teams and cover my code with <strong>automated tests</strong> (pytest).",
-      "pt": "Trabalho em <strong>times ágeis (Scrum)</strong> e cubro meu código com <strong>testes automatizados</strong> (pytest)."
+      "en": "Used to working in <strong>Agile (Scrum)</strong> teams, with my code covered by <strong>automated tests</strong> (pytest).",
+      "pt": "Acostumado a trabalhar em <strong>times ágeis (Scrum)</strong>, com meu código coberto por <strong>testes automatizados</strong> (pytest)."
     }
   ],
   "work": [

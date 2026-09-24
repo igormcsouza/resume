@@ -26,36 +26,32 @@
   },
   "profile": [
     {
-      "en": "I have 7+ years of experience in software engineering.",
-      "pt": "Tenho mais de 7 anos de experiência em engenharia de software."
+      "en": "Backend engineer with 7+ years of experience.",
+      "pt": "Engenheiro backend com mais de 7 anos de experiência."
     },
     {
-      "en": "I design and ship <strong>backend</strong> services: Python microservices and REST APIs (Flask, Django, FastAPI) for distributed systems.",
-      "pt": "Projeto e entrego serviços <strong>backend</strong>: microsserviços e APIs REST em Python (Flask, Django, FastAPI) para sistemas distribuídos."
+      "en": "My focus is designing and shipping <strong>backend</strong> services: Python microservices and REST APIs (Flask, Django, FastAPI) for distributed systems.",
+      "pt": "Meu foco é projetar e entregar serviços <strong>backend</strong>: microsserviços e APIs REST em Python (Flask, Django, FastAPI) para sistemas distribuídos."
     },
     {
-      "en": "I have deep experience with <strong>event-driven architecture</strong> using Kafka and RabbitMQ, and have cut production latency by re-architecting synchronous flows into async messaging.",
-      "pt": "Tenho experiência sólida em <strong>arquitetura orientada a eventos</strong> com Kafka e RabbitMQ, e reduzi latência em produção ao migrar fluxos síncronos para mensageria assíncrona."
+      "en": "Deep experience with <strong>event-driven architecture</strong> on Kafka and RabbitMQ, including re-architecting synchronous flows into async messaging to cut production latency.",
+      "pt": "Experiência sólida em <strong>arquitetura orientada a eventos</strong> com Kafka e RabbitMQ, incluindo a migração de fluxos síncronos para mensageria assíncrona para reduzir latência em produção."
     },
     {
-      "en": "I run and observe production workloads on <strong>Kubernetes</strong> and <strong>Docker</strong>, with Helm, Grafana-based observability, and Linux infrastructure ownership.",
-      "pt": "Opero e observo workloads em produção com <strong>Kubernetes</strong> e <strong>Docker</strong>, usando Helm, observabilidade via Grafana e gestão de infraestrutura Linux."
+      "en": "In production, I run and monitor workloads on <strong>Kubernetes</strong> and <strong>Docker</strong> with Helm and Grafana, and look after Linux infrastructure in the <strong>cloud</strong> (AWS, Azure, GCP).",
+      "pt": "Em produção, opero e monitoro workloads em <strong>Kubernetes</strong> e <strong>Docker</strong> com Helm e Grafana, e cuido da infraestrutura Linux na <strong>nuvem</strong> (AWS, Azure, GCP)."
     },
     {
-      "en": "I deploy to the <strong>cloud</strong> on AWS, Azure, and GCP.",
-      "pt": "Faço deploy na <strong>nuvem</strong> em AWS, Azure e GCP."
+      "en": "I like owning a service <strong>end-to-end</strong>: API design, data storage, deployment, and on-call debugging inside containers.",
+      "pt": "Gosto de ser dono de um serviço <strong>de ponta a ponta</strong>: design de API, armazenamento de dados, deploy e depuração em produção dentro de containers."
     },
     {
-      "en": "I own services <strong>end-to-end</strong>: API design, data storage, deployment, and on-call debugging inside containers.",
-      "pt": "Sou dono de serviços <strong>de ponta a ponta</strong>: design de API, armazenamento de dados, deploy e depuração em produção dentro de containers."
+      "en": "When a product needs it, I also build <strong>ML-powered features</strong>, from inference APIs to LLM integrations.",
+      "pt": "Quando o produto pede, também construo <strong>funcionalidades com ML</strong>, de APIs de inferência a integrações com LLMs."
     },
     {
-      "en": "I also build <strong>ML-powered features</strong> when a product needs them, from inference APIs to LLM integrations.",
-      "pt": "Também construo <strong>funcionalidades com ML</strong> quando o produto exige, de APIs de inferência a integrações com LLMs."
-    },
-    {
-      "en": "I work in <strong>Agile (Scrum)</strong> teams and cover my code with <strong>automated tests</strong> (pytest).",
-      "pt": "Trabalho em <strong>times ágeis (Scrum)</strong> e cubro meu código com <strong>testes automatizados</strong> (pytest)."
+      "en": "Used to working in <strong>Agile (Scrum)</strong> teams, with my code covered by <strong>automated tests</strong> (pytest).",
+      "pt": "Acostumado a trabalhar em <strong>times ágeis (Scrum)</strong>, com meu código coberto por <strong>testes automatizados</strong> (pytest)."
     }
   ],
   "work": [

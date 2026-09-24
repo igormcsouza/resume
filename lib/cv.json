@@ -26,40 +26,36 @@
   },
   "profile": [
     {
-      "en": "I have 7+ years of experience in software engineering.",
-      "pt": "Tenho mais de 7 anos de experiência em engenharia de software."
+      "en": "Software engineer with 7+ years of experience building and shipping production systems.",
+      "pt": "Engenheiro de software com mais de 7 anos de experiência construindo e entregando sistemas em produção."
     },
     {
-      "en": "I build and ship <strong>backend</strong> systems: Python microservices and REST APIs with Flask, Django, and FastAPI.",
-      "pt": "Construo e entrego sistemas <strong>backend</strong>: microsserviços e APIs REST em Python com Flask, Django e FastAPI."
+      "en": "My core is the <strong>backend</strong>: Python microservices and REST APIs with Flask, Django, and FastAPI.",
+      "pt": "Meu foco principal é o <strong>backend</strong>: microsserviços e APIs REST em Python com Flask, Django e FastAPI."
     },
     {
-      "en": "I design <strong>event-driven architectures</strong> with Kafka and RabbitMQ, and scalable APIs across distributed systems.",
-      "pt": "Projeto <strong>arquiteturas orientadas a eventos</strong> com Kafka e RabbitMQ, e APIs escaláveis em sistemas distribuídos."
+      "en": "For distributed systems, I design <strong>event-driven architectures</strong> with Kafka and RabbitMQ and APIs built to scale.",
+      "pt": "Em sistemas distribuídos, projeto <strong>arquiteturas orientadas a eventos</strong> com Kafka e RabbitMQ e APIs pensadas para escalar."
     },
     {
-      "en": "I run and observe production workloads on <strong>Kubernetes</strong> and <strong>Docker</strong>, with Grafana-based observability and Linux infrastructure ownership.",
-      "pt": "Opero e observo workloads em produção com <strong>Kubernetes</strong> e <strong>Docker</strong>, com observabilidade via Grafana e gestão de infraestrutura Linux."
+      "en": "In production, I run and monitor workloads on <strong>Kubernetes</strong> and <strong>Docker</strong>, with Grafana dashboards and ownership of the Linux infrastructure.",
+      "pt": "Em produção, opero e monitoro workloads em <strong>Kubernetes</strong> e <strong>Docker</strong>, com dashboards no Grafana e responsabilidade pela infraestrutura Linux."
     },
     {
-      "en": "I build <strong>machine learning</strong> pipelines end-to-end, from training (TensorFlow, Torch, computer vision) to production inference APIs.",
-      "pt": "Construo pipelines de <strong>machine learning</strong> de ponta a ponta, do treinamento (TensorFlow, Torch, visão computacional) a APIs de inferência em produção."
+      "en": "On the <strong>machine learning</strong> side, I take models from training (TensorFlow, Torch, computer vision) to production inference APIs.",
+      "pt": "Em <strong>machine learning</strong>, levo modelos do treinamento (TensorFlow, Torch, visão computacional) até APIs de inferência em produção."
     },
     {
-      "en": "I embed <strong>AI</strong> into real products through LLM integrations, RAG pipelines (LangChain, FAISS, embeddings), and custom MCP servers.",
-      "pt": "Incorporo <strong>IA</strong> em produtos reais por meio de integrações com LLMs, pipelines RAG (LangChain, FAISS, embeddings) e servidores MCP próprios."
+      "en": "I also bring <strong>AI</strong> into real products through LLM integrations, RAG pipelines (LangChain, FAISS, embeddings), and custom MCP servers.",
+      "pt": "Também incorporo <strong>IA</strong> a produtos reais por meio de integrações com LLMs, pipelines RAG (LangChain, FAISS, embeddings) e servidores MCP próprios."
     },
     {
-      "en": "I deploy to the <strong>cloud</strong> on AWS, Azure, and GCP.",
-      "pt": "Faço deploy na <strong>nuvem</strong> em AWS, Azure e GCP."
+      "en": "Comfortable deploying to the <strong>cloud</strong> on AWS, Azure, and GCP, and contributing on the <strong>frontend</strong> (React, Vue) when a project needs it.",
+      "pt": "Tenho experiência com deploy na <strong>nuvem</strong> (AWS, Azure e GCP) e contribuo no <strong>frontend</strong> (React, Vue) quando o projeto exige."
     },
     {
-      "en": "I contribute on the <strong>frontend</strong> (React, Vue) when a project needs it.",
-      "pt": "Contribuo no <strong>frontend</strong> (React, Vue) quando o projeto exige."
-    },
-    {
-      "en": "I work in <strong>Agile (Scrum)</strong> teams and cover my code with <strong>automated tests</strong> (pytest).",
-      "pt": "Trabalho em <strong>times ágeis (Scrum)</strong> e cubro meu código com <strong>testes automatizados</strong> (pytest)."
+      "en": "Used to working in <strong>Agile (Scrum)</strong> teams, with my code covered by <strong>automated tests</strong> (pytest).",
+      "pt": "Acostumado a trabalhar em <strong>times ágeis (Scrum)</strong>, com meu código coberto por <strong>testes automatizados</strong> (pytest)."
     }
   ],
   "work": [
