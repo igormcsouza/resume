@@ -30,28 +30,28 @@
       "pt": "Mais de 7 anos de experiência em engenharia de software, operando infraestrutura de produção."
     },
     {
-      "en": "Runs production workloads on **Kubernetes** and **Docker**, with Helm-managed deployments.",
-      "pt": "Opera workloads em produção com **Kubernetes** e **Docker**, com deploys gerenciados via Helm."
+      "en": "Runs production workloads on <strong>Kubernetes</strong> and <strong>Docker</strong>, with Helm-managed deployments.",
+      "pt": "Opera workloads em produção com <strong>Kubernetes</strong> e <strong>Docker</strong>, com deploys gerenciados via Helm."
     },
     {
-      "en": "Owns **observability** with Grafana and **Linux** infrastructure across AWS, Azure, and GCP.",
-      "pt": "Responsável pela **observabilidade** com Grafana e pela infraestrutura **Linux** em AWS, Azure e GCP."
+      "en": "Owns <strong>observability</strong> with Grafana and <strong>Linux</strong> infrastructure across AWS, Azure, and GCP.",
+      "pt": "Responsável pela <strong>observabilidade</strong> com Grafana e pela infraestrutura <strong>Linux</strong> em AWS, Azure e GCP."
     },
     {
-      "en": "Led a **Linux distro upgrade** across internal infrastructure, proactively surfacing upgrade-breaking bugs before rollout.",
-      "pt": "Liderou uma **atualização de distribuição Linux** na infraestrutura interna, identificando proativamente bugs que quebrariam a atualização antes do rollout."
+      "en": "Led a <strong>Linux distro upgrade</strong> across internal infrastructure, proactively surfacing upgrade-breaking bugs before rollout.",
+      "pt": "Liderou uma <strong>atualização de distribuição Linux</strong> na infraestrutura interna, identificando proativamente bugs que quebrariam a atualização antes do rollout."
     },
     {
-      "en": "Debugs live **production issues** inside containers and traces message flow across Kafka/RabbitMQ.",
-      "pt": "Depura **problemas em produção** dentro de containers e rastreia o fluxo de mensagens em Kafka/RabbitMQ."
+      "en": "Debugs live <strong>production issues</strong> inside containers and traces message flow across Kafka/RabbitMQ.",
+      "pt": "Depura <strong>problemas em produção</strong> dentro de containers e rastreia o fluxo de mensagens em Kafka/RabbitMQ."
     },
     {
-      "en": "Builds the Python **microservices** that run on this infrastructure, so operational decisions stay grounded in real service behavior.",
-      "pt": "Constrói os **microsserviços** em Python que rodam sobre essa infraestrutura, mantendo as decisões operacionais alinhadas ao comportamento real dos serviços."
+      "en": "Builds the Python <strong>microservices</strong> that run on this infrastructure, so operational decisions stay grounded in real service behavior.",
+      "pt": "Constrói os <strong>microsserviços</strong> em Python que rodam sobre essa infraestrutura, mantendo as decisões operacionais alinhadas ao comportamento real dos serviços."
     },
     {
-      "en": "Works in **Agile (Scrum)** teams and covers code with **automated tests** (pytest).",
-      "pt": "Trabalha em **times ágeis (Scrum)** e cobre o código com **testes automatizados** (pytest)."
+      "en": "Works in <strong>Agile (Scrum)</strong> teams and covers code with <strong>automated tests</strong> (pytest).",
+      "pt": "Trabalha em <strong>times ágeis (Scrum)</strong> e cobre o código com <strong>testes automatizados</strong> (pytest)."
     }
   ],
   "work": [

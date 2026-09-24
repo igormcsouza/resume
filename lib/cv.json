@@ -30,36 +30,36 @@
       "pt": "Mais de 7 anos de experiência em engenharia de software."
     },
     {
-      "en": "Builds and ships **backend** systems: Python microservices and REST APIs with Flask, Django, and FastAPI.",
-      "pt": "Constrói e entrega sistemas **backend**: microsserviços e APIs REST em Python com Flask, Django e FastAPI."
+      "en": "Builds and ships <strong>backend</strong> systems: Python microservices and REST APIs with Flask, Django, and FastAPI.",
+      "pt": "Constrói e entrega sistemas <strong>backend</strong>: microsserviços e APIs REST em Python com Flask, Django e FastAPI."
     },
     {
-      "en": "Designs **event-driven architectures** with Kafka and RabbitMQ, and scalable APIs across distributed systems.",
-      "pt": "Projeta **arquiteturas orientadas a eventos** com Kafka e RabbitMQ, e APIs escaláveis em sistemas distribuídos."
+      "en": "Designs <strong>event-driven architectures</strong> with Kafka and RabbitMQ, and scalable APIs across distributed systems.",
+      "pt": "Projeta <strong>arquiteturas orientadas a eventos</strong> com Kafka e RabbitMQ, e APIs escaláveis em sistemas distribuídos."
     },
     {
-      "en": "Runs and observes production workloads on **Kubernetes** and **Docker**, with Grafana-based observability and Linux infrastructure ownership.",
-      "pt": "Opera e observa workloads em produção com **Kubernetes** e **Docker**, com observabilidade via Grafana e gestão de infraestrutura Linux."
+      "en": "Runs and observes production workloads on <strong>Kubernetes</strong> and <strong>Docker</strong>, with Grafana-based observability and Linux infrastructure ownership.",
+      "pt": "Opera e observa workloads em produção com <strong>Kubernetes</strong> e <strong>Docker</strong>, com observabilidade via Grafana e gestão de infraestrutura Linux."
     },
     {
-      "en": "Builds **machine learning** pipelines end-to-end, from training (TensorFlow, Torch, computer vision) to production inference APIs.",
-      "pt": "Constrói pipelines de **machine learning** de ponta a ponta, do treinamento (TensorFlow, Torch, visão computacional) a APIs de inferência em produção."
+      "en": "Builds <strong>machine learning</strong> pipelines end-to-end, from training (TensorFlow, Torch, computer vision) to production inference APIs.",
+      "pt": "Constrói pipelines de <strong>machine learning</strong> de ponta a ponta, do treinamento (TensorFlow, Torch, visão computacional) a APIs de inferência em produção."
     },
     {
-      "en": "Embeds **AI** into real products through LLM integrations, RAG pipelines (LangChain, FAISS, embeddings), and custom MCP servers.",
-      "pt": "Incorpora **IA** em produtos reais por meio de integrações com LLMs, pipelines RAG (LangChain, FAISS, embeddings) e servidores MCP próprios."
+      "en": "Embeds <strong>AI</strong> into real products through LLM integrations, RAG pipelines (LangChain, FAISS, embeddings), and custom MCP servers.",
+      "pt": "Incorpora <strong>IA</strong> em produtos reais por meio de integrações com LLMs, pipelines RAG (LangChain, FAISS, embeddings) e servidores MCP próprios."
     },
     {
-      "en": "Deploys to the **cloud** on AWS, Azure, and GCP.",
-      "pt": "Faz deploy na **nuvem** em AWS, Azure e GCP."
+      "en": "Deploys to the <strong>cloud</strong> on AWS, Azure, and GCP.",
+      "pt": "Faz deploy na <strong>nuvem</strong> em AWS, Azure e GCP."
     },
     {
-      "en": "Contributes on the **frontend** (React, Vue) when a project needs it.",
-      "pt": "Contribui no **frontend** (React, Vue) quando o projeto exige."
+      "en": "Contributes on the <strong>frontend</strong> (React, Vue) when a project needs it.",
+      "pt": "Contribui no <strong>frontend</strong> (React, Vue) quando o projeto exige."
     },
     {
-      "en": "Works in **Agile (Scrum)** teams and covers code with **automated tests** (pytest).",
-      "pt": "Trabalha em **times ágeis (Scrum)** e cobre o código com **testes automatizados** (pytest)."
+      "en": "Works in <strong>Agile (Scrum)</strong> teams and covers code with <strong>automated tests</strong> (pytest).",
+      "pt": "Trabalha em <strong>times ágeis (Scrum)</strong> e cobre o código com <strong>testes automatizados</strong> (pytest)."
     }
   ],
   "work": [

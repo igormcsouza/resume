@@ -30,32 +30,32 @@
       "pt": "Mais de 7 anos de experiência em engenharia de software."
     },
     {
-      "en": "Designs and ships **backend** services: Python microservices and REST APIs (Flask, Django, FastAPI) for distributed systems.",
-      "pt": "Projeta e entrega serviços **backend**: microsserviços e APIs REST em Python (Flask, Django, FastAPI) para sistemas distribuídos."
+      "en": "Designs and ships <strong>backend</strong> services: Python microservices and REST APIs (Flask, Django, FastAPI) for distributed systems.",
+      "pt": "Projeta e entrega serviços <strong>backend</strong>: microsserviços e APIs REST em Python (Flask, Django, FastAPI) para sistemas distribuídos."
     },
     {
-      "en": "Deep experience with **event-driven architecture** using Kafka and RabbitMQ, cutting production latency by re-architecting synchronous flows into async messaging.",
-      "pt": "Experiência sólida em **arquitetura orientada a eventos** com Kafka e RabbitMQ, reduzindo latência em produção ao migrar fluxos síncronos para mensageria assíncrona."
+      "en": "Deep experience with <strong>event-driven architecture</strong> using Kafka and RabbitMQ, cutting production latency by re-architecting synchronous flows into async messaging.",
+      "pt": "Experiência sólida em <strong>arquitetura orientada a eventos</strong> com Kafka e RabbitMQ, reduzindo latência em produção ao migrar fluxos síncronos para mensageria assíncrona."
     },
     {
-      "en": "Runs and observes production workloads on **Kubernetes** and **Docker**, with Helm, Grafana-based observability, and Linux infrastructure ownership.",
-      "pt": "Opera e observa workloads em produção com **Kubernetes** e **Docker**, usando Helm, observabilidade via Grafana e gestão de infraestrutura Linux."
+      "en": "Runs and observes production workloads on <strong>Kubernetes</strong> and <strong>Docker</strong>, with Helm, Grafana-based observability, and Linux infrastructure ownership.",
+      "pt": "Opera e observa workloads em produção com <strong>Kubernetes</strong> e <strong>Docker</strong>, usando Helm, observabilidade via Grafana e gestão de infraestrutura Linux."
     },
     {
-      "en": "Deploys to the **cloud** on AWS, Azure, and GCP.",
-      "pt": "Faz deploy na **nuvem** em AWS, Azure e GCP."
+      "en": "Deploys to the <strong>cloud</strong> on AWS, Azure, and GCP.",
+      "pt": "Faz deploy na <strong>nuvem</strong> em AWS, Azure e GCP."
     },
     {
-      "en": "Owns a service **end-to-end**: API design, data storage, deployment, and on-call debugging inside containers.",
-      "pt": "É dono de um serviço **de ponta a ponta**: design de API, armazenamento de dados, deploy e depuração em produção dentro de containers."
+      "en": "Owns a service <strong>end-to-end</strong>: API design, data storage, deployment, and on-call debugging inside containers.",
+      "pt": "É dono de um serviço <strong>de ponta a ponta</strong>: design de API, armazenamento de dados, deploy e depuração em produção dentro de containers."
     },
     {
-      "en": "Also builds **ML-powered features** when a product needs them, from inference APIs to LLM integrations.",
-      "pt": "Também constrói **funcionalidades com ML** quando o produto exige, de APIs de inferência a integrações com LLMs."
+      "en": "Also builds <strong>ML-powered features</strong> when a product needs them, from inference APIs to LLM integrations.",
+      "pt": "Também constrói <strong>funcionalidades com ML</strong> quando o produto exige, de APIs de inferência a integrações com LLMs."
     },
     {
-      "en": "Works in **Agile (Scrum)** teams and covers code with **automated tests** (pytest).",
-      "pt": "Trabalha em **times ágeis (Scrum)** e cobre o código com **testes automatizados** (pytest)."
+      "en": "Works in <strong>Agile (Scrum)</strong> teams and covers code with <strong>automated tests</strong> (pytest).",
+      "pt": "Trabalha em <strong>times ágeis (Scrum)</strong> e cobre o código com <strong>testes automatizados</strong> (pytest)."
     }
   ],
   "work": [

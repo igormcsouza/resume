@@ -65,8 +65,8 @@ export interface CvLanguage {
 
 export interface Cv {
   basics: CvBasics;
-  /** A paragraph, or a list of bullets that may mark topics as **bold**. */
-  profile: Localized | Localized[];
+  /** One bullet per item; items may use the inline tags allowed by `profileHtml`. */
+  profile: Localized[];
   work: CvWork[];
   education: CvEducation[];
   projects: CvProject[];
@@ -98,15 +98,20 @@ export function t(value: Localized, lang: Lang): string {
   return typeof value === "string" ? value : value[lang];
 }
 
+const ALLOWED_TAGS = /&lt;(\/?)(strong|b|em|i)&gt;/g;
+
 /**
- * Split text on **bold** markers into plain and bold segments, so a bullet can
- * highlight the topics a reader scans for (e.g. "Builds **backend** services").
+ * Turn a profile bullet into safe HTML: everything is escaped, then only bare
+ * <strong>, <b>, <em> and <i> tags (no attributes) are restored.
  */
-export function splitBold(text: string): { text: string; bold: boolean }[] {
-  return text
-    .split("**")
-    .map((part, index) => ({ text: part, bold: index % 2 === 1 }))
-    .filter((segment) => segment.text);
+export function profileHtml(text: string): string {
+  const escaped = text
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+  return escaped.replace(ALLOWED_TAGS, "<$1$2>");
 }
 
 /** UI labels for the CV template, per language. */

@@ -1,7 +1,7 @@
 import { readFileSync } from "fs";
 import { describe, expect, it } from "vitest";
 
-import { LANGS, cv, formatDate, formatDateRange, getCv, isLang, labels, splitBold, t } from "./cv";
+import { LANGS, cv, formatDate, formatDateRange, getCv, isLang, labels, profileHtml, t } from "./cv";
 import type { Cv, Localized } from "./cv";
 import { ROLES, RoleSlug } from "./roles";
 
@@ -32,18 +32,8 @@ describe.each(CV_FILES)("%s", (file) => {
   it("has localized text with both en and pt for basics/profile", () => {
     expectLocalized(data.basics.label, "basics.label");
     expectLocalized(data.basics.location, "basics.location");
-    if (Array.isArray(data.profile)) {
-      expect(data.profile.length).toBeGreaterThan(0);
-      data.profile.forEach((item, i) => {
-        expectLocalized(item, `profile[${i}]`);
-        for (const lang of LANGS) {
-          const markers = t(item, lang).split("**").length - 1;
-          expect(markers % 2, `profile[${i}].${lang} has unbalanced ** markers`).toBe(0);
-        }
-      });
-    } else {
-      expectLocalized(data.profile, "profile");
-    }
+    expect(data.profile.length).toBeGreaterThan(0);
+    data.profile.forEach((item, i) => expectLocalized(item, `profile[${i}]`));
   });
 
   it("has consistent work entries", () => {
@@ -120,27 +110,24 @@ describe("t", () => {
   });
 });
 
-describe("splitBold", () => {
-  it("returns plain text as a single segment", () => {
-    expect(splitBold("Plain bullet text")).toEqual([{ text: "Plain bullet text", bold: false }]);
+describe("profileHtml", () => {
+  it("keeps the allowed inline tags", () => {
+    expect(profileHtml("Builds <strong>backend</strong> and <em>AI</em> features")).toBe(
+      "Builds <strong>backend</strong> and <em>AI</em> features",
+    );
   });
 
-  it("marks the text between ** markers as bold", () => {
-    expect(splitBold("Builds **backend** and **AI** features")).toEqual([
-      { text: "Builds ", bold: false },
-      { text: "backend", bold: true },
-      { text: " and ", bold: false },
-      { text: "AI", bold: true },
-      { text: " features", bold: false },
-    ]);
+  it("escapes any other tag", () => {
+    expect(profileHtml('<script>alert("x")</script>')).toBe("&lt;script&gt;alert(&quot;x&quot;)&lt;/script&gt;");
+    expect(profileHtml('<img src=x onerror="alert(1)">')).toBe("&lt;img src=x onerror=&quot;alert(1)&quot;&gt;");
   });
 
-  it("handles bold at the start and end of the text", () => {
-    expect(splitBold("**Agile** teams use **Scrum**")).toEqual([
-      { text: "Agile", bold: true },
-      { text: " teams use ", bold: false },
-      { text: "Scrum", bold: true },
-    ]);
+  it("escapes allowed tags that carry attributes", () => {
+    expect(profileHtml('<b onclick="alert(1)">x</b>')).toBe("&lt;b onclick=&quot;alert(1)&quot;&gt;x</b>");
+  });
+
+  it("escapes ampersands and quotes in plain text", () => {
+    expect(profileHtml(`R&D "team" isn't`)).toBe("R&amp;D &quot;team&quot; isn&#39;t");
   });
 });
 

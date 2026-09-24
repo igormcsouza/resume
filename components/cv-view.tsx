@@ -7,7 +7,7 @@ import { ArrowLeft, Download, Github, Globe, Linkedin, Mail, MapPin, Phone } fro
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { BrazilIcon, EnglandIcon } from "@/components/svg";
-import { Cv, Lang, Localized, formatDateRange, labels, splitBold, t } from "@/lib/cv";
+import { Cv, Lang, Localized, formatDateRange, labels, profileHtml, t } from "@/lib/cv";
 import { GENERAL_LABEL, ROLES, RoleSlug } from "@/lib/roles";
 
 function getProfileIcon(network: string) {
@@ -26,19 +26,6 @@ function Banner({ children }: { children: React.ReactNode }) {
     <h2 className="bg-secondary px-4 py-2 text-sm font-bold uppercase tracking-widest text-secondary-foreground break-inside-avoid break-after-avoid">
       {children}
     </h2>
-  );
-}
-
-/** Render text with its **bold** segments highlighted. */
-function RichText({ text }: { text: string }) {
-  return (
-    <>
-      {splitBold(text).map((segment, index) =>
-        segment.bold
-          ? <strong key={index} className="font-semibold text-foreground">{segment.text}</strong>
-          : segment.text,
-      )}
-    </>
   );
 }
 
@@ -196,18 +183,15 @@ export default function CvView({ lang, cv, role }: { lang: Lang; cv: Cv; role?: 
           </ul>
         </header>
 
-        {cv.profile && (
+        {cv.profile.length > 0 && (
           <section className="flex flex-col gap-3">
             <Banner>{labels.profile[lang]}</Banner>
-            {Array.isArray(cv.profile) ? (
-              <ul className="flex list-disc flex-col gap-1 pl-4 text-sm leading-relaxed text-foreground/80">
-                {cv.profile.map((item, index) => (
-                  <li key={index} className="break-inside-avoid"><RichText text={loc(item)} /></li>
-                ))}
-              </ul>
-            ) : (
-              <p className="text-sm leading-relaxed text-foreground/80"><RichText text={loc(cv.profile)} /></p>
-            )}
+            <ul className="flex list-disc flex-col gap-1 pl-4 text-sm leading-relaxed text-foreground/80 [&_b]:font-semibold [&_b]:text-foreground [&_strong]:font-semibold [&_strong]:text-foreground">
+              {cv.profile.map((item, index) => (
+                // profileHtml escapes everything except a few inline formatting tags.
+                <li key={index} className="break-inside-avoid" dangerouslySetInnerHTML={{ __html: profileHtml(loc(item)) }} />
+              ))}
+            </ul>
           </section>
         )}
 
