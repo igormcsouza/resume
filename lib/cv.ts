@@ -65,7 +65,8 @@ export interface CvLanguage {
 
 export interface Cv {
   basics: CvBasics;
-  profile: Localized;
+  /** A paragraph, or a list of bullets with optional bold "Label:" lead-ins. */
+  profile: Localized | Localized[];
   work: CvWork[];
   education: CvEducation[];
   projects: CvProject[];
@@ -95,6 +96,16 @@ export function isLang(value: string): value is Lang {
 /** Resolve a Localized value for the given language. */
 export function t(value: Localized, lang: Lang): string {
   return typeof value === "string" ? value : value[lang];
+}
+
+/**
+ * Split a short "Label: text" prefix (at most 40 characters before the first
+ * colon) off a bullet so the label can be bolded. Returns null when the text
+ * has no such prefix.
+ */
+export function splitLeadIn(text: string): { label: string; rest: string } | null {
+  const match = text.match(/^([^:]{1,40}):\s([\s\S]*)$/);
+  return match ? { label: match[1], rest: match[2] } : null;
 }
 
 /** UI labels for the CV template, per language. */

@@ -7,7 +7,7 @@ import { ArrowLeft, Download, Github, Globe, Linkedin, Mail, MapPin, Phone } fro
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { BrazilIcon, EnglandIcon } from "@/components/svg";
-import { Cv, Lang, Localized, formatDateRange, labels, t } from "@/lib/cv";
+import { Cv, Lang, Localized, formatDateRange, labels, splitLeadIn, t } from "@/lib/cv";
 import { GENERAL_LABEL, ROLES, RoleSlug } from "@/lib/roles";
 
 function getProfileIcon(network: string) {
@@ -27,6 +27,13 @@ function Banner({ children }: { children: React.ReactNode }) {
       {children}
     </h2>
   );
+}
+
+/** Bold a short "Label:" prefix so each bullet can be scanned by topic. */
+function LeadIn({ text }: { text: string }) {
+  const leadIn = splitLeadIn(text);
+  if (!leadIn) return <>{text}</>;
+  return <><span className="font-semibold text-foreground">{leadIn.label}:</span> {leadIn.rest}</>;
 }
 
 // Entries with at least this many bullets may split across printed pages.
@@ -186,7 +193,15 @@ export default function CvView({ lang, cv, role }: { lang: Lang; cv: Cv; role?: 
         {cv.profile && (
           <section className="flex flex-col gap-3">
             <Banner>{labels.profile[lang]}</Banner>
-            <p className="text-sm leading-relaxed text-foreground/80">{loc(cv.profile)}</p>
+            {Array.isArray(cv.profile) ? (
+              <ul className="flex list-disc flex-col gap-1 pl-4 text-sm leading-relaxed text-foreground/80">
+                {cv.profile.map((item, index) => (
+                  <li key={index} className="break-inside-avoid"><LeadIn text={loc(item)} /></li>
+                ))}
+              </ul>
+            ) : (
+              <p className="text-sm leading-relaxed text-foreground/80">{loc(cv.profile)}</p>
+            )}
           </section>
         )}
 

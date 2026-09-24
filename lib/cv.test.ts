@@ -1,7 +1,7 @@
 import { readFileSync } from "fs";
 import { describe, expect, it } from "vitest";
 
-import { LANGS, cv, formatDate, formatDateRange, getCv, isLang, labels, t } from "./cv";
+import { LANGS, cv, formatDate, formatDateRange, getCv, isLang, labels, splitLeadIn, t } from "./cv";
 import type { Cv, Localized } from "./cv";
 import { ROLES, RoleSlug } from "./roles";
 
@@ -32,7 +32,12 @@ describe.each(CV_FILES)("%s", (file) => {
   it("has localized text with both en and pt for basics/profile", () => {
     expectLocalized(data.basics.label, "basics.label");
     expectLocalized(data.basics.location, "basics.location");
-    expectLocalized(data.profile, "profile");
+    if (Array.isArray(data.profile)) {
+      expect(data.profile.length).toBeGreaterThan(0);
+      data.profile.forEach((item, i) => expectLocalized(item, `profile[${i}]`));
+    } else {
+      expectLocalized(data.profile, "profile");
+    }
   });
 
   it("has consistent work entries", () => {
@@ -106,6 +111,31 @@ describe("t", () => {
     const value = { en: "Hello", pt: "Olá" };
     expect(t(value, "en")).toBe("Hello");
     expect(t(value, "pt")).toBe("Olá");
+  });
+});
+
+describe("splitLeadIn", () => {
+  it("splits a short label before the first colon", () => {
+    expect(splitLeadIn("Back end: Python and FastAPI")).toEqual({ label: "Back end", rest: "Python and FastAPI" });
+  });
+
+  it("keeps later colons and line breaks in the rest", () => {
+    expect(splitLeadIn("Key results: 99.9% uptime: SLA met\nand more")).toEqual({
+      label: "Key results",
+      rest: "99.9% uptime: SLA met\nand more",
+    });
+  });
+
+  it("returns null when there is no colon", () => {
+    expect(splitLeadIn("Plain bullet text")).toBeNull();
+  });
+
+  it("returns null when the label is longer than 40 characters", () => {
+    expect(splitLeadIn(`${"a".repeat(41)}: text`)).toBeNull();
+  });
+
+  it("returns null when the colon is not followed by whitespace", () => {
+    expect(splitLeadIn("See https://example.com")).toBeNull();
   });
 });
 
