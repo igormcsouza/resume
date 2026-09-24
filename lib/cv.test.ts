@@ -62,6 +62,22 @@ describe.each(CV_FILES)("%s", (file) => {
     }
   });
 
+  it("has education with institution and dates", () => {
+    expect(data.education.length).toBeGreaterThan(0);
+    for (const education of data.education) {
+      expect(education.institution).toBeTruthy();
+      expect(education.startDate).toBeTruthy();
+      expect(education.endDate).toBeTruthy();
+    }
+  });
+
+  it("lists pytest and Agile/Scrum in skills", () => {
+    const items = data.skills.flatMap((group) => group.items);
+    for (const skill of ["pytest", "Agile", "Scrum"]) {
+      expect(items, skill).toContain(skill);
+    }
+  });
+
   it("has consistent languages", () => {
     for (const language of data.languages) {
       expectLocalized(language.name, "languages.name");
