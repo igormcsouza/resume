@@ -32,7 +32,9 @@ describe.each(CV_FILES)("%s", (file) => {
   it("has localized text with both en and pt for basics/profile", () => {
     expectLocalized(data.basics.label, "basics.label");
     expectLocalized(data.basics.location, "basics.location");
-    expectLocalized(data.profile, "profile");
+    const profile = Array.isArray(data.profile) ? data.profile : [data.profile];
+    expect(profile.length).toBeGreaterThan(0);
+    profile.forEach((item, i) => expectLocalized(item, `profile[${i}]`));
   });
 
   it("has consistent work entries", () => {
@@ -47,6 +49,7 @@ describe.each(CV_FILES)("%s", (file) => {
       for (const project of job.projects ?? []) {
         expect(project.name).toBeTruthy();
         expectLocalized(project.description, `work[${job.company}].projects[${project.name}].description`);
+        project.highlights?.forEach((h, i) => expectLocalized(h, `work[${job.company}].projects[${project.name}].highlights[${i}]`));
       }
     }
   });

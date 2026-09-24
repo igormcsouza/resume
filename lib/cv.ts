@@ -62,6 +62,8 @@ export interface CvProject {
   startDate?: string | null;
   endDate?: string | null;
   description: Localized;
+  /** Contributions and results, shown as bullets under the description. */
+  highlights?: Localized[];
   stack: string[];
 }
 
@@ -72,7 +74,8 @@ export interface CvLanguage {
 
 export interface Cv {
   basics: CvBasics;
-  profile: Localized;
+  /** A paragraph, or a list of bullets. */
+  profile: Localized | Localized[];
   work: CvWork[];
   education: CvEducation[];
   projects: CvProject[];

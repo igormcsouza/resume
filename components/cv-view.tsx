@@ -29,6 +29,13 @@ function Banner({ children }: { children: React.ReactNode }) {
   );
 }
 
+/** Bold a short "Label:" prefix so each bullet can be scanned by topic. */
+function LeadIn({ text }: { text: string }) {
+  const match = text.match(/^([^:]{1,40}):\s([\s\S]*)$/);
+  if (!match) return <>{text}</>;
+  return <><span className="font-semibold text-foreground">{match[1]}:</span> {match[2]}</>;
+}
+
 function Entry({ aside, breakable, children }: { aside?: React.ReactNode, breakable?: boolean, children: React.ReactNode }) {
   // Long entries (project descriptions) may split across pages; keeping them
   // whole leaves most of a page blank before each one.
@@ -183,7 +190,15 @@ export default function CvView({ lang, cv, role }: { lang: Lang; cv: Cv; role?: 
         {cv.profile && (
           <section className="flex flex-col gap-3">
             <Banner>{labels.profile[lang]}</Banner>
-            <p className="text-sm leading-relaxed text-foreground/80">{loc(cv.profile)}</p>
+            {Array.isArray(cv.profile) ? (
+              <ul className="flex list-disc flex-col gap-1 pl-4 text-sm leading-relaxed text-foreground/80">
+                {cv.profile.map((item, index) => (
+                  <li key={index}><LeadIn text={loc(item)} /></li>
+                ))}
+              </ul>
+            ) : (
+              <p className="text-sm leading-relaxed text-foreground/80">{loc(cv.profile)}</p>
+            )}
           </section>
         )}
 
@@ -237,16 +252,25 @@ export default function CvView({ lang, cv, role }: { lang: Lang; cv: Cv; role?: 
               >
                 {job.projects?.length ? (
                   job.projects.map((project, index) => (
-                    // Each project stays whole, and the job title travels with the first one.
-                    <div key={project.name} className="mt-3 break-inside-avoid first:mt-0">
-                      {index === 0 && <h3 className="mb-1.5 text-base font-bold">{loc(job.position)}</h3>}
-                      <h4 className="text-sm font-bold">{project.name}</h4>
-                      {(project.client || project.role) && (
-                        <p className="mb-1 text-sm italic text-muted-foreground">
-                          {[project.client, project.role].filter((v): v is Localized => Boolean(v)).map(loc).join(" · ")}
-                        </p>
+                    // The job title, project name and intro stay together; bullets may break between pages.
+                    <div key={project.name} className="mt-3 first:mt-0">
+                      <div className="break-inside-avoid">
+                        {index === 0 && <h3 className="mb-1.5 text-base font-bold">{loc(job.position)}</h3>}
+                        <h4 className="text-sm font-bold">{project.name}</h4>
+                        {(project.client || project.role) && (
+                          <p className="mb-1 text-sm italic text-muted-foreground">
+                            {[project.client, project.role].filter((v): v is Localized => Boolean(v)).map(loc).join(" · ")}
+                          </p>
+                        )}
+                        <p className="text-sm text-foreground/80">{loc(project.description)}</p>
+                      </div>
+                      {project.highlights && project.highlights.length > 0 && (
+                        <ul className="mt-1 flex list-disc flex-col gap-1 pl-4 text-sm text-foreground/80">
+                          {project.highlights.map((highlight, index) => (
+                            <li key={index} className="break-inside-avoid">{loc(highlight)}</li>
+                          ))}
+                        </ul>
                       )}
-                      <p className="text-sm text-foreground/80">{loc(project.description)}</p>
                       {project.stack.length > 0 && (
                         <p className="mt-1.5 text-xs text-muted-foreground">
                           <span className="font-semibold text-foreground/80">{labels.stack[lang]}:</span>{" "}
@@ -294,6 +318,13 @@ export default function CvView({ lang, cv, role }: { lang: Lang; cv: Cv; role?: 
                 <h3 className="text-base font-bold break-after-avoid">{project.name}</h3>
                 {project.role && <p className="mb-1.5 text-sm italic text-muted-foreground">{loc(project.role)}</p>}
                 <p className="text-sm text-foreground/80">{loc(project.description)}</p>
+                {project.highlights && project.highlights.length > 0 && (
+                  <ul className="mt-1 flex list-disc flex-col gap-1 pl-4 text-sm text-foreground/80">
+                    {project.highlights.map((highlight, index) => (
+                      <li key={index}>{loc(highlight)}</li>
+                    ))}
+                  </ul>
+                )}
                 {project.stack.length > 0 && (
                   <p className="mt-1.5 text-xs text-muted-foreground">
                     <span className="font-semibold text-foreground/80">{labels.stack[lang]}:</span>{" "}
