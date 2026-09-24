@@ -54,6 +54,11 @@ export interface CvSkillGroup {
 
 export interface CvProject {
   name: string;
+  /** Anonymized client: country and business domain only. */
+  client?: Localized;
+  role?: Localized;
+  startDate?: string | null;
+  endDate?: string | null;
   description: Localized;
   stack: string[];
 }
@@ -99,12 +104,14 @@ export function t(value: Localized, lang: Lang): string {
 
 /** UI labels for the CV template, per language. */
 export const labels = {
-  profile: { en: "Profile", pt: "Perfil" },
-  employmentHistory: { en: "Employment History", pt: "Histórico Profissional" },
+  profile: { en: "Summary", pt: "Resumo" },
+  employmentHistory: { en: "Work Experience", pt: "Experiência Profissional" },
   education: { en: "Education", pt: "Formação Acadêmica" },
   projects: { en: "Projects", pt: "Projetos" },
   courses: { en: "Certifications & Courses", pt: "Certificações e Cursos" },
-  stack: { en: "Stack", pt: "Stack" },
+  stack: { en: "Technologies", pt: "Tecnologias" },
+  client: { en: "Client", pt: "Cliente" },
+  role: { en: "Role", pt: "Função" },
   skills: { en: "Skills", pt: "Habilidades" },
   languages: { en: "Languages", pt: "Idiomas" },
   technologies: { en: "Tech", pt: "Tecnologias" },

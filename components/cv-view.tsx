@@ -29,9 +29,11 @@ function Banner({ children }: { children: React.ReactNode }) {
   );
 }
 
-function Entry({ aside, children }: { aside?: React.ReactNode, children: React.ReactNode }) {
+function Entry({ aside, breakable, children }: { aside?: React.ReactNode, breakable?: boolean, children: React.ReactNode }) {
+  // Long entries (project descriptions) may split across pages; keeping them
+  // whole leaves most of a page blank before each one.
   return (
-    <div className="grid gap-2 sm:grid-cols-[160px_1fr] sm:gap-x-6 break-inside-avoid">
+    <div className={`grid gap-2 sm:grid-cols-[160px_1fr] sm:gap-x-6 ${breakable ? "" : "break-inside-avoid"}`}>
       <div className="text-sm text-muted-foreground">{aside}</div>
       <div>{children}</div>
     </div>
@@ -185,6 +187,38 @@ export default function CvView({ lang, cv, role }: { lang: Lang; cv: Cv; role?: 
           </section>
         )}
 
+        {cv.courses.length > 0 && (
+          <section className="flex flex-col gap-3">
+            <Banner>{labels.courses[lang]}</Banner>
+            <Entry>
+              <ul className="flex list-disc flex-col gap-1 pl-4 text-sm text-foreground/80">
+                {cv.courses.map((course, index) => (
+                  <li key={index}>{loc(course)}</li>
+                ))}
+              </ul>
+            </Entry>
+          </section>
+        )}
+
+        {cv.education.length > 0 && (
+          <section className="flex flex-col gap-3">
+            <Banner>{labels.education[lang]}</Banner>
+            {cv.education.map((education, index) => (
+              <Entry
+                key={index}
+                aside={
+                  <>
+                    {education.institution && <span className="block font-semibold text-foreground/90">{education.institution}</span>}
+                    <span className="tabular-nums">{formatDateRange(education.startDate, education.endDate, lang)}</span>
+                  </>
+                }
+              >
+                <h3 className="text-base font-bold">{loc(education.degree)}</h3>
+              </Entry>
+            ))}
+          </section>
+        )}
+
         {cv.work.length > 0 && (
           <section className="flex flex-col gap-4">
             <Banner>{labels.employmentHistory[lang]}</Banner>
@@ -223,8 +257,18 @@ export default function CvView({ lang, cv, role }: { lang: Lang; cv: Cv; role?: 
             {cv.projects.map((project) => (
               <Entry
                 key={project.name}
-                aside={<span className="block font-semibold text-foreground/90">{project.name}</span>}
+                breakable
+                aside={
+                  <>
+                    {project.client && <span className="block font-semibold text-foreground/90">{loc(project.client)}</span>}
+                    {(project.startDate || project.endDate) && (
+                      <span className="tabular-nums">{formatDateRange(project.startDate ?? null, project.endDate ?? null, lang)}</span>
+                    )}
+                  </>
+                }
               >
+                <h3 className="text-base font-bold break-after-avoid">{project.name}</h3>
+                {project.role && <p className="mb-1.5 text-sm italic text-muted-foreground">{loc(project.role)}</p>}
                 <p className="text-sm text-foreground/80">{loc(project.description)}</p>
                 {project.stack.length > 0 && (
                   <p className="mt-1.5 text-xs text-muted-foreground">
@@ -234,54 +278,6 @@ export default function CvView({ lang, cv, role }: { lang: Lang; cv: Cv; role?: 
                 )}
               </Entry>
             ))}
-          </section>
-        )}
-
-        {cv.education.length > 0 && (
-          <section className="flex flex-col gap-3">
-            <Banner>{labels.education[lang]}</Banner>
-            {cv.education.map((education, index) => (
-              <Entry
-                key={index}
-                aside={
-                  <>
-                    {education.institution && <span className="block font-semibold text-foreground/90">{education.institution}</span>}
-                    <span className="tabular-nums">{formatDateRange(education.startDate, education.endDate, lang)}</span>
-                  </>
-                }
-              >
-                <h3 className="text-base font-bold">{loc(education.degree)}</h3>
-              </Entry>
-            ))}
-          </section>
-        )}
-
-        {cv.courses.length > 0 && (
-          <section className="flex flex-col gap-3">
-            <Banner>{labels.courses[lang]}</Banner>
-            <Entry>
-              <ul className="flex list-disc flex-col gap-1 pl-4 text-sm text-foreground/80">
-                {cv.courses.map((course, index) => (
-                  <li key={index}>{loc(course)}</li>
-                ))}
-              </ul>
-            </Entry>
-          </section>
-        )}
-
-        {cv.skills.length > 0 && (
-          <section className="grid gap-2 sm:grid-cols-[160px_1fr] sm:gap-x-6 break-inside-avoid">
-            <h2 className="self-start bg-secondary px-4 py-2 text-sm font-bold uppercase tracking-widest text-secondary-foreground">
-              {labels.skills[lang]}
-            </h2>
-            <div className="flex flex-col gap-2">
-              {cv.skills.map((group, index) => (
-                <p key={index} className="text-sm text-muted-foreground">
-                  <span className="font-bold text-foreground">{loc(group.category)}:</span>{" "}
-                  {group.items.join(", ")}
-                </p>
-              ))}
-            </div>
           </section>
         )}
 
@@ -296,6 +292,22 @@ export default function CvView({ lang, cv, role }: { lang: Lang; cv: Cv; role?: 
                   <h3 className="mb-1.5 text-sm font-bold">{loc(language.name)}</h3>
                   <p className="text-sm text-muted-foreground">{loc(language.level)}</p>
                 </div>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {cv.skills.length > 0 && (
+          <section className="grid gap-2 sm:grid-cols-[160px_1fr] sm:gap-x-6 break-inside-avoid">
+            <h2 className="self-start bg-secondary px-4 py-2 text-sm font-bold uppercase tracking-widest text-secondary-foreground">
+              {labels.skills[lang]}
+            </h2>
+            <div className="flex flex-col gap-2">
+              {cv.skills.map((group, index) => (
+                <p key={index} className="text-sm text-muted-foreground">
+                  <span className="font-bold text-foreground">{loc(group.category)}:</span>{" "}
+                  {group.items.join(", ")}
+                </p>
               ))}
             </div>
           </section>
