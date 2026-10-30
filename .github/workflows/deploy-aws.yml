@@ -1,0 +1,53 @@
+name: Deploy AWS
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - "infra/**"
+      - "mcp/**"
+      - ".github/workflows/deploy-aws.yml"
+  workflow_dispatch:
+
+# OIDC only: no long-lived AWS keys. The role (trusted for this repo's main branch)
+# is created by hand in AWS and its ARN stored in the repo variable AWS_DEPLOY_ROLE_ARN.
+permissions:
+  id-token: write
+  contents: read
+
+concurrency:
+  group: deploy-aws
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    # Skipped (not failed) until the role variable is set.
+    if: vars.AWS_DEPLOY_ROLE_ARN != ''
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node
+        if: hashFiles('infra/cdk.json') != ''
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Setup Python
+        if: hashFiles('infra/cdk.json') != ''
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Configure AWS credentials
+        if: hashFiles('infra/cdk.json') != ''
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ vars.AWS_DEPLOY_ROLE_ARN }}
+          aws-region: sa-east-1
+      - name: Install infra dependencies
+        if: hashFiles('infra/cdk.json') != ''
+        run: pip install -r infra/requirements.txt
+      - name: Deploy
+        if: hashFiles('infra/cdk.json') != ''
+        working-directory: infra
+        run: npx --yes aws-cdk@2 deploy --all --require-approval never
