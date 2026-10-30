@@ -29,3 +29,37 @@ jobs:
         run: npm test
       - name: Build
         run: npm run build
+      - name: Setup Python
+        if: hashFiles('mcp/**') != '' || hashFiles('infra/**') != ''
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install MCP dependencies
+        if: hashFiles('mcp/**') != ''
+        run: pip install -r mcp/requirements-dev.txt
+      - name: MCP lint
+        if: hashFiles('mcp/**') != ''
+        working-directory: mcp
+        run: ruff check .
+      - name: MCP tests
+        if: hashFiles('mcp/**') != ''
+        working-directory: mcp
+        run: pytest
+      - name: Install infra dependencies
+        if: hashFiles('infra/**') != ''
+        run: pip install -r infra/requirements.txt
+      - name: Infra lint
+        if: hashFiles('infra/**') != ''
+        working-directory: infra
+        run: ruff check .
+      - name: Infra tests
+        if: hashFiles('infra/**') != ''
+        working-directory: infra
+        run: pytest
+      - name: CDK synth
+        if: hashFiles('infra/**') != ''
+        working-directory: infra
+        env:
+          CDK_DEFAULT_ACCOUNT: "000000000000"
+          CDK_DEFAULT_REGION: sa-east-1
+        run: npx --yes aws-cdk@2 synth
