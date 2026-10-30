@@ -1,3 +1,4 @@
 mcp>=1.9,<2
+pydantic>=2
 pyjwt[crypto]>=2.8
 mangum>=0.17
