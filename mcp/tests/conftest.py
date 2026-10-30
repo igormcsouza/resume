@@ -95,9 +95,8 @@ BASE = "https://api.example.test"
 async def running(server):
     """Serve a FastMCP app with its lifespan running (the session manager needs it)."""
     app = server.streamable_http_app()
-    async with LifespanManager(app):
-        async with AsyncClient(transport=ASGITransport(app=app), base_url=BASE) as c:
-            yield c
+    async with LifespanManager(app), AsyncClient(transport=ASGITransport(app=app), base_url=BASE) as c:
+        yield c
 
 
 @pytest.fixture
