@@ -17,6 +17,7 @@ CLAUDE_CALLBACKS = ["https://claude.ai/api/mcp/auth_callback", "https://claude.c
 class ResumeSpikeStack(Stack):
     def __init__(self, scope: Construct, id: str, **kw) -> None:
         super().__init__(scope, id, **kw)
+        reserved = self.node.try_get_context("reserved_concurrency")
 
         pool = cognito.UserPool(
             self,
@@ -57,7 +58,9 @@ class ResumeSpikeStack(Stack):
                     ],
                 ),
             ),
-            reserved_concurrent_executions=2,
+            # Account quota is 10 and AWS keeps >=10 unreserved, so this stays off until the quota is raised
+            # (-c reserved_concurrency=2). The API throttle below bounds concurrency meanwhile.
+            reserved_concurrent_executions=int(reserved) if reserved else None,
             timeout=Duration.seconds(15),
             log_retention=logs.RetentionDays.TWO_WEEKS,
             # No RESOURCE_URL: it would create a CFN cycle with the API; the handler derives it from the request.

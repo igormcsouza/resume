@@ -10,11 +10,15 @@ from spike_stack import ResumeSpikeStack
 CLAUDE_CALLBACKS = ["https://claude.ai/api/mcp/auth_callback", "https://claude.com/api/mcp/auth_callback"]
 
 
-@pytest.fixture(scope="module")
-def t() -> Template:
-    app = cdk.App(context={"aws:cdk:bundling-stacks": []})
+def synth(**ctx) -> Template:
+    app = cdk.App(context={"aws:cdk:bundling-stacks": [], **ctx})
     stack = ResumeSpikeStack(app, "ResumeSpike", env=cdk.Environment(account="000000000000", region="sa-east-1"))
     return Template.from_stack(stack)
+
+
+@pytest.fixture(scope="module")
+def t() -> Template:
+    return synth()
 
 
 def only(t, type_):
@@ -44,16 +48,22 @@ def test_hosted_ui_domain_exists(t):
     t.resource_count_is("AWS::Cognito::UserPoolDomain", 1)
 
 
-def test_lambda_is_python_capped_in_concurrency_and_bundles_nothing_secret(t):
+def test_lambda_is_python_with_cognito_env_only(t):
     fns = [r["Properties"] for r in t.find_resources("AWS::Lambda::Function").values()]
     mcp = [f for f in fns if f.get("Handler") == "resume_mcp.handler.handler"]
     assert len(mcp) == 1
     f = mcp[0]
     assert f["Runtime"] == "python3.12"
-    assert 1 <= f["ReservedConcurrentExecutions"] <= 5
+    assert "ReservedConcurrentExecutions" not in f  # account quota is 10 and AWS needs >=10 unreserved
     env = f["Environment"]["Variables"]
     assert {"ISSUER", "CLIENT_ID", "HOSTED_UI"} <= set(env)
     assert "RESOURCE_URL" not in env  # the API URL is derived from the request domain at runtime (avoids a CFN cycle)
+
+
+def test_reserved_concurrency_is_opt_in_once_the_quota_is_raised():
+    fns = synth(reserved_concurrency="2").find_resources("AWS::Lambda::Function")
+    mcp = [r["Properties"] for r in fns.values() if r["Properties"].get("Handler") == "resume_mcp.handler.handler"]
+    assert mcp[0]["ReservedConcurrentExecutions"] == 2
 
 
 def test_no_wildcard_iam_actions(t):
