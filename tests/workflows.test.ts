@@ -31,7 +31,7 @@ describe("deploy-aws.yml", () => {
   it("only deploys when an infra app exists", () => expect(y()).toMatch(/hashFiles\('infra\/cdk\.json'\)/));
   it("passes explicit approval flags only for CI, with the right region", () => {
     expect(y()).toContain("sa-east-1");
-    expect(y()).toMatch(/cdk deploy/);
+    expect(y()).toMatch(/cdk(@\d+)? deploy --all/);
   });
 });
 
@@ -43,7 +43,7 @@ describe("ci.yml", () => {
   it("runs python and cdk checks only when those folders exist", () => {
     expect(y()).toMatch(/ruff/);
     expect(y()).toMatch(/pytest/);
-    expect(y()).toMatch(/cdk synth/);
+    expect(y()).toMatch(/cdk(@\d+)? synth/);
     expect(y()).toMatch(/hashFiles\('mcp\/\*\*'\)/);
     expect(y()).toMatch(/hashFiles\('infra\/\*\*'\)/);
   });
