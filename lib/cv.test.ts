@@ -1,9 +1,8 @@
 import { readFileSync } from "fs";
 import { describe, expect, it } from "vitest";
 
-import { LANGS, cv, formatDate, formatDateRange, getCv, isLang, labels, profileHtml, t } from "./cv";
+import { LANGS, cv, formatDate, formatDateRange, isLang, labels, profileHtml, t } from "./cv";
 import type { Cv, Localized } from "./cv";
-import { ROLES, RoleSlug } from "./roles";
 
 function expectLocalized(value: Localized, path: string) {
   if (typeof value === "string") return;
@@ -12,7 +11,7 @@ function expectLocalized(value: Localized, path: string) {
   }
 }
 
-const CV_FILES = ["cv.json", ...ROLES.map((role) => `cv.${role.slug}.json`)];
+const CV_FILES = ["cv.json"];
 
 describe.each(CV_FILES)("%s", (file) => {
   it("is valid, parseable JSON", () => {
@@ -20,8 +19,7 @@ describe.each(CV_FILES)("%s", (file) => {
     expect(() => JSON.parse(raw)).not.toThrow();
   });
 
-  const slug = file.replace(/^cv\.|\.json$/g, "") as RoleSlug;
-  const data: Cv = file === "cv.json" ? cv : getCv(slug);
+  const data: Cv = cv;
 
   it("has required top-level sections", () => {
     for (const key of ["basics", "profile", "work", "education", "projects", "courses", "skills", "languages"]) {
