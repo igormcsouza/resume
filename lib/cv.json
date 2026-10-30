@@ -86,7 +86,7 @@
           "pt": "Liderei a atualização da distribuição Linux da infraestrutura interna: encontrei proativamente de 4 a 5 bugs que quebrariam a atualização e documentei as correções antes do rollout, permitindo que o cliente as aplicasse de imediato na migração, mantendo o uptime anterior sem regressão."
         }
       ],
-      "technologies": ["Python", "Linux", "Networking", "Java", "Perl", "pytest"]
+      "technologies": ["Python", "Kafka", "Kubernetes", "Grafana", "Linux", "Networking", "Java", "Perl", "pytest"]
     },
     {
       "company": "Liber Capital",
@@ -111,8 +111,8 @@
           "pt": "Diagnostiquei um bug de perda de boletos entre o microsserviço e o monólito legado em Django depurando dentro de containers Kubernetes, inspecionando o fluxo de mensagens no RabbitMQ e auditando um conector em Ruby; a correção reduziu a taxa de perda de boletos de cerca de 20% para cerca de 1%, tornando a recuperação manual uma exceção pontual em vez de trabalho operacional rotineiro."
         },
         {
-          "en": "Built a shared messaging package adopted by other Python microservices.",
-          "pt": "Construí um pacote de mensageria compartilhado, adotado por outros microsserviços em Python."
+          "en": "Built a shared messaging package adopted by other Python microservices, standardizing RabbitMQ integration across the team.",
+          "pt": "Construí um pacote de mensageria compartilhado, adotado por outros microsserviços em Python, padronizando a integração com RabbitMQ no time."
         },
         {
           "en": "Helped build the Django API-based microservice that replaced the legacy monolith.",
@@ -148,7 +148,7 @@
           "pt": "Trabalhei em parceria com o arquiteto do time em decisões importantes, reduzindo a latência de chamadas síncronas de 25s para 2s ao paralelizar chamadas aos modelos de ML com asyncio, e lidando com os requisitos de aprovação de plugins na Azure, em um time composto majoritariamente por estagiários."
         }
       ],
-      "technologies": ["TensorFlow", "Torch", "Vue", "React", "Streamlit", "Docker", "Azure", "AWS", "PostgreSQL", "pytest"]
+      "technologies": ["TensorFlow", "Torch", "Flask", "asyncio", "Vue", "React", "Streamlit", "Docker", "Azure", "AWS", "AWS Lambda", "PostgreSQL", "pytest"]
     },
     {
       "company": "Deeper Systems",
@@ -252,7 +252,7 @@
         "en": "Backend",
         "pt": "Backend"
       },
-      "items": ["Python", "Flask", "Django", "FastAPI", "REST APIs", "Next.js"]
+      "items": ["Python", "Flask", "Django", "FastAPI", "REST APIs", "asyncio", "Next.js"]
     },
     {
       "category": {
@@ -263,10 +263,17 @@
     },
     {
       "category": {
+        "en": "Messaging & Data",
+        "pt": "Mensageria & Dados"
+      },
+      "items": ["Kafka", "RabbitMQ", "AMQP", "SQS", "ETL", "Networking"]
+    },
+    {
+      "category": {
         "en": "Infrastructure",
         "pt": "Infraestrutura"
       },
-      "items": ["Docker", "Kubernetes", "Kafka", "RabbitMQ", "AMQP", "Grafana", "Linux", "Azure", "AWS", "GCP"]
+      "items": ["Docker", "Kubernetes", "Helm", "Grafana", "Linux", "Azure", "AWS", "S3", "GCP"]
     },
     {
       "category": {

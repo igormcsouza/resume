@@ -1,14 +1,11 @@
 "use client"
 
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { ArrowLeft, Download, Github, Globe, Linkedin, Mail, MapPin, Phone } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { BrazilIcon, EnglandIcon } from "@/components/svg";
 import { Cv, Lang, Localized, formatDateRange, labels, profileHtml, t } from "@/lib/cv";
-import { GENERAL_LABEL, ROLES, RoleSlug } from "@/lib/roles";
 
 function getProfileIcon(network: string) {
   switch (network) {
@@ -43,14 +40,13 @@ function Entry({ aside, breakable, children }: { aside?: React.ReactNode, breaka
   );
 }
 
-export default function CvView({ lang, cv, role }: { lang: Lang; cv: Cv; role?: RoleSlug }) {
+export default function CvView({ lang, cv }: { lang: Lang; cv: Cv }) {
   const otherLang: Lang = lang === "en" ? "pt" : "en";
   const loc = (value: Localized) => t(value, lang);
-  const router = useRouter();
 
   function handleExportPdf() {
     const originalTitle = document.title;
-    const pdfFilename = role ? `igor_souza_${role}_resume_${lang}` : `igor_souza_resume_${lang}`;
+    const pdfFilename = `igor_souza_resume_${lang}`;
     document.title = pdfFilename;
     const restoreTitle = () => {
       document.title = originalTitle;
@@ -78,20 +74,6 @@ export default function CvView({ lang, cv, role }: { lang: Lang; cv: Cv; role?: 
               {labels.otherLanguage[lang]}
             </Link>
           </Button>
-          <Select
-            value={role ?? "general"}
-            onValueChange={(value) => router.push(value === "general" ? `/${lang}` : `/${lang}/${value}`)}
-          >
-            <SelectTrigger>
-              <SelectValue />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="general">{GENERAL_LABEL[lang]}</SelectItem>
-              {ROLES.map((r) => (
-                <SelectItem key={r.slug} value={r.slug}>{r.label[lang]}</SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
         </div>
         <Button
           onClick={handleExportPdf}
@@ -126,20 +108,6 @@ export default function CvView({ lang, cv, role }: { lang: Lang; cv: Cv; role?: 
             {otherLang === "pt" ? <BrazilIcon className="text-base" /> : <EnglandIcon className="text-base" />}
             <span className="truncate">{labels.otherLanguage[lang]}</span>
           </Link>
-          <Select
-            value={role ?? "general"}
-            onValueChange={(value) => router.push(value === "general" ? `/${lang}` : `/${lang}/${value}`)}
-          >
-            <SelectTrigger className="flex-1 rounded-full text-xs">
-              <SelectValue />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="general">{GENERAL_LABEL[lang]}</SelectItem>
-              {ROLES.map((r) => (
-                <SelectItem key={r.slug} value={r.slug}>{r.label[lang]}</SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
           <Button
             onClick={handleExportPdf}
             className="flex flex-1 items-center justify-center gap-1.5 rounded-full bg-green-600 px-2 text-xs text-white hover:bg-green-700 print:bg-black"
