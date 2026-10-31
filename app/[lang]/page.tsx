@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
-import CvView from "@/components/cv-view";
+import LiveCv from "@/components/live-cv";
 import { LANGS, cv, isLang } from "@/lib/cv";
 
 export const dynamicParams = false;
@@ -24,5 +24,5 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
 export default async function CvPage({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params;
   if (!isLang(lang)) notFound();
-  return <CvView lang={lang} cv={cv} />;
+  return <LiveCv lang={lang} initial={cv} />;
 }
