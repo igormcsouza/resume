@@ -59,7 +59,8 @@ async def test_authenticated_call_reaches_the_store(store):
     assert json.loads(r.json()["result"]["content"][0]["text"]) == {"live_version": 1, "previous_versions": []}
 
 
-def test_build_store_is_none_without_a_table_and_a_store_with_one():
+def test_build_store_is_none_without_a_table_and_a_store_with_one(monkeypatch):
+    monkeypatch.setenv("AWS_DEFAULT_REGION", "sa-east-1")
     base = settings()
     assert handler.build_store(base) is None
     with mock_aws():
