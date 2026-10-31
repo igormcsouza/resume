@@ -1,7 +1,7 @@
 import type { Cv } from "./cv";
 
 // Public CloudFront snapshot published by the MCP; overridable at build time (e.g. the custom domain).
-export const SNAPSHOT_URL = process.env.NEXT_PUBLIC_CV_URL ?? "https://d1degxrowcwctx.cloudfront.net/cv.json";
+export const SNAPSHOT_URL = process.env.NEXT_PUBLIC_CV_URL ?? "https://resume.igormcsouza.com.br/cv.json";
 
 const SECTIONS = ["profile", "work", "education", "projects", "courses", "skills", "languages"] as const;
 
