@@ -4,3 +4,4 @@ pytest-asyncio>=0.24
 httpx
 asgi-lifespan
 ruff
+moto[dynamodb,s3]>=5
