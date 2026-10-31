@@ -5,6 +5,7 @@ from pathlib import Path
 
 import boto3
 import pytest
+from botocore.exceptions import ClientError
 from moto import mock_aws
 
 from resume_mcp import snapshot
@@ -75,7 +76,7 @@ def test_publish_requires_the_current_draft_version(store, aws):
     v = store.save_draft(edited(MASTER, "a"), expected_version=1)
     with pytest.raises(Conflict):
         store.publish(draft_version=v - 1)
-    with pytest.raises(Exception):
+    with pytest.raises(ClientError):
         aws[1].get_object(Bucket=BUCKET, Key=KEY)  # nothing was written
     assert store.get_live()[1] == 1
 
@@ -133,5 +134,9 @@ def test_publish_error_from_s3_propagates(aws):
     s = Store(table, s3, "no-such-bucket", KEY)
     s.seed(MASTER)
     v = s.save_draft(edited(MASTER, "a"), expected_version=1)
-    with pytest.raises(Exception):
+    with pytest.raises(ClientError):
         s.publish(draft_version=v)
+    # LIVE is ahead of the snapshot now; resync heals it without a new publish
+    s.bucket = BUCKET
+    s.resync_snapshot()
+    assert s3.get_object(Bucket=BUCKET, Key=KEY)["Body"].read() == snapshot.render(s.get_live()[0])

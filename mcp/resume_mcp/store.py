@@ -62,15 +62,21 @@ class Store:
             raise Conflict("nothing to publish")
         self._put(f"HIST#{lv:08d}", live.model_dump_json(), lv)
         self._put("LIVE", draft.model_dump_json(), lv + 1, expected=lv)
-        # S3 last: a failed upload leaves LIVE ahead of the snapshot.
+        # S3 last: a failed upload leaves LIVE ahead of the snapshot; resync_snapshot() heals that.
+        self._write_snapshot(draft)
+        return lv + 1
+
+    def resync_snapshot(self) -> None:
+        self._write_snapshot(self.get_live()[0])
+
+    def _write_snapshot(self, master: Master) -> None:
         self.s3.put_object(
             Bucket=self.bucket,
             Key=self.key,
-            Body=snapshot.render(draft),
+            Body=snapshot.render(master),
             ContentType="application/json",
             CacheControl="no-cache",
         )
-        return lv + 1
 
     def history(self) -> list[int]:
         res = self.table.query(
