@@ -64,7 +64,13 @@ class ResumeSpikeStack(Stack):
             timeout=Duration.seconds(15),
             log_retention=logs.RetentionDays.TWO_WEEKS,
             # No RESOURCE_URL: it would create a CFN cycle with the API; the handler derives it from the request.
-            environment={"ISSUER": issuer, "CLIENT_ID": client.user_pool_client_id, "HOSTED_UI": domain.base_url()},
+            # AS_MODE=shim: Cognito answers 400 to oauth-authorization-server, so advertise our own metadata route.
+            environment={
+                "ISSUER": issuer,
+                "CLIENT_ID": client.user_pool_client_id,
+                "HOSTED_UI": domain.base_url(),
+                "AS_MODE": "shim",
+            },
         )
 
         api = apigw.HttpApi(

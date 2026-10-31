@@ -57,6 +57,7 @@ def test_lambda_is_python_with_cognito_env_only(t):
     assert "ReservedConcurrentExecutions" not in f  # account quota is 10 and AWS needs >=10 unreserved
     env = f["Environment"]["Variables"]
     assert {"ISSUER", "CLIENT_ID", "HOSTED_UI"} <= set(env)
+    assert env["AS_MODE"] == "shim"
     assert "RESOURCE_URL" not in env  # the API URL is derived from the request domain at runtime (avoids a CFN cycle)
 
 
