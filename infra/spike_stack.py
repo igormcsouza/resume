@@ -23,8 +23,7 @@ class ResumeSpikeStack(Stack):
             self,
             "Pool",
             self_sign_up_enabled=False,
-            mfa=cognito.Mfa.REQUIRED,
-            mfa_second_factor=cognito.MfaSecondFactor(otp=True, sms=False),
+            mfa=cognito.Mfa.OFF,  # single owner, password-only by choice; API throttling bounds abuse
             removal_policy=RemovalPolicy.DESTROY,
         )
         client = pool.add_client(

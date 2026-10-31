@@ -27,11 +27,10 @@ def only(t, type_):
     return next(iter(found.values()))["Properties"]
 
 
-def test_user_pool_is_admin_only_with_totp_mfa(t):
+def test_user_pool_is_admin_only_without_mfa(t):
     p = only(t, "AWS::Cognito::UserPool")
     assert p["AdminCreateUserConfig"]["AllowAdminCreateUserOnly"] is True
-    assert p["MfaConfiguration"] == "ON"
-    assert p["EnabledMfas"] == ["SOFTWARE_TOKEN_MFA"]  # TOTP only, no SMS (SMS costs money)
+    assert p["MfaConfiguration"] == "OFF"
 
 
 def test_app_client_is_public_pkce_with_both_claude_callbacks(t):
