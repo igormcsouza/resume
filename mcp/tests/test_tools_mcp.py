@@ -9,12 +9,13 @@ import boto3
 import pytest
 from moto import mock_aws
 
-from conftest import FakeJwks, make_token, rpc, running, settings
 from resume_mcp import handler, load
 from resume_mcp.app import build_mcp
 from resume_mcp.schema import Master
 from resume_mcp.settings import Settings
 from resume_mcp.store import Store
+
+from .conftest import FakeJwks, make_token, rpc, running, settings
 
 MASTER = Master.model_validate_json((Path(__file__).parents[2] / "data" / "master.json").read_text())
 TOOLS = {
@@ -33,8 +34,8 @@ def store():
             BillingMode="PAY_PER_REQUEST",
         )
         s3 = boto3.client("s3", region_name="sa-east-1")
-        s3.create_bucket(Bucket="b", CreateBucketConfiguration={"LocationConstraint": "sa-east-1"})
-        s = Store(table, s3, "b", "cv.json")
+        s3.create_bucket(Bucket="bkt", CreateBucketConfiguration={"LocationConstraint": "sa-east-1"})
+        s = Store(table, s3, "bkt", "cv.json")
         s.seed(MASTER)
         yield s
 
@@ -62,7 +63,7 @@ def test_build_store_is_none_without_a_table_and_a_store_with_one():
     base = settings()
     assert handler.build_store(base) is None
     with mock_aws():
-        s = handler.build_store(Settings(**{**base.__dict__, "table_name": "t", "bucket_name": "b"}))
+        s = handler.build_store(Settings(**{**base.__dict__, "table_name": "t", "bucket_name": "bkt"}))
     assert isinstance(s, Store)
 
 
@@ -76,4 +77,4 @@ def test_settings_read_the_optional_store_env():
 def test_load_seeds_the_store_and_publishes_the_first_snapshot(store):
     load.load(store, MASTER)
     assert store.get_live()[1] == 1
-    assert store.s3.get_object(Bucket="b", Key="cv.json")["Body"].read()
+    assert store.s3.get_object(Bucket="bkt", Key="cv.json")["Body"].read()
