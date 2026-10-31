@@ -11,7 +11,7 @@ lives in the owner's password manager.
 | Login | user `walkdead`, password only (no MFA) |
 | User pool | `resume-user-pool` (`sa-east-1_k3WHIm3Xx`) |
 | Hosted UI | `https://resume-693473496042.auth.sa-east-1.amazoncognito.com` |
-| Public snapshot | `https://d1degxrowcwctx.cloudfront.net/cv.json` (CORS: `https://igormcsouza.github.io`) |
+| Public snapshot | `https://resume.igormcsouza.com.br/cv.json` (CORS: `https://igormcsouza.github.io`; the raw CloudFront address is in the `SnapshotUrl` stack output) |
 | Callbacks allowed | `https://claude.ai/api/mcp/auth_callback`, `https://claude.com/api/mcp/auth_callback` |
 
 Values change if the stack is replaced; re-read them with:
