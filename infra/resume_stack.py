@@ -49,7 +49,7 @@ class ResumeStack(Stack):
             ),
         )
         domain = pool.add_domain(
-            "Domain", cognito_domain=cognito.CognitoDomainOptions(domain_prefix=f"resume-auth-{self.account}")
+            "Domain", cognito_domain=cognito.CognitoDomainOptions(domain_prefix=f"resume-{self.account}")
         )
         issuer = f"https://cognito-idp.{self.region}.amazonaws.com/{pool.user_pool_id}"
 

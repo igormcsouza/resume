@@ -120,6 +120,6 @@ def test_outputs(t):
 
 def test_resources_have_readable_names(t):
     assert only(t, "AWS::Cognito::UserPool")["Properties"]["UserPoolName"] == "resume-user-pool"
-    assert only(t, "AWS::Cognito::UserPoolDomain")["Properties"]["Domain"].startswith("resume-auth-")
+    assert only(t, "AWS::Cognito::UserPoolDomain")["Properties"]["Domain"].startswith("resume-")
     assert only(t, "AWS::Lambda::Function")["Properties"]["FunctionName"] == "resume-mcp"
     assert only(t, "AWS::ApiGatewayV2::Api")["Properties"]["Name"] == "resume-mcp-api"
