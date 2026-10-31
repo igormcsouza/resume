@@ -5,12 +5,15 @@ from pathlib import Path
 from aws_cdk import BundlingOptions, CfnOutput, Duration, RemovalPolicy, Stack
 from aws_cdk import aws_apigatewayv2 as apigw
 from aws_cdk import aws_budgets as budgets
+from aws_cdk import aws_certificatemanager as acm
 from aws_cdk import aws_cloudfront as cloudfront
 from aws_cdk import aws_cloudfront_origins as origins
 from aws_cdk import aws_cognito as cognito
 from aws_cdk import aws_dynamodb as dynamodb
 from aws_cdk import aws_lambda as _lambda
 from aws_cdk import aws_logs as logs
+from aws_cdk import aws_route53 as route53
+from aws_cdk import aws_route53_targets as targets
 from aws_cdk import aws_s3 as s3
 from aws_cdk.aws_apigatewayv2_integrations import HttpLambdaIntegration
 from constructs import Construct
@@ -19,10 +22,27 @@ MCP_DIR = Path(__file__).resolve().parent.parent / "mcp"
 CLAUDE_CALLBACKS = ["https://claude.ai/api/mcp/auth_callback", "https://claude.com/api/mcp/auth_callback"]
 PAGES_ORIGIN = "https://igormcsouza.github.io"
 SNAPSHOT_KEY = "cv.json"
+DOMAIN = "resume.igormcsouza.com.br"
+ZONE_NAME = "igormcsouza.com.br"
+ZONE_ID = "Z08225582X962VWUN2TWM"  # existing public hosted zone; an id, not a secret
+
+
+def _zone(scope: Construct) -> route53.IHostedZone:
+    return route53.HostedZone.from_hosted_zone_attributes(scope, "Zone", hosted_zone_id=ZONE_ID, zone_name=ZONE_NAME)
+
+
+class ResumeCertStack(Stack):
+    """CloudFront certificates must live in us-east-1, so this stack is separate from the sa-east-1 one."""
+
+    def __init__(self, scope: Construct, id: str, **kw) -> None:
+        super().__init__(scope, id, **kw)
+        self.certificate = acm.Certificate(
+            self, "Cert", domain_name=DOMAIN, validation=acm.CertificateValidation.from_dns(_zone(self))
+        )
 
 
 class ResumeStack(Stack):
-    def __init__(self, scope: Construct, id: str, **kw) -> None:
+    def __init__(self, scope: Construct, id: str, certificate: acm.ICertificate | None = None, **kw) -> None:
         super().__init__(scope, id, **kw)
         reserved = self.node.try_get_context("reserved_concurrency")
         budget_email = self.node.try_get_context("budget_email") or "igormcsouza@gmail.com"
@@ -91,7 +111,15 @@ class ResumeStack(Stack):
                 viewer_protocol_policy=cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
                 response_headers_policy=cors,
             ),
+            domain_names=[DOMAIN] if certificate else None,
+            certificate=certificate,
+            minimum_protocol_version=cloudfront.SecurityPolicyProtocol.TLS_V1_2_2021,
         )
+        if certificate:
+            target = route53.RecordTarget.from_alias(targets.CloudFrontTarget(cdn))
+            zone = _zone(self)
+            route53.ARecord(self, "AliasA", zone=zone, record_name=DOMAIN, target=target)
+            route53.AaaaRecord(self, "AliasAaaa", zone=zone, record_name=DOMAIN, target=target)
 
         fn = _lambda.Function(
             self,
@@ -178,3 +206,5 @@ class ResumeStack(Stack):
         CfnOutput(self, "Issuer", value=issuer)
         CfnOutput(self, "SnapshotUrl", value=f"https://{cdn.distribution_domain_name}/{SNAPSHOT_KEY}")
         CfnOutput(self, "TableName", value=table.table_name)
+        if certificate:
+            CfnOutput(self, "SnapshotDomainUrl", value=f"https://{DOMAIN}/{SNAPSHOT_KEY}")

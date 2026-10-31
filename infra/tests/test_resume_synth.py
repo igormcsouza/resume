@@ -4,7 +4,7 @@ import aws_cdk as cdk
 import pytest
 from aws_cdk.assertions import Match, Template
 
-from resume_stack import ResumeStack
+from resume_stack import ResumeCertStack, ResumeStack
 
 CLAUDE_CALLBACKS = ["https://claude.ai/api/mcp/auth_callback", "https://claude.com/api/mcp/auth_callback"]
 UNIT_MINUTES = {"minutes": 1, "hours": 60, "days": 1440}
@@ -123,3 +123,56 @@ def test_resources_have_readable_names(t):
     assert only(t, "AWS::Cognito::UserPoolDomain")["Properties"]["Domain"].startswith("resume-")
     assert only(t, "AWS::Lambda::Function")["Properties"]["FunctionName"] == "resume-mcp"
     assert only(t, "AWS::ApiGatewayV2::Api")["Properties"]["Name"] == "resume-mcp-api"
+
+
+# --- custom domain: certificate stack in us-east-1 + CloudFront alias in the main stack -----------------------
+DOMAIN = "resume.igormcsouza.com.br"
+
+
+def synth_domain():
+    app = cdk.App(context={"aws:cdk:bundling-stacks": []})
+    cert = ResumeCertStack(
+        app, "ResumeCert", env=cdk.Environment(account="000000000000", region="us-east-1"), cross_region_references=True
+    )
+    main = ResumeStack(
+        app,
+        "Resume",
+        certificate=cert.certificate,
+        env=cdk.Environment(account="000000000000", region="sa-east-1"),
+        cross_region_references=True,
+    )
+    return Template.from_stack(cert), Template.from_stack(main)
+
+
+@pytest.fixture(scope="module")
+def domain():
+    return synth_domain()
+
+
+def test_certificate_is_dns_validated_for_the_domain_in_us_east_1(domain):
+    cert, _ = domain
+    p = only(cert, "AWS::CertificateManager::Certificate")["Properties"]
+    assert p["DomainName"] == DOMAIN and p["ValidationMethod"] == "DNS"
+    assert p["DomainValidationOptions"][0]["HostedZoneId"] == "Z08225582X962VWUN2TWM"
+
+
+def test_cloudfront_serves_the_domain_with_the_certificate_over_modern_tls(domain):
+    _, main = domain
+    d = only(main, "AWS::CloudFront::Distribution")["Properties"]["DistributionConfig"]
+    assert d["Aliases"] == [DOMAIN]
+    assert "AcmCertificateArn" in d["ViewerCertificate"]
+    assert d["ViewerCertificate"]["MinimumProtocolVersion"] >= "TLSv1.2"
+
+
+def test_dns_records_alias_the_domain_to_cloudfront(domain):
+    _, main = domain
+    recs = main.find_resources("AWS::Route53::RecordSet")
+    assert {r["Properties"]["Type"] for r in recs.values()} == {"A", "AAAA"}
+    assert all(r["Properties"]["Name"] == f"{DOMAIN}." for r in recs.values())
+    assert all("AliasTarget" in r["Properties"] for r in recs.values())
+
+
+def test_stack_without_a_certificate_has_no_alias_or_records(t):
+    d = only(t, "AWS::CloudFront::Distribution")["Properties"]["DistributionConfig"]
+    assert "Aliases" not in d
+    assert not t.find_resources("AWS::Route53::RecordSet")
