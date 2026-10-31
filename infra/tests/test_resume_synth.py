@@ -116,3 +116,10 @@ def test_budget_alarm_emails_the_owner(t):
 def test_outputs(t):
     for name in ("McpUrl", "UserPoolId", "ClientId", "HostedUi", "Issuer", "SnapshotUrl", "TableName"):
         t.has_output(name, Match.any_value())
+
+
+def test_resources_have_readable_names(t):
+    assert only(t, "AWS::Cognito::UserPool")["Properties"]["UserPoolName"] == "resume-user-pool"
+    assert only(t, "AWS::Cognito::UserPoolDomain")["Properties"]["Domain"].startswith("resume-auth-")
+    assert only(t, "AWS::Lambda::Function")["Properties"]["FunctionName"] == "resume-mcp"
+    assert only(t, "AWS::ApiGatewayV2::Api")["Properties"]["Name"] == "resume-mcp-api"

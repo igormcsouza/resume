@@ -30,6 +30,7 @@ class ResumeStack(Stack):
         pool = cognito.UserPool(
             self,
             "Pool",
+            user_pool_name="resume-user-pool",
             self_sign_up_enabled=False,
             mfa=cognito.Mfa.OFF,
             password_policy=cognito.PasswordPolicy(min_length=12),
@@ -48,7 +49,7 @@ class ResumeStack(Stack):
             ),
         )
         domain = pool.add_domain(
-            "Domain", cognito_domain=cognito.CognitoDomainOptions(domain_prefix=f"resume-{self.account}")
+            "Domain", cognito_domain=cognito.CognitoDomainOptions(domain_prefix=f"resume-auth-{self.account}")
         )
         issuer = f"https://cognito-idp.{self.region}.amazonaws.com/{pool.user_pool_id}"
 
@@ -95,6 +96,7 @@ class ResumeStack(Stack):
         fn = _lambda.Function(
             self,
             "Mcp",
+            function_name="resume-mcp",
             runtime=_lambda.Runtime.PYTHON_3_12,
             handler="resume_mcp.handler.handler",
             code=_lambda.Code.from_asset(
@@ -135,6 +137,7 @@ class ResumeStack(Stack):
         api = apigw.HttpApi(
             self,
             "Api",
+            api_name="resume-mcp-api",
             default_integration=HttpLambdaIntegration("McpIntegration", fn),
             create_default_stage=False,
         )
