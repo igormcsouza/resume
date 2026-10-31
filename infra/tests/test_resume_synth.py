@@ -64,7 +64,8 @@ def test_snapshot_bucket_is_private_versioned_and_only_cloudfront_reads_it(t):
     assert all(p["PublicAccessBlockConfiguration"].values()) and len(p["PublicAccessBlockConfiguration"]) == 4
     assert p["VersioningConfiguration"]["Status"] == "Enabled"
     pol = only(t, "AWS::S3::BucketPolicy")["Properties"]["PolicyDocument"]["Statement"]
-    assert all(s["Principal"] != "*" and s["Principal"] != {"AWS": "*"} for s in pol)
+    allows = [s for s in pol if s["Effect"] == "Allow"]
+    assert all(s["Principal"] not in ("*", {"AWS": "*"}) for s in allows)  # the enforce_ssl Deny may use a wildcard
     assert any(s["Principal"] == {"Service": "cloudfront.amazonaws.com"} for s in pol)
 
 
@@ -109,9 +110,7 @@ def test_api_is_throttled(t):
 def test_budget_alarm_emails_the_owner(t):
     b = only(t, "AWS::Budgets::Budget")["Properties"]
     assert b["Budget"]["TimeUnit"] == "MONTHLY" and b["Budget"]["BudgetLimit"]["Amount"] <= 10
-    assert any(
-        s["SubscriptionType"] == "EMAIL" for n in b["NotificationsWithSubscribers"] for s in n["Subscribers"]
-    )
+    assert any(s["SubscriptionType"] == "EMAIL" for n in b["NotificationsWithSubscribers"] for s in n["Subscribers"])
 
 
 def test_outputs(t):
