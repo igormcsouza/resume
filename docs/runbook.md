@@ -74,7 +74,7 @@ Table name: `aws cloudformation describe-stacks --stack-name Resume --region sa-
 
 - Public read hits CloudFront + S3 only (no compute). MCP needs a valid Cognito token; API throttle caps the rest.
 - Budget alarm 5 USD/month, email at 80%.
-- Lambda account concurrency quota is 10; optional cap: `cdk deploy -c reserved_concurrency=N` (via the workflow context).
+- Lambda account concurrency quota is 10; optional cap: CDK context `reserved_concurrency` (the workflow does not set it; add `-c reserved_concurrency=N` to its deploy step).
 
 ## Known gaps
 
