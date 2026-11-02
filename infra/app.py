@@ -16,4 +16,5 @@ ResumeStack(
     env=cdk.Environment(account=account, region="sa-east-1"),
     cross_region_references=True,
 )
+cdk.Tags.of(app).add("project", "resume")  # cost allocation tag
 app.synth()

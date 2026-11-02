@@ -176,3 +176,13 @@ def test_stack_without_a_certificate_has_no_alias_or_records(t):
     d = only(t, "AWS::CloudFront::Distribution")["Properties"]["DistributionConfig"]
     assert "Aliases" not in d
     assert not t.find_resources("AWS::Route53::RecordSet")
+
+
+def test_app_tags_every_stack_with_project():
+    import app  # the real entrypoint
+
+    stack = app.app.node.find_child("Resume")
+    tags = Template.from_stack(stack).find_resources("AWS::DynamoDB::Table")
+    assert tags, "expected a DynamoDB table"
+    for r in tags.values():
+        assert {"Key": "project", "Value": "resume"} in r["Properties"]["Tags"]
