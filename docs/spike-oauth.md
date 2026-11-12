@@ -1,5 +1,8 @@
 # Spike: claude.ai custom connector against Cognito
 
+> Historical. The connector no longer uses Cognito: the MCP is its own OAuth server and signs the owner in through
+> Citadel (see `docs/mcp-connection.md`). Cognito's missing dynamic client registration is why.
+
 Result: **works** (2026-10-31). The claude.ai connector completes OAuth against Cognito and calls the
 `ping` tool from desktop and from a fresh chat, with the login persisted.
 

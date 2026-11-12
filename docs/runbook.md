@@ -10,7 +10,7 @@ Design history: `docs/spike-oauth.md` and the gru log.
 | Page | GitHub Pages, `igormcsouza.github.io/resume`, reads `https://resume.igormcsouza.com.br/cv.json` at runtime and falls back to the bundled `lib/cv.json` |
 | Snapshot | S3 (private) behind CloudFront + OAC, domain `resume.igormcsouza.com.br` (Route53 zone `igormcsouza.com.br`) |
 | Store | DynamoDB `Resume-Table…`: pk `MASTER`, sk `DRAFT` / `LIVE` / `HIST#<version>` |
-| MCP | Lambda `resume-mcp` behind HTTP API `resume-mcp-api` (throttle 5 rps, burst 10), Cognito OAuth |
+| MCP | Lambda `resume-mcp` behind HTTP API `resume-mcp-api` (throttle 5 rps, burst 10), its own OAuth server, sign-in through Citadel |
 | Stacks | `Resume` (sa-east-1), `ResumeCert` (us-east-1, CloudFront certificate) |
 | Code | `infra/` (CDK Python), `mcp/` (Lambda), `data/master.json` (seed) |
 
@@ -63,20 +63,23 @@ Table name: `aws cloudformation describe-stacks --stack-name Resume --region sa-
 
 ## Users and auth
 
-- Admin-created users only; no self sign-up, no MFA, password min 12. Refresh token 90 days, access token 60 min.
-- Create or reset a user in the Cognito console (pool `resume-user-pool`) or with `aws cognito-idp admin-create-user` /
-  `admin-set-user-password --permanent`. The owner types the password; agents never see or store it.
-- A new client (not claude.ai) needs its callback URL added to the app client in `infra/resume_stack.py`.
-- Cognito traps: the hosted UI domain prefix cannot change in place (the deploy rolls back); changing it means a
-  replacement and a new connector.
+- Sign-in is Citadel's (the SSO user pool); this stack has no user pool. Only the Citadel user in `OWNER_SUBS` can
+  approve a connector. Password and MFA are managed in Citadel, never here.
+- Deploy settings are repo variables read by the workflow: `CITADEL_ISSUER`, `CITADEL_CLIENT_ID` (Resume's client in
+  Citadel), `CITADEL_DOMAIN`, `OWNER_SUB` (the owner's Citadel user id). A missing one fails the synth.
+- Resume's Citadel client lives in `config/apps.json` of the Citadel repo; its callback is `<MCP origin>/oauth/callback`,
+  so if the API URL ever changes, update it there first.
+- Who is connected, and revoking one: `GET /connections` and `DELETE /connections/<id>` (see `docs/mcp-connection.md`).
+- Emergency: remove `OWNER_SUB`'s access in Citadel, or delete the `MCPGRANT#...` rows; tokens die with their grant.
+- The old Cognito pool `resume-user-pool` is retained by the previous stack, no longer used, and can be deleted by hand.
 
 ## Abuse and cost
 
-- Public read hits CloudFront + S3 only (no compute). MCP needs a valid Cognito token; API throttle caps the rest.
+- Public read hits CloudFront + S3 only (no compute). MCP needs a token this server issued; API throttle caps the rest.
 - Budget alarm 5 USD/month, email at 80%.
 - Lambda account concurrency quota is 10; optional cap: CDK context `reserved_concurrency` (the workflow does not set it; add `-c reserved_concurrency=N` to its deploy step).
 
 ## Known gaps
 
-- Token refresh after the 1 h access token expiry is not yet confirmed on the final connector.
+- Token refresh after the 1 h access token expiry is not yet confirmed on the Citadel-backed connector.
 - Table and bucket keep CDK-generated names (renaming needs replacement and a data reload).

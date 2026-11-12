@@ -1,4 +1,4 @@
-"""Final stack: Cognito-protected MCP Lambda, DynamoDB store, S3+CloudFront public CV snapshot, cost budget."""
+"""Final stack: MCP Lambda with its own OAuth server (sign-in through Citadel), DynamoDB store, S3+CloudFront public CV snapshot, cost budget."""
 
 from pathlib import Path
 
@@ -8,7 +8,6 @@ from aws_cdk import aws_budgets as budgets
 from aws_cdk import aws_certificatemanager as acm
 from aws_cdk import aws_cloudfront as cloudfront
 from aws_cdk import aws_cloudfront_origins as origins
-from aws_cdk import aws_cognito as cognito
 from aws_cdk import aws_dynamodb as dynamodb
 from aws_cdk import aws_lambda as _lambda
 from aws_cdk import aws_logs as logs
@@ -19,12 +18,18 @@ from aws_cdk.aws_apigatewayv2_integrations import HttpLambdaIntegration
 from constructs import Construct
 
 MCP_DIR = Path(__file__).resolve().parent.parent / "mcp"
-CLAUDE_CALLBACKS = ["https://claude.ai/api/mcp/auth_callback", "https://claude.com/api/mcp/auth_callback"]
 PAGES_ORIGIN = "https://igormcsouza.github.io"
 SNAPSHOT_KEY = "cv.json"
 DOMAIN = "resume.igormcsouza.com.br"
 ZONE_NAME = "igormcsouza.com.br"
 ZONE_ID = "Z08225582X962VWUN2TWM"  # existing public hosted zone; an id, not a secret
+
+
+def citadel(scope: Construct, key: str) -> str:
+    value = scope.node.try_get_context(key)
+    if not value:
+        raise ValueError(f"Missing CDK context value '{key}' (the deploy workflow passes it from a repo variable)")
+    return str(value)
 
 
 def _zone(scope: Construct) -> route53.IHostedZone:
@@ -47,31 +52,9 @@ class ResumeStack(Stack):
         reserved = self.node.try_get_context("reserved_concurrency")
         budget_email = self.node.try_get_context("budget_email") or "igormcsouza@gmail.com"
 
-        pool = cognito.UserPool(
-            self,
-            "Pool",
-            user_pool_name="resume-user-pool",
-            self_sign_up_enabled=False,
-            mfa=cognito.Mfa.OFF,
-            password_policy=cognito.PasswordPolicy(min_length=12),
-            removal_policy=RemovalPolicy.RETAIN,
-        )
-        client = pool.add_client(
-            "Client",
-            generate_secret=False,
-            refresh_token_validity=Duration.days(90),
-            access_token_validity=Duration.minutes(60),
-            id_token_validity=Duration.minutes(60),
-            o_auth=cognito.OAuthSettings(
-                flows=cognito.OAuthFlows(authorization_code_grant=True),
-                scopes=[cognito.OAuthScope.OPENID],
-                callback_urls=CLAUDE_CALLBACKS,
-            ),
-        )
-        domain = pool.add_domain(
-            "Domain", cognito_domain=cognito.CognitoDomainOptions(domain_prefix=f"resume-{self.account}")
-        )
-        issuer = f"https://cognito-idp.{self.region}.amazonaws.com/{pool.user_pool_id}"
+        # Sign-in is Citadel's (the SSO user pool); this stack only needs to know who and where it is.
+        issuer, citadel_client = citadel(self, "citadel_issuer"), citadel(self, "citadel_client_id")
+        citadel_domain, owner_sub = citadel(self, "citadel_domain"), citadel(self, "owner_sub")
 
         table = dynamodb.Table(
             self,
@@ -82,6 +65,7 @@ class ResumeStack(Stack):
             point_in_time_recovery_specification=dynamodb.PointInTimeRecoverySpecification(
                 point_in_time_recovery_enabled=True
             ),
+            time_to_live_attribute="ttl",  # OAuth clients, codes, tokens and grants expire on their own
             removal_policy=RemovalPolicy.RETAIN,
         )
         bucket = s3.Bucket(
@@ -147,12 +131,11 @@ class ResumeStack(Stack):
                 self, "McpLogs", retention=logs.RetentionDays.TWO_WEEKS, removal_policy=RemovalPolicy.DESTROY
             ),
             # No RESOURCE_URL: it would create a CFN cycle with the API; the handler derives it from the request.
-            # AS_MODE=shim: Cognito answers 400 to oauth-authorization-server, so advertise our own metadata route.
             environment={
                 "ISSUER": issuer,
-                "CLIENT_ID": client.user_pool_client_id,
-                "HOSTED_UI": domain.base_url(),
-                "AS_MODE": "shim",
+                "CLIENT_ID": citadel_client,
+                "HOSTED_UI": f"https://{citadel_domain}",
+                "OWNER_SUBS": owner_sub,
                 "TABLE_NAME": table.table_name,
                 "BUCKET_NAME": bucket.bucket_name,
                 "SNAPSHOT_KEY": SNAPSHOT_KEY,
@@ -200,10 +183,6 @@ class ResumeStack(Stack):
         )
 
         CfnOutput(self, "McpUrl", value=f"{api.api_endpoint}/mcp")
-        CfnOutput(self, "UserPoolId", value=pool.user_pool_id)
-        CfnOutput(self, "ClientId", value=client.user_pool_client_id)
-        CfnOutput(self, "HostedUi", value=domain.base_url())
-        CfnOutput(self, "Issuer", value=issuer)
         CfnOutput(self, "SnapshotUrl", value=f"https://{cdn.distribution_domain_name}/{SNAPSHOT_KEY}")
         CfnOutput(self, "TableName", value=table.table_name)
         if certificate:
