@@ -37,7 +37,7 @@ def test_stack_has_no_user_pool_of_its_own(t):
 
 
 def test_missing_citadel_context_fails_the_synth():
-    app = cdk.App(context={"aws:cdk:bundling-stacks": [], **{k: v for k, v in CITADEL.items() if k != "owner_sub"}})
+    app = cdk.App(context={"aws:cdk:bundling-stacks": [], **CITADEL, "owner_sub": ""})
     with pytest.raises(ValueError, match="owner_sub"):
         ResumeStack(app, "Resume", env=cdk.Environment(account="000000000000", region="sa-east-1"))
 
