@@ -67,7 +67,7 @@ Table name: `aws cloudformation describe-stacks --stack-name Resume --region sa-
   approve a connector. Password and MFA are managed in Citadel, never here.
 - Deploy settings are repo variables read by the workflow: `CITADEL_ISSUER`, `CITADEL_CLIENT_ID` (Resume's client in
   Citadel), `CITADEL_DOMAIN`, `OWNER_SUB` (the owner's Citadel user id). A missing one fails the synth.
-- Resume's Citadel client lives in `config/apps.json` of the Citadel repo; its callback is `<MCP origin>/oauth/callback`,
+- Resume's Citadel client lives in `config/apps.json` of the Citadel repo; its callback is
   `https://resume.igormcsouza.com.br/oauth/callback`. CloudFront routes `/mcp`, `/authorize`, `/token`, `/register`, `/oauth/*`, `/connections*` and `/.well-known/*` to the API (uncached, Host not forwarded); the Lambda's `PUBLIC_URL` makes it advertise the custom domain. If the domain changes, update both.
 - Who is connected, and revoking one: `GET /connections` and `DELETE /connections/<id>` (see `docs/mcp-connection.md`).
 - Emergency: remove `OWNER_SUB`'s access in Citadel, or delete the `MCPGRANT#...` rows; tokens die with their grant.
