@@ -62,4 +62,4 @@ jobs:
         env:
           CDK_DEFAULT_ACCOUNT: "000000000000"
           CDK_DEFAULT_REGION: sa-east-1
-        run: npx --yes aws-cdk@2 synth
+        run: npx --yes aws-cdk@2 synth -c citadel_issuer=https://issuer.example -c citadel_client_id=x -c citadel_domain=sso.example -c owner_sub=x

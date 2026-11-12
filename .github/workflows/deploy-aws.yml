@@ -50,4 +50,8 @@ jobs:
       - name: Deploy
         if: hashFiles('infra/cdk.json') != ''
         working-directory: infra
-        run: npx --yes aws-cdk@2 deploy --all --require-approval never
+        # Sign-in is Citadel's: ids come from repo variables (CITADEL_ISSUER, CITADEL_CLIENT_ID, CITADEL_DOMAIN, OWNER_SUB).
+        run: >
+          npx --yes aws-cdk@2 deploy --all --require-approval never
+          -c citadel_issuer=${{ vars.CITADEL_ISSUER }} -c citadel_client_id=${{ vars.CITADEL_CLIENT_ID }}
+          -c citadel_domain=${{ vars.CITADEL_DOMAIN }} -c owner_sub=${{ vars.OWNER_SUB }}
