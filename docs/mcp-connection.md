@@ -5,12 +5,12 @@ Claude only: the web page just reads the public snapshot and never talks to it.
 
 | | |
 |---|---|
-| MCP URL | `https://atkcomv38d.execute-api.sa-east-1.amazonaws.com/mcp` |
+| MCP URL | `https://resume.igormcsouza.com.br/mcp` (CloudFront sends the MCP and OAuth paths to the API; everything else is the public snapshot) |
 | Add to Claude | the URL only. Claude registers itself, no client id to paste |
 | Sign-in | Citadel (`sso.citadel.igormcsouza.com.br`), the owner's account, then an Approve screen |
 | Public snapshot | `https://resume.igormcsouza.com.br/cv.json` (CORS: `https://igormcsouza.github.io`; the raw CloudFront address is in the `SnapshotUrl` stack output) |
 
-Values change if the stack is replaced; re-read them with:
+The API's own `execute-api` address (stack output) still answers, but advertises the custom domain; always use the custom one. Values change if the stack is replaced; re-read them with:
 
 ```bash
 aws cloudformation describe-stacks --stack-name Resume --region sa-east-1 --query 'Stacks[0].Outputs'
@@ -40,7 +40,7 @@ the owner is.
 `GET /connections` returns the grants (one per connected Claude account), newest first, never any token:
 
 ```bash
-curl -H "Authorization: Bearer <access token>" https://<api>/connections
+curl -H "Authorization: Bearer <access token>" https://resume.igormcsouza.com.br/connections
 # {"connections":[{"id":"...","name":"Claude","created_at":1762...,"expires_at":1770...,"current":true}]}
 ```
 

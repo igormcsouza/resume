@@ -23,7 +23,9 @@ def build_oauth(s: Settings) -> Oauth:
 
 def handler(event, context):
     s = Settings.from_env()
-    if not s.resource_url:
+    if s.public_url:
+        s = dataclasses.replace(s, resource_url=f"{s.public_url}/mcp")
+    elif not s.resource_url:
         s = dataclasses.replace(s, resource_url=f"https://{event['requestContext']['domainName']}/mcp")
     # fresh app per invocation: the SDK session manager can only run once per instance
     return Mangum(build_mcp(s, build_oauth(s), store=build_store(s)).streamable_http_app(), lifespan="auto")(event, context)
