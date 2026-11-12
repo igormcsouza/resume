@@ -9,6 +9,7 @@ class Settings:
     hosted_ui: str  # Citadel login domain
     owner_subs: frozenset[str]  # Citadel users allowed to approve a connector
     resource_url: str = ""
+    public_url: str = ""  # the public origin when a CDN fronts the API (its Host is not ours)
     table_name: str = ""
     bucket_name: str = ""
     snapshot_key: str = "cv.json"
@@ -22,6 +23,7 @@ class Settings:
             hosted_ui=e["HOSTED_UI"].rstrip("/"),
             owner_subs=frozenset(s.strip() for s in e["OWNER_SUBS"].split(",") if s.strip()),
             resource_url=e.get("RESOURCE_URL", ""),
+            public_url=e.get("PUBLIC_URL", "").rstrip("/"),
             table_name=e.get("TABLE_NAME", ""),
             bucket_name=e.get("BUCKET_NAME", ""),
             snapshot_key=e.get("SNAPSHOT_KEY", "cv.json"),

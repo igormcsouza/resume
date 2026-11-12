@@ -1,5 +1,7 @@
 """Pins the final ResumeStack: DynamoDB (with TTL), S3+CloudFront snapshot, MCP Lambda with Citadel sign-in settings."""
 
+import json
+
 import aws_cdk as cdk
 import pytest
 from aws_cdk.assertions import Match, Template
@@ -177,3 +179,26 @@ def test_app_tags_every_stack_with_project():
     assert tags, "expected a DynamoDB table"
     for r in tags.values():
         assert {"Key": "project", "Value": "resume"} in r["Properties"]["Tags"]
+
+
+def test_mcp_paths_go_to_the_api_uncached_and_everything_else_to_s3(domain):
+    _, main = domain
+    d = only(main, "AWS::CloudFront::Distribution")["Properties"]["DistributionConfig"]
+    paths = {b["PathPattern"]: b for b in d["CacheBehaviors"]}
+    assert set(paths) == {
+        "/mcp", "/authorize", "/token", "/register", "/oauth/*", "/connections", "/connections/*", "/.well-known/*"
+    }  # fmt: skip
+    for b in paths.values():
+        assert b["CachePolicyId"] == "4135ea2d-6df8-44a3-9df3-4b5a84be39ad"  # CachingDisabled
+        assert b["OriginRequestPolicyId"] == "b689b0a8-53d0-40ab-baf2-68738e2966ac"  # all but Host: API Gateway needs its own
+        assert b["ViewerProtocolPolicy"] == "https-only" and "POST" in b["AllowedMethods"]
+    api_origin = next(o for o in d["Origins"] if o["Id"] == paths["/mcp"]["TargetOriginId"])
+    assert "execute-api" in json.dumps(api_origin["DomainName"])
+    assert d["DefaultCacheBehavior"]["TargetOriginId"] != paths["/mcp"]["TargetOriginId"]
+
+
+def test_lambda_advertises_the_custom_domain_only_when_there_is_one(domain, t):
+    _, main = domain
+    mcp = next(f for f in main.find_resources("AWS::Lambda::Function").values() if f["Properties"].get("FunctionName") == "resume-mcp")
+    assert mcp["Properties"]["Environment"]["Variables"]["PUBLIC_URL"] == f"https://{DOMAIN}"
+    assert "PUBLIC_URL" not in only(t, "AWS::Lambda::Function")["Properties"]["Environment"]["Variables"]

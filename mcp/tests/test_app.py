@@ -273,3 +273,18 @@ def test_handler_derives_resource_url_from_the_request_domain(table, monkeypatch
     assert json.loads(res["body"])["resource"].rstrip("/") == "https://abc123.execute-api.sa-east-1.amazonaws.com/mcp"
     res = handler.handler(_event("/.well-known/oauth-authorization-server"), None)
     assert json.loads(res["body"])["token_endpoint"] == "https://abc123.execute-api.sa-east-1.amazonaws.com/token"
+
+
+def test_handler_uses_the_public_url_when_a_cdn_fronts_the_api(table, monkeypatch):
+    """Behind CloudFront the request Host is the API's, so PUBLIC_URL says what clients should see."""
+    for k, v in {
+        "ISSUER": ISSUER, "CLIENT_ID": "c", "HOSTED_UI": HOSTED_UI, "OWNER_SUBS": OWNER, "TABLE_NAME": "resume",
+        "PUBLIC_URL": "https://resume.example.test/",
+    }.items():  # fmt: skip
+        monkeypatch.setenv(k, v)
+    monkeypatch.setenv("AWS_DEFAULT_REGION", "sa-east-1")
+    res = handler.handler(_event("/.well-known/oauth-authorization-server"), None)
+    body = json.loads(res["body"])
+    assert body["issuer"].rstrip("/") == "https://resume.example.test"
+    assert body["authorization_endpoint"] == "https://resume.example.test/authorize"
+    assert handler.build_oauth(handler.dataclasses.replace(handler.Settings.from_env(), resource_url="https://resume.example.test/mcp")).callback_url == "https://resume.example.test/oauth/callback"

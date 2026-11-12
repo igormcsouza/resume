@@ -20,6 +20,7 @@ from constructs import Construct
 MCP_DIR = Path(__file__).resolve().parent.parent / "mcp"
 PAGES_ORIGIN = "https://igormcsouza.github.io"
 SNAPSHOT_KEY = "cv.json"
+API_PATHS = ["/mcp", "/authorize", "/token", "/register", "/oauth/*", "/connections", "/connections/*", "/.well-known/*"]
 DOMAIN = "resume.igormcsouza.com.br"
 ZONE_NAME = "igormcsouza.com.br"
 ZONE_ID = "Z08225582X962VWUN2TWM"  # existing public hosted zone; an id, not a secret
@@ -87,24 +88,6 @@ class ResumeStack(Stack):
                 origin_override=True,
             ),
         )
-        cdn = cloudfront.Distribution(
-            self,
-            "Cdn",
-            default_behavior=cloudfront.BehaviorOptions(
-                origin=origins.S3BucketOrigin.with_origin_access_control(bucket),
-                viewer_protocol_policy=cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
-                response_headers_policy=cors,
-            ),
-            domain_names=[DOMAIN] if certificate else None,
-            certificate=certificate,
-            minimum_protocol_version=cloudfront.SecurityPolicyProtocol.TLS_V1_2_2021,
-        )
-        if certificate:
-            target = route53.RecordTarget.from_alias(targets.CloudFrontTarget(cdn))
-            zone = _zone(self)
-            route53.ARecord(self, "AliasA", zone=zone, record_name=DOMAIN, target=target)
-            route53.AaaaRecord(self, "AliasAaaa", zone=zone, record_name=DOMAIN, target=target)
-
         fn = _lambda.Function(
             self,
             "Mcp",
@@ -136,6 +119,7 @@ class ResumeStack(Stack):
                 "CLIENT_ID": citadel_client,
                 "HOSTED_UI": f"https://{citadel_domain}",
                 "OWNER_SUBS": owner_sub,
+                **({"PUBLIC_URL": f"https://{DOMAIN}"} if certificate else {}),  # what Claude and Citadel see
                 "TABLE_NAME": table.table_name,
                 "BUCKET_NAME": bucket.bucket_name,
                 "SNAPSHOT_KEY": SNAPSHOT_KEY,
@@ -161,6 +145,36 @@ class ResumeStack(Stack):
             throttle=apigw.ThrottleSettings(rate_limit=5, burst_limit=10),
         )
 
+        cdn = cloudfront.Distribution(
+            self,
+            "Cdn",
+            default_behavior=cloudfront.BehaviorOptions(
+                origin=origins.S3BucketOrigin.with_origin_access_control(bucket),
+                viewer_protocol_policy=cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
+                response_headers_policy=cors,
+            ),
+            # The MCP and its OAuth server share the domain: these paths go to the API, never cached. Host is not
+            # forwarded (API Gateway needs its own); Authorization and the rest are.
+            additional_behaviors={
+                path: cloudfront.BehaviorOptions(
+                    origin=origins.HttpOrigin(f"{api.api_id}.execute-api.{self.region}.amazonaws.com"),
+                    viewer_protocol_policy=cloudfront.ViewerProtocolPolicy.HTTPS_ONLY,
+                    allowed_methods=cloudfront.AllowedMethods.ALLOW_ALL,
+                    cache_policy=cloudfront.CachePolicy.CACHING_DISABLED,
+                    origin_request_policy=cloudfront.OriginRequestPolicy.ALL_VIEWER_EXCEPT_HOST_HEADER,
+                )
+                for path in API_PATHS
+            },
+            domain_names=[DOMAIN] if certificate else None,
+            certificate=certificate,
+            minimum_protocol_version=cloudfront.SecurityPolicyProtocol.TLS_V1_2_2021,
+        )
+        if certificate:
+            target = route53.RecordTarget.from_alias(targets.CloudFrontTarget(cdn))
+            zone = _zone(self)
+            route53.ARecord(self, "AliasA", zone=zone, record_name=DOMAIN, target=target)
+            route53.AaaaRecord(self, "AliasAaaa", zone=zone, record_name=DOMAIN, target=target)
+
         budgets.CfnBudget(
             self,
             "Budget",
@@ -182,7 +196,7 @@ class ResumeStack(Stack):
             ],
         )
 
-        CfnOutput(self, "McpUrl", value=f"{api.api_endpoint}/mcp")
+        CfnOutput(self, "McpUrl", value=f"https://{DOMAIN}/mcp" if certificate else f"{api.api_endpoint}/mcp")
         CfnOutput(self, "SnapshotUrl", value=f"https://{cdn.distribution_domain_name}/{SNAPSHOT_KEY}")
         CfnOutput(self, "TableName", value=table.table_name)
         if certificate:
