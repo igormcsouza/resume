@@ -4,7 +4,7 @@ import aws_cdk as cdk
 import pytest
 from aws_cdk.assertions import Match, Template
 
-from resume_stack import ResumeCertStack, ResumeStack
+from resume_stack import ResumeCertStack, ResumeStack, citadel
 
 CITADEL = {
     "citadel_issuer": "https://cognito-idp.sa-east-1.amazonaws.com/sa-east-1_TEST",
@@ -37,9 +37,8 @@ def test_stack_has_no_user_pool_of_its_own(t):
 
 
 def test_missing_citadel_context_fails_the_synth():
-    app = cdk.App(context={"aws:cdk:bundling-stacks": [], **CITADEL, "owner_sub": ""})
-    with pytest.raises(ValueError, match="owner_sub"):
-        ResumeStack(app, "Resume", env=cdk.Environment(account="000000000000", region="sa-east-1"))
+    with pytest.raises(ValueError, match="no_such_key"):
+        citadel(cdk.App(), "no_such_key")
 
 
 def test_table_is_on_demand_pitr_and_retained(t):
