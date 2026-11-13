@@ -167,15 +167,19 @@ class Oauth:
         item = self._get(PENDING + pending_id) if pending_id else None
         return None if item is None or item["used"] or item["expires_at"] <= now() else item
 
-    def signed_in(self, pending_id: str, sub: str) -> None:
-        """Citadel vouched for `sub`: from here the consent screen may be answered."""
-        self._t.update_item(
-            Key={"pk": PENDING + pending_id, "sk": "META"},
-            UpdateExpression="SET #sub = :s",
-            ConditionExpression="#sub = :empty AND used = :f",
-            ExpressionAttributeNames={"#sub": "sub"},  # `sub` is a DynamoDB reserved word
-            ExpressionAttributeValues={":s": sub, ":empty": "", ":f": False},
-        )
+    def signed_in(self, pending_id: str, sub: str) -> bool:
+        """Citadel vouched for `sub`: from here the consent screen may be answered. False if already signed in."""
+        try:
+            self._t.update_item(
+                Key={"pk": PENDING + pending_id, "sk": "META"},
+                UpdateExpression="SET #sub = :s",
+                ConditionExpression="#sub = :empty AND used = :f",
+                ExpressionAttributeNames={"#sub": "sub"},  # `sub` is a DynamoDB reserved word
+                ExpressionAttributeValues={":s": sub, ":empty": "", ":f": False},
+            )
+        except self._c.exceptions.ConditionalCheckFailedException:
+            return False  # a second sign-in never replaces the first subject
+        return True
 
     def decide(self, pending_id: str, approve: bool) -> str | None:
         """The signed-in owner answers. Returns the URL to send the browser to, or None if the request is not valid."""
