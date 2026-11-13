@@ -92,7 +92,8 @@ def build_mcp(settings: Settings, oauth: Oauth, jwks=None, store=None) -> FastMC
             return _page("Sign-in failed", "<p>Could not verify your sign-in. Start again from Claude.</p>", 400)
         if sub not in settings.owner_subs:
             return _page("Not allowed", "<p>This account cannot connect to this server.</p>", 403)
-        oauth.signed_in(pending_id, sub)
+        if not oauth.signed_in(pending_id, sub):
+            return _page("Sign-in failed", "<p>This request is invalid or expired. Start again from Claude.</p>", 400)
         client = await oauth.get_client(item["client_id"])
         name = escape(client.client_name if client else "an app")
         return _page(
